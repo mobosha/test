@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head ng-app="myApp">
+		<meta charset="UTF-8">
+		<script src="http://apps.bdimg.com/libs/angular.js/1.4.6/angular.min.js"></script>
+    
+        <script src="//cdn.bootcss.com/angular-ui-router/1.0.0-alpha0/angular-ui-router.js"></script>
+		<title></title>
+		<script type="text/javascript">
+		var myApp = angular.module("myApp", ["ui.router"]);
+ 
+myApp.config(function ($stateProvider, $urlRouterProvider) {
+	 
+	 		$stateProvider
+			.state("news", {
+			url: "/news",
+			templateUrl: "templates/news.html"
+			})
+			.state("list", {
+			url: "/list",
+			templateUrl: "templates/news-list.html"
+			});
+			
+			/*$stateProvider
+			.state('news', {
+			url: "/news",
+			abstract:true,
+			templateUrl: "templates/news.html"
+			})
+			.state('news.list', {
+			url: '/list',
+			views: {
+			'news-list': {
+			templateUrl: 'templates/news-list.html'
+			}
+			}
+			});*/
+});
+		</script>
+	</head>
+	<body>
+		
+		
+		<ion-tabs class="tabs-icon-top tabs-positive">
+		<!-- Dashboard Tab -->
+		<ion-tab title="news" icon-off="ion-ios-pulse" icon-on="ion-ios-pulse-strong" href="#/news" >
+		<ion-nav-view name="news"></ion-nav-view>
+		</ion-tab>
+		<!-- Chats Tab -->
+		<ion-tab title="newslist" icon-off="ion-ios-chatboxes-outline" icon-on="ion-ios-chatboxes" href="#/list" >
+		<ion-nav-view name="list"></ion-nav-view>
+		</ion-tab>
+		</ion-tabs>
+		
+		
+		
+	</body>
+</html>

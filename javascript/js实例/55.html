@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>margin 8px;     scrolltop+$(window).height()=$(document).height()</title>
+<script src="js/jquery-2.0.3.min.js"></script>
+<script src="js/jquery-1.7.2.min.js"></script>
+<script>
+window.onload = function(){
+	$(document).scroll(function(){
+    $("#lb").text($(document).scrollTop());
+	var xpos = $("#lb")[0].style.left;
+	alert(typeof(xpos));
+	//alert(typeof($('#lb').offset().left));
+	//alert($(window).height());
+	//alert($(document).height());
+})
+}
+
+</script>
+</head>
+
+<body style="height:1000px; background-color:#999; margin:0; padding:0;">
+<div id="lb" style="top:100px;left:100px;position:fixed; width:50px; height:50px; background-color:#0F0;"></div>
+</body>
+</html>

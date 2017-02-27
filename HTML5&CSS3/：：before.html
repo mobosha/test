@@ -1,0 +1,81 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>http://justcoding.iteye.com/blog/2032627</title>
+<style>
+blockquote::before {
+	content: open-quote;
+	position: absolute;
+	z-index: -1;
+	color: #DDD;
+	font-size: 120px;
+	font-family: serif;
+	font-weight: bolder;
+}
+blockquote::after {
+	content: close-quote;
+	position: absolute;
+	z-index: -1;
+	color: #DDD;
+	font-size: 120px;
+	font-family: serif;
+	font-weight: bolder;
+}
+a {
+	position: relative;
+	display: inline-block;
+	outline: none;
+	text-decoration: none;
+	color: #000;
+	font-size: 32px;
+	padding: 5px 10px;
+}
+
+a:hover::before, a:hover::after { position: absolute; }
+a:hover::before { content: "\5B"; left: -6px; } /*content 内容可以是 ascii 码 值 加上转义符就可以 成为图标*/
+a:hover::after { content: "\5D"; right:  6px; }
+
+
+
+/*a {
+	position: relative;
+	display: inline-block;
+	outline: none;
+	text-decoration: none;
+	color: #000;
+	font-size: 32px;
+	padding: 0 10px;
+}
+
+ //大框 
+a:hover::before, a:hover::after { 
+	content: "";
+	display: block;
+	position: absolute;
+	top: -15%%;
+	left: -14%%;
+	width: 120%;
+	height: 120%;
+	border-style: solid;
+	border-width: 4px;
+	border-color: #DDD;
+ }
+
+//小框 
+ a:hover::after {
+ 	top: 0%;
+ 	left: 0%;
+	width: 100%;
+	height: 100%;
+	border-width: 2px;
+ }*/
+
+</style>
+</head>
+
+<body>
+<blockquote>除浮动是一个时常会遇到的问题，不少人的解决办法是添加一个空的 div 应用 clear:both; 属性。现在，无需增加没有意义的元素，仅需要以下样式即可在元素尾部自动清除浮动</blockquote>
+<a>除浮动是一个时常会遇到的问题除浮动是一个时常会遇到的问题除浮动是一个时常会遇到的问题</a>
+</body>
+</html>

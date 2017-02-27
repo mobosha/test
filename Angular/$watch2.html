@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<script src="http://apps.bdimg.com/libs/angular.js/1.4.6/angular.min.js"></script>
+
+<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script type="text/javascript">
+var app=angular.module("app",[]);
+app.controller('MainCtrl', function($scope) {
+      $scope.name = "Angular";
+
+      $scope.updated = -1;
+
+      $scope.$watch('name',  function(newValue, oldValue,scope) {
+            if (newValue === oldValue) { return; } // AKA first run
+            $scope.updated++;
+            console.log(newValue);
+			console.log(oldValue);
+			console.log(scope);
+			
+      });
+      
+      var i=0;
+      
+      $scope.getScope=function(){
+         // console.info(this);
+         var obj=$("#btnTest");
+         i++;
+         angular.element( obj).scope().name="hello" +i;
+         alert(document.getElementById("ss").value);
+      }
+      
+    });
+</script>
+<body ng-controller="MainCtrl">
+  <input id="ss" ng-model="name" />
+  Name updated: {{updated}} times.
+  {{name}}
+  <button id="btnTest" ng-click="getScope()">获取scope</button>
+</body>
+</html>

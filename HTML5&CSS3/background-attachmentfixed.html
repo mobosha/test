@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>利用CSS固定背景交替实现视差滚动效果;http://www.shejidaren.com/css-fixed-scroll-background.html</title>
+		<style type="text/css">
+			body, html, main {
+ /* important */
+ height: 100%;
+ padding: 0;
+ margin: 0;
+}
+ h1{
+ 	 padding: 0;
+ margin: 0;
+ }
+ 
+ .cd-fixed-h {
+ min-height: 200px!important;
+/* background-size: cover;
+ background-attachment: fixed;
+ background-repeat: no-repeat;
+ background-position: center center;*/
+}
+
+
+.cd-fixed-bg {
+ min-height: 100%;
+ background-size: cover;
+ background-attachment: fixed;
+ background-repeat: no-repeat;
+ background-position: center center;
+}
+ 
+.cd-fixed-bg.cd-bg-1 {
+ background-image: url("img/1.jpg");
+}
+.cd-fixed-bg.cd-bg-2 {
+ background-image: url("img/2.jpg");
+}
+.cd-fixed-bg.cd-bg-3 {
+ background-image: url("img/3.jpg");
+}
+.cd-fixed-bg.cd-bg-4 {
+ background-image: url("img/4.jpg");
+}
+ 
+.cd-scrolling-bg {
+ min-height: 100%;
+ /* min-height: 300px;*/ 
+}
+		</style>
+	</head>
+	<body>
+		<main>
+ <div class="cd-fixed-bg cd-bg-1 cd-fixed-h">
+ <h1>标题111</h1>
+ </div> 
+ 
+ <div class="cd-scrolling-bg cd-color-1">
+ <div class="cd-container">
+ <p>
+ 内容..111.
+ </p>
+ </div>
+ </div>
+ 
+ <div class="cd-fixed-bg cd-bg-2 cd-fixed-h">
+ <h1>标题222</h1>
+ </div> 
+ 
+ <div class="cd-scrolling-bg cd-color-2">
+ <div class="cd-container">
+ <p>
+ 内容.222..
+ </p>
+ </div>
+ </div>
+ 
+ 
+  <div class="cd-fixed-bg cd-bg-3">
+ <h1>标题333</h1>
+ </div> 
+ 
+ <div class="cd-scrolling-bg cd-color-3">
+ <div class="cd-container">
+ <p>
+ 内容..3333.
+ </p>
+ </div>
+ </div>
+ 
+ 
+ 
+  <div class="cd-fixed-bg cd-bg-4">
+ <h1>标题444</h1>
+ </div> 
+ 
+ <div class="cd-scrolling-bg cd-color-4">
+ <div class="cd-container">
+ <p>
+ 内容..444.
+ </p>
+ </div>
+ </div>
+ 
+</main>
+	</body>
+</html>

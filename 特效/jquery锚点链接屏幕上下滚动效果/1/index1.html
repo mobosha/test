@@ -1,0 +1,151 @@
+
+<!doctype html>
+<html class="no-js" lang="en">
+	<head>
+		<meta charset="utf-8">
+
+		<title>jquery锚点链接屏幕上下滚动效果_固定在页面右侧的导航菜单</title>
+ 
+		<script src="js/modernizr-2.6.2.min.js"></script>
+<script src="js/modernizr.js"></script>
+<script src="icoroll/jquery.js"></script>
+<script src="js/jquery.js"></script>
+<script src="js/icoroll.js"></script>
+<link rel="stylesheet" href="css/icoroll.css" />
+<link rel="stylesheet" href="css/dark.css" />
+			</head>
+
+<body>
+<script>
+	$(function(){
+		
+		icoroll({
+			links:$('.scroll'),
+			tip_distance:30,
+			back_enabled:true,
+			time:1500
+		},{
+			position:'right',
+			elements:[
+			{ 'class':'icon-home-2','href':'#home','content':'About'},
+			{ 'class':'icon-chrome','href':'#browsers','content':'Browser support'},
+			{ 'class':'icon-mobile','href':'#responsive','content':'Responsive'},
+			{ 'class':'icon-pencil','href':'#colors','content':'Theme change'},
+			{ 'class':'icon-cogs','href':'#configuration','content':'Configurable'},
+			{ 'class':'icon-box-add','href':'#package','content':'Package'},
+			{ 'class':'icon-IcoMoon','href':'#iconmoon','content':'Icomoon'},
+			{ 'class':'icon-arrow-left-2','href':'#history','content':'History'}
+			]
+		});
+		
+	});
+</script>
+<div id="home">
+
+	<p>home内容</p>
+	<p>&nbsp;</p>
+	<p>&nbsp;</p>
+	<p>&nbsp;</p>
+	<p>&nbsp;</p>
+	<p>&nbsp;</p>
+	<p>&nbsp;</p>
+  <p>&nbsp;</p>
+	<p>&nbsp;</p>
+	<p>&nbsp;</p>
+	<p>&nbsp;    </p>
+</div>
+<div id="browsers">
+
+	<p>browsers内容</p>
+	<p>&nbsp;</p>
+	<p>&nbsp;</p>
+	<p>&nbsp;</p>
+	<p>&nbsp;</p>
+	<p>&nbsp;</p>
+	<p>&nbsp;</p>
+	<p>&nbsp;</p>
+	<p>&nbsp;</p>
+  <p>&nbsp;    </p>
+</div>
+
+<div id="responsive">
+
+	<p>responsive内容</p>
+	<p>&nbsp;</p>
+	<p>&nbsp;</p>
+	<p>&nbsp;</p>
+	<p>&nbsp;</p>
+	<p>&nbsp;</p>
+	<p>&nbsp;</p>
+  <p>&nbsp;</p>
+	<p>&nbsp;    </p>
+</div>
+
+<div id="colors">
+
+	<p>colors内容</p>
+	<p>&nbsp;</p>
+	<p>&nbsp;</p>
+	<p>&nbsp;</p>
+	<p>&nbsp;</p>
+	<p>&nbsp;</p>
+	<p>&nbsp;</p>
+  <p>&nbsp;</p>
+	<p>&nbsp;    </p>
+</div>
+
+<div id="configuration">
+
+	<p>configuration内容</p>
+	<p>&nbsp;</p>
+	<p>&nbsp;</p>
+	<p>&nbsp;</p>
+	<p>&nbsp;</p>
+	<p>&nbsp;</p>
+	<p>&nbsp;</p>
+  <p>&nbsp;</p>
+	<p>&nbsp;    </p>
+</div>
+
+<div id="package">
+
+	<p>package内容</p>
+	<p>&nbsp;</p>
+	<p>&nbsp;</p>
+	<p>&nbsp;</p>
+	<p>&nbsp;</p>
+	<p>&nbsp;</p>
+	<p>&nbsp;</p>
+  <p>&nbsp;</p>
+	<p>&nbsp;    </p>
+</div>
+
+<div id="history">
+
+	<p>history内容</p>
+	<p>&nbsp;</p>
+	<p>&nbsp;</p>
+	<p>&nbsp;</p>
+	<p>&nbsp;</p>
+	<p>&nbsp;</p>
+	<p>&nbsp;</p>
+	<p>&nbsp;</p>
+  <p>&nbsp;    </p>
+</div>
+
+<div id="iconmoon">
+
+	<p>iconmoon内容</p>
+	<p>&nbsp;</p>
+	<p>&nbsp;</p>
+	<p>&nbsp;</p>
+	<p>&nbsp;</p>
+  <p>&nbsp;</p>
+	<p>&nbsp;</p>
+	<p>&nbsp;    </p>
+</div>
+
+
+</body>
+</html>
+

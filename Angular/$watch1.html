@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="http://apps.bdimg.com/libs/angular.js/1.0.6/angular.min.js"></script>
+	</head>
+	<body ng-controller="MainCtrl">
+
+	<input type="text" ng-model="text" /> {{updated}} times updated.
+
+	<button ng-click="stop()">Stop count</button>
+
+		<script type="text/javascript">
+			app = angular.module('app', []);
+
+			app.controller('MainCtrl', function($scope) {
+			
+				$scope.updated = 0;
+			
+				$scope.stop = function() {
+				
+				textWatch();
+				
+				};
+			
+				var textWatch = $scope.$watch('text', function(newVal, oldVal) {
+
+				if (newVal === oldVal) { return; }
+			
+				$scope.updated++;
+			
+				});
+				
+				
+			});
+			
+			
+			
+			
+			
+			
+		</script>
+	</body>
+</html>

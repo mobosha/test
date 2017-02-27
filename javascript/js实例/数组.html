@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<script>
+function empty(){
+	var arr = new Array(10);
+	alert(arr[2]);
+}
+function noempty(){
+	var arr = new Array(10,12,23,"sdfsdfj");
+	alert(arr[2]);
+}
+/*window.onload = empty;
+window.onload = noempty;*/
+/*window.onload = function(){
+	empty();
+	noempty();	
+}*/
+</script>
+</head>
+
+<body onLoad="empty();">
+
+
+</body>
+</html>

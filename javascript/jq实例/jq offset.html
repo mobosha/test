@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+.ss{
+	color:#F00;
+}
+</style>
+<script src="http://libs.baidu.com/jquery/1.10.2/jquery.min.js">
+</script>
+<script>
+$(function(){
+	/*var dom = document.getElementsByTagName("div");
+	$("p").append(dom);*/
+	
+	/*$("p").append(function(index, html) {
+        return "<div>"+index+html+"</div>";
+    });*/
+	
+	//$("div").appendTo("p").addClass("ss");//返回值是所有被追加的内容
+	
+	//$("<div>ddfdfdfdfd</div>").appendTo("p").addClass("ss");
+	
+	//$("p").prepend("<div>prepend</div>");
+	
+	$("p").prepend(function(index,html){
+		return "<div>"+index+html+"</div>"
+	});
+	
+})
+
+
+</script>
+</head>
+
+<body>
+<div>dddd</div>
+<p><em>I would like to say1:</em></p>
+<p>I would like to say2: </p>
+<p>I would like to say3: </p>
+<p>I would like to say4: </p>
+</body>
+</html>

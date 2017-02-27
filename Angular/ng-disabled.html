@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="http://apps.bdimg.com/libs/angular.js/1.4.6/angular.min.js"></script>
+	</head>
+	<body ng-app="myApp">
+		<!--<textarea ng-disabled="isDisabled">Wait5seconds</textarea>
+		<script type="text/javascript">
+			angular.module('myApp', [])
+			.run(function($rootScope, $timeout) {
+			$rootScope.isDisabled = true;
+			$timeout(function() {
+			$rootScope.isDisabled = false;
+			}, 5000);
+			});
+		</script>-->
+		
+		<!--Type here to make sibling readonly:
+		<input type="text" ng-model="isDisabled" ><br/>{{isDisabled}}
+		<input type="text"   ng-readonly="isDisabled" value="Some text here"/> -->
+			
+		<!--ng-disabled="isDisabled" ng-readonly="isDisabled"-->
+		<script type="text/javascript">
+			angular.module('myApp', [])
+			
+		</script>
+		
+		
+		
+		<!--<label>someProperty = {{someProperty}}</label>
+		<input type="checkbox"
+		ng-checked="someProperty"
+		ng-init="someProperty = true"
+		ng-model="someProperty">
+		
+		
+		<label>someProperty = {{anotherProperty}}</label>
+		<input type="checkbox"
+		ng-checked="anotherProperty"
+		ng-init="anotherProperty = false"
+		ng-model="anotherProperty">-->
+		
+		
+		<label>Select Two Fish:</label>
+		<input type="checkbox"
+		ng-model="isTwoFish"><br/>
+		<select>
+		<option>One Fish</option>
+		<option ng-selected="isTwoFish">Two Fish</option>
+		</select>
+		
+		
+	</body>
+</html>

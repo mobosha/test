@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>jquery下拉框美化插件_前端开发-武方博</title>
+<style type="text/css"> 
+*{ margin:0; padding:0;}
+body { font:12px/1.8 Arial; color:#666;}
+h1.tit-h1 { font-size:38px; text-align:center; margin:30px 0 15px; color:#f60;}
+.go-back{ text-align:center; border-top:1px dashed #ccc; padding:10px; margin-top:20px; font-size:40px;}
+
+</style> 
+<link rel="stylesheet" type="text/css" href="css/styles.css" />
+<link rel="stylesheet" type="text/css" href="tzSelect/jquery.tzSelect.css" />
+
+</head>
+<body>
+
+<h1 class="tit-h1">jquery下拉框美化插件_前端开发-武方博</h1> 
+
+<div id="page">
+	<form method="post" action="">
+    
+    	<!-- We are going to use jQuery to hide the select element and replace it -->
+        
+		<select name="fancySelect" class="makeMeFancy">
+        
+        	<!-- Notice the HTML5 data attributes -->
+        
+	        <option value="0" selected="selected" data-skip="1">Choose Your Product</option>
+        	<option value="1" data-icon="img/products/iphone.png" data-html-text="iPhone 4&lt;i&gt;in stock&lt;/i&gt;">iPhone 4</option>
+        	<option value="2" data-icon="img/products/ipod.png" data-html-text="iPod &lt;i&gt;in stock&lt;/i&gt;">iPod</option>
+            <option value="3" data-icon="img/products/air.png" data-html-text="MacBook Air&lt;i&gt;out of stock&lt;/i&gt;">MacBook Air</option>
+            <option value="4" data-icon="img/products/imac.png" data-html-text="iMac Station&lt;i&gt;in stock&lt;/i&gt;">iMac Station</option>
+        </select>
+        
+        <select class="regularSelect">
+	        <option value="0" selected="selected" data-skip="1">Choose extras</option>
+        	<option value="1">A protective case</option>
+        	<option value="2">Colorful panel</option>
+            <option value="3">A membership card</option>
+            <option value="4">App store credit</option>
+        </select>
+        
+        <select class="regularSelect">
+	        <option value="0" selected="selected" data-skip="1">Payment method</option>
+        	<option value="1">PayPal</option>
+        	<option value="2">Credit Card</option>
+            <option value="3">Wire transfer</option>
+            <option value="4">On delivery</option>
+        </select>
+    </form>
+    
+</div>
+
+<!-- Feel free to remove this footer -->
+
+<script type="text/javascript" src="http://www.wufangbo.com/demo/jquery-1.4.4.min.js"></script>
+<script src="tzSelect/jquery.tzSelect.js"></script>
+<script src="js/script.js"></script>
+
+<div class="go-back"><a href="http://www.wufangbo.com/?page_id=738">返回jQuery实例列表</a></div>
+<h4 style="text-align:center;"><a href="http://www.wufangbo.com">郑州前端开发</a> <a href="http://www.wufangbo.com">郑州网页设计</a> <a href="http://www.wufangbo.com">郑州美工</a> <a href="http://www.wufangbo.com">郑州UED</a> <a href="http://www.wufangbo.com">郑州div+css </a> <a href="http://www.wufangbo.com">郑州页面重构 </a><a href="http://www.wufangbo.com">武方博前端开发 </a> <a href="http://www.wufangbo.com">前端开发武方博</a> <a href="http://www.wufangbo.com/sitemap.xml">站点地图</a></h4>
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-20541395-2']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+</body> 
+</html>

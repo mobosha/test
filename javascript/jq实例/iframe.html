@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.siblings *
+{ 
+display: block;
+border: 2px solid lightgrey;
+color: lightgrey;
+padding: 5px;
+margin: 15px;
+}
+.border{
+	border:1px solid #F00;
+}
+</style>
+<script src="http://libs.baidu.com/jquery/1.10.2/jquery.min.js">
+</script>
+<script type="text/javascript">
+  $(function() {
+	  $("#clickToInsert").click(function() {
+		  $("#placeholder").html('<iframe src="iframe.html"></iframe>');
+	  });
+  });
+</script>
+</head>
+<body>
+
+
+<div id="complex_page_segment">
+    <input type="button" value="Previous Page" class="previous" />
+    <input type="button" value="Next Page" class="next" />
+    <div class="content">
+        Page Content
+    </div>
+</div>
+
+
+
+
+</body>
+</html>			

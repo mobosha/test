@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <meta charset="UTF-8"/>
+    <!--<script src="Scripts/angular.js"></script>-->
+    <script src="http://apps.bdimg.com/libs/angular.js/1.4.6/angular.min.js"></script>
+    
+    <script src="//cdn.bootcss.com/angular-ui-router/1.0.0-alpha0/angular-ui-router.js"></script>
+    <!--<script src="Scripts/angular-ui-router.js"></script>-->
+    <script src="App.js"></script>
+ 
+</head>
+<body data-ng-app="myApp">
+    <!--<h1>AngularJS Home Page (Ui-router Demonstration)</h1>
+    <div data-ui-view=""></div>-->
+    <div>
+     <div>
+         <span style="width:100px" ui-sref=".Page1"><a href="">Page-1</a></span>
+         <span style="width:100px" ui-sref=".Page2"><a href="">Page-2</a></span>
+         <span style="width:100px" ui-sref=".Page3"><a href="">Page-3</a></span>
+     </div>
+     
+     
+     <div>
+          <div ui-view=""/>
+     </div>
+</div>
+</body>
+<html>

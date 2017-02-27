@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		
+
+	</head>
+<body>
+<!--<div id="ss"><p id="demo">Click the button get the node name of the document's first child node</p>
+
+	<button onclick="myFunction()">Try it</button>
+</div>-->注意这两段的差别//p标签前边的四个空格 //console.log(document.getElementById("ss").firstChild.nodeType);获得的是 空格内容
+<div id="ss">
+	<p id="demo">Click the button get the node name of the document's first child node</p><button value="ss" onclick="myFunction()">Try it</button></div>
+<script>
+function myFunction()
+{
+/*var x=document.getElementById("demo");  
+console.log(document.getElementById("ss").lastChild.nodeType);
+x.innerHTML=document.getElementById("ss").lastChild.nodeName;*/
+var demo = document.getElementById('demo');
+var nexts = demo.nextSibling;
+alert(nexts.nodeName);
+console.log(nexts.nodeType);
+console.log(nexts.childNodes[0].nodeType);
+}
+</script>
+
+</body>
+</html>

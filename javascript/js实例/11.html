@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>images</title>
+<script src="js/jquery-2.0.3.min.js" type="application/javascript"></script>
+<script>
+function showPic(whichpic){
+	var source = whichpic.getAttribute("href");
+    var placeholder = document.getElementById("placeholder");
+	placeholder.setAttribute("src",source);
+	var tit = whichpic.getAttribute("title");
+	var shtitle = document.getElementById("shtitle");
+	shtitle.innerHTML = tit;
+	/*$("#shtitle").html(tit);*/
+	
+}
+$(document).ready(function() {
+    $("li a").click(function(){
+		showPic(this);
+		return false;
+		});
+});
+</script>
+</head>
+
+<body>
+<h1>ssdnndfk</h1>
+<ul>
+	<li><a href="images/ma.png" title="ma">ma</a></li>
+    <li><a href="images/ma.png" title="ma2">ma1</a></li>
+    <li><a href="images/ma.png" title="ma3">ma2</a></li>
+    <li><a href="images/ma.png" title="ma4">ma4</a></li>
+</ul>
+<img src="images/triangle.png" id="placeholder" alt="fkfdk">
+<p id="shtitle"></p>   
+</body>
+</html>

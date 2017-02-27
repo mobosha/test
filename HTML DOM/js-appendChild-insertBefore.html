@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			window.onload =function () {
+				var btn = document.getElementById("creatbtn");
+				btn.onclick =function() {
+					insertEle();
+				}
+			}
+			function insertEle() { 
+				var oTest = document.getElementById("box-one");
+				var newNode = document.createElement("div");
+				
+				newNode.innerHTML =" This is a newcon ";
+				//oTest.appendChild(newNode);
+				oTest.insertBefore(newNode,null); // 这两种方法均可实现
+			
+			}
+		</script>
+	</head>
+	<body>
+		<div class="btns"><input type="button" value="插入元素" id="creatbtn"/></div>
+		<div id="box-one">
+			<p class="con2" id="p1">1</p>
+			<p class="con2">2</p>
+			<p class="con2">3</p>
+		</div>
+	</body>
+</html>

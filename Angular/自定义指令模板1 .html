@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>但如果我们将文本输入字段移到指令内部并在另一个指令中进行绑
+定，就无法正常工作了：通过观察Chrome开发者工具中的href可以知道，我们并没有错误地将内部$scope的属性
+myUrl同外部的DOM属性some-attr绑定在一起</title>
+		<script src="http://apps.bdimg.com/libs/angular.js/1.4.6/angular.min.js"></script>
+	</head>
+	<body ng-app="myApp">
+		<!--<div my-directive
+		my-url="http://www.baidu.com"
+		my-link-text="Click me to go to baidu">
+		</div>
+		<script type="text/javascript">
+			angular.module('myApp', [])
+			.directive('myDirective', function() {
+				return {
+				restrict: 'A',
+				replace: true,
+				scope:{
+					myUrl:'@',
+					myLinkText:'@'
+				},
+				/*template: '<a href="http://google.com">Click me to go to Google</a>'*/
+				template: '<a href="{{ myUrl }}">{{ myLinkText }}</a>'
+				}
+			});
+		</script>-->
+		
+		
+		
+		<!--<input type="text" value="" ng-model="myUrl" />-->
+		<div my-directive
+		some-attr="{{ myUrl }}"
+		my-link-text="Click me to go to baidu" ><!--表达式-->
+		</div>
+		
+		<script type="text/javascript">
+			angular.module('myApp', [])
+			.directive('myDirective', function() {
+				return {
+				restrict: 'A',
+				replace: true,
+				scope: {
+					myUrl: '@someAttr',//someAttr,这个值既可以是硬编码的也可以是当前作用域（例如Some-attr="{{expression}}）中某个表达式的运算结果
+					myLinkText: '@'
+				},
+				
+				/*template: '<a href="{{ myUrl }}">{{ myLinkText }}</a>'*/
+				template: '<div>\
+				<input type="text" ng-model="myUrl" />\
+				<a href="{{myUrl}}">{{myLinkText}}</a>\
+				</div>'
+				}
+			});
+		</script>
+		
+		
+	</body>
+</html>

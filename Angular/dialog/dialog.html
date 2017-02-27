@@ -1,0 +1,18 @@
+<!-- 对话框 -->
+<div style="z-index:1256;" class="modal fade" ng-class="{'in':dialog.showDialog,'display-block': dialog.showDialog,'display-none':!dialog.showDialog}" ng-show="dialog.showDialog">
+  	<div style="width:425px!important;" class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header" style="background: #228be0;heigh:15px;"></div>
+            <div class="modal-body">
+            	<p style="text-align:center;" >{{dialog.dialogText|translate}}</p>
+            </div>
+            <div class="modal-footer">
+                <a class="btn btn-default" ng-click="close()" translate="public.cancel"></a>
+                <a class="btn btn-primary" ng-click="close()" translate="public.sure"></a>
+            </div>
+        </div>
+ 	</div>
+</div>
+<!-- 公用遮罩层  保存、加载... -->
+<div style="z-index:1255;" class="modal-backdrop fade" ng-if="dialog.showDialog" ng-class="{'in': dialog.showDialog,'display-block': dialog.showDialog,'display-none':!dialog.showDialog}"></div>
+<!-- /对话框 -->

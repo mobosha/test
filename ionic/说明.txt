@@ -1,0 +1,58 @@
+﻿node.js是javascript的运行环境，node.js解析js代码，（没有浏览器安全级的限制）提供系统级别的API，比如文件的读写等等
+nodejs API要和文档对应版本使用
+nodejs 建议使用最新版本的 稳定版本
+
+
+ng-true-value="'Subscribed'"
+ng-false-value="'Unubscribed'">
+ <ion-checkbox ng-model="emailNotification"
+                        ng-true-value="'Subscribed'"
+                        ng-false-value="'Unubscribed'">
+            Newsletter
+          </ion-checkbox>
+          
+
+
+<ion-content  overflow-scroll="true">  overflow-scroll="true" 这是ionic定制的滚动视图，可以使用overflow-scroll属性设置使用系统内置的滚动条：  默认为false
+
+
+
+ion-header-bar 设置 no-tap-scroll="false" 点击 header bar 返回顶部 
+
+
+
+
+
+不要把ion-tabs指令放在ion-content之内
+ion-tab的内容应当放入ion-view指令内，否则ionic在计算布局时可能出错
+AngularJS编译后，ion-tabs元素将被应用.tabs样式，因此我们可以使用 相关的样式调整ion-tabs的外观：
+
+<ion-tabs  class="tabs-balanced">
+		<ion-tab title="tab1">
+			<ion-view>
+				<ion-content class="calm-bg">
+					tab 1 content
+				</ion-content>
+			</ion-view>
+		</ion-tab>
+		<ion-tab title="tab2">
+			<ion-view>
+				<ion-content class="balanced-bg">
+					tab 2 content
+				</ion-content>
+			</ion-view>
+		</ion-tab>
+		<ion-tab title="tab3">
+			<ion-view>
+				<ion-content class="energized-bg">
+					tab 3 content
+				</ion-content>
+			</ion-view>
+		</ion-tab>
+	</ion-tabs>
+	
+
+
+
+ion-footer 不能放到 ion-content 内部 否则底部定位 失效 position:absolute;
+

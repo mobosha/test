@@ -1,0 +1,26 @@
+template.helper('ampm', function (value) {
+	
+    var txt = '下午';
+    if (value == 0){
+		txt = '上午';
+	}else if (value == 2){
+		txt = '小夜';
+	}
+	var h = new Date(value).getHours();
+	if (h < 12){
+		txt = '上午';
+	}else if (h < 17){
+		txt = '下午';
+	}else{
+		txt = '小夜';
+	}
+	return txt;
+});
+
+
+
+
+
+
+
+<span class="time">{{ampm(v.add_time)}}</span>

@@ -1,0 +1,379 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>测试</title>
+<script src="js/jquery-1.10.2.min.js"></script>
+<script>
+/*数字转换成字符串方法1-6*/
+(1)
+var n = 100;
+var s = n + "bootle of beer!";
+//alert(typeof s);
+var s1 = n + '';
+//alert(typeof s1);
+
+(2)
+var srting_value = String(n);
+//alert(typeof srting_value);
+
+(3)
+var str = n.toString(8);//n.toString(2)//n.toString(10)//n.toString(16)  使用toString()函数
+var str8 = "0" + str;
+//alert(str8);
+
+
+//以下四舍五入
+(4)//不带指数显示形式
+var n = 134445.3422
+var str1 = n.toFixed(3);//.toFixed(2) 使.toFixed()方法  如果超出小数点位数  0 补充
+//alert(str1);
+
+
+(5)//指数显示形式
+var str3 = n.toExponential(3);
+//alert(str3);
+
+
+
+(6)//混合模式如果有意义的位数还不够显示数字的整数部分，就用指数方法表示
+var str2 = n.toPrecision(8);
+//alert(str2); 
+
+
+
+
+/*字符串转换成数字*/
+/*Number()的强制类型转换与parseInt()和parseFloat()方法的处理方式相似，只是它转换的是整个值，而不是部分值。parseInt()和parseFloat()方法只转换第一个无效字符之前的字符串。如“3.4.5”被转换成“3.4”*/
+(1)
+var product = "21" * "2"; //除了 + 生成字符串以外，其余运算符都是转换为数字
+//alert(typeof product);
+//var number = "32jjjl" - 0;//出错
+var number = "32" - 2;
+//alert(number);
+
+var num6 = "sss" + 0;//数字 + 字符串 整个变成字符串
+//alert(num6);
+
+
+(2)
+var num = Number("   32  ");//过于严格,前后可以有空格中间不能有空格
+//alert(num1);
+
+var test3= new Date();
+//alert(Number(test3));
+
+var num2 = Number("32 23");//过于严格,前后可以有空格中间不能有空格
+//alert(num2);
+
+
+
+(3)
+var num3 = parseInt("3 djkf");
+var num4 = parseInt('2015-3-5');
+//alert(num4);
+
+var num33 = parseInt("11",2);
+//alert(num33);
+
+var num44 = parseInt('012');//对于以0开头的数字如果不写基数，可能解释为八进制或者十进制数字，所以以0开头的数字，不用parseInt()解析；
+//alert(num44);
+(4)
+var num5 = parseFloat("2.3.45");
+//alert(num5);
+
+
+
+
+
+
+
+/*显式类型呈现布尔值*/
+(1)
+var bool = Boolean(3);      //Boolean()函数
+//alert(bool);
+
+(2)
+var bool1 = !!3;            //布尔非运算符两次
+//alert(bool1);
+
+var bool2 = !!false;//-0;//NaN;//'';//0;//null;//undefined;
+//alert(bool2);//false;
+
+var bool2 = !!true;//"str";//str;//1;
+//alert(bool2);//false;
+
+
+
+
+/*定义函数*/
+(1)
+function square(x){
+	return x*x;
+}
+
+(2)//用函数直接量来定义
+var square = function(x){
+	return x*x;
+}
+
+(3)//这种方法定义的函数通常没有用，没有前两种效率高，不常用
+var square = Function("x","return x*x;");
+
+
+
+
+
+
+
+
+
+
+/*数组*/
+var arr = [1,2,4];
+//alert(typeof arr); // object
+var matrix = [[1,2,3],[4,5,6],[7,8,9]];
+//alert(typeof matrix[0]);  // object
+
+var base = 2014;
+var table = [base ,base + 1,base + 4];
+//alert(table);
+
+var a = null;
+var b = "sss" + a;
+//alert(b);  
+
+
+var sparsearry = [1,,,,5];
+//alert(sparsearry[1]);  //undefined
+
+
+
+
+/*日期*/
+var xmax = new Date("2015,8,20");  //双引号必须要加
+//alert(xmax);
+
+var now = new Date();
+var year = now.getFullYear();
+//alert(year); 
+var month = now.getMonth() + 1;
+//alert(month); 
+var week = now.getDay();
+//alert(week);
+
+
+
+
+
+/*对象*/
+var object = new Object(3);
+//alert(typeof object);
+
+
+
+
+/*$(function(){
+	$(".radio_div").click(function(){
+	//$(".main").delegate(".radio_div","click",function(){
+		//var r = $(this).parent().prev("input").attr("name");
+		//alert(r);
+		$(":radio[name ='rdo1']:not(:checked)").attr("tag",0);
+		if($(this).parent().prev("input").attr("tag")==1 || $(this).parent().prev("input").attr("checked")=='checked'){
+			$(this).parent().prev("input").attr("checked",false);
+			$(this).parent().prev("input").attr("tag",0);
+			$(this).removeClass("checked_div");
+		}
+		else{
+			$(this).parent().prev("input").attr("tag",1);
+			$(this).parent().prev("input").siblings().attr("checked",false);
+			$(this).parent().prev("input").siblings("input").next("div").find(".rdi-icon").removeClass("checked_div").addClass("radio_div");
+			
+			$(this).parent().prev("input").attr("checked",true);
+			$(this).addClass("checked_div").removeClass("radio_div");
+		}
+	});
+});*/
+
+
+
+
+
+
+/*声明变量*/
+/*var scope = "global";
+function checkscope(){
+	var scope = "local";  //在函数内部，局部变量的优先级比同名的全局变量高
+	document.write(scope);
+}
+checkscope();*/
+
+
+
+/*scope = "global";
+function checkscope(){
+	scope = "local";  //改变了外部的全局变量的值
+	document.write(scope);
+	myscope = "local";
+	var mscope = "local";
+	document.write(myscope);
+}
+checkscope();
+document.write(scope);
+document.write(myscope);
+document.write(mscope); */ //js提示错误 mscope undefined 因为 mscope是局部变量，不能在函数外边使用
+
+
+
+
+
+
+/*var scope = "global scope";
+function checkscope(){
+	var scope = "local scope";
+	function nested(){
+		var scope = "nested scope";
+		document.writeln(scope);
+	}
+	nested();
+}
+checkscope();*/
+
+
+
+
+/*function test(o){
+	var i = 0;
+	if(typeof o == "object"){
+		var j = 0;
+		for(var k=0;k<10;k++){
+			document.write(k + "<br>");
+		}
+		document.write(k + "<br>");
+	}
+	document.write(j);
+}
+test({name:'susan',age:10});*/
+
+
+
+
+//这个例子说明要将声明的变量集中放置到函数的开头是个好的编程习惯。
+/*var scope = "global";
+function f(){
+	alert(scope);  //undefined  比较深奥  局部变量在整个函数体内都是有定义的，但是在执行var 之前，它是不会被初始化的
+	var scope = "local";
+	alert(scope);
+}
+f();   
+*/
+
+
+
+/*var scope   //未赋值变量
+function f(){
+	alert(scope);
+}
+f(); 
+//看看两者区别
+function f(){ //未定义变量
+	alert(scope);
+}
+f();*/
+
+
+//var x;
+//alert(x);//为赋值 x
+//alert(u);//未定义 u
+
+
+//!!实现转换为 boolean型数据
+var s = 'abg';
+//alert(!!s);
+
+
+
+var s='b'
+var a = 'ss';
+if(s&&a){
+alert(typeof s&&a);
+}
+
+</script>
+<style>
+/*.uhide{
+	display:none;
+}
+.checked_div{
+	width:1em;
+	height:1em;
+	background-color:#F00;
+}
+.radio_div{
+	width:1em;
+	height:1em;
+	background-color:#CCC;
+}*/
+/*input[type="radio"]:checked + div > div.rdi-icon{
+	width:1em;
+	height:1em;
+	background-color:#F00;
+}
+input[type=radio]+div>div.rdi-icon{
+	width:1em;
+	height:1em;
+	background-color:#CCC;
+}*/
+</style>
+</head>
+
+<body>
+<!--<input type="radio" name="rdo1" value="AA" tag="0" class="uhide">
+<div ontouchstart="zy_touch('btn-act')" class=" ub uc-a1 uba c-bla c-m2 b-bla t-wh ui-rdi uinn5">
+	<div class="rdi-icon ub-img umw1 radio_div" >11</div>
+　　<div class="ub-f1 ut-s tx-l" style="">item</div>　　
+</div>
+
+
+<input type="radio" name="rdo1" value="BB" tag="0" class="uhide">
+<div ontouchstart="zy_touch('btn-act')" class=" ub uc-a1 uba c-bla c-m2 b-bla t-wh ui-rdi uinn5">
+　　<div class="rdi-icon ub-img umw1 radio_div" >11</div>
+　　<div class="ub-f1 ut-s tx-l" style="">item</div>
+</div>
+
+
+<input type="radio" name="rdo1" value="CC" tag="0" class="uhide">
+<div ontouchstart="zy_touch('btn-act')" class=" ub uc-a1 uba c-bla c-m2 b-bla t-wh ui-rdi uinn5">
+　　<div class="rdi-icon ub-img umw1 radio_div" >11</div>
+　　<div class="ub-f1 ut-s tx-l" style="">item</div>
+</div>-->
+
+
+
+
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

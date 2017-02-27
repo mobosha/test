@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html ng-app='app'>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="http://apps.bdimg.com/libs/angular.js/1.4.6/angular.min.js"></script>
+	</head>
+	<body ng-controller="MainCtrl">
+		<div id="testID" class="test1">
+		    <img id="testID2" class="test2 test3" alt="" src="../ionic/img/videopic.png" />
+		</div>
+		<script type="text/javascript">
+		var app=angular.module("app",[]);
+		app.controller('MainCtrl', function($scope) {
+		   angular.element('#testID2').find('.test2').removeClass('.test3');
+		});
+		</script>
+	</body>
+</html>

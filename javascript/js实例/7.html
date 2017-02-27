@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>window.resizeTo()函数</title>
+<script laguage="javascript">
+<!--
+function movewin(form)
+{
+var winx=form.X.value;
+var winy=form.Y.value;
+window.moveTo(winx,winy);
+}
+//-->
+</script>
+</head>
+<body bgcolor="#6699FF" text="#000000">
+<form name=form1>
+<table border=0 align=center width="575">
+<tr>
+<td colspan=3 align=center bgcolor=lightgreen><font color=blue size=3>输入窗口位置</font></td>
+</tr>
+<tr>
+<td>
+<input type=text name="X" style="background-color:lightblue;color:blue">
+</td>
+<td>
+<input type=text name="Y" style="background-color:lightblue;color:blue">
+</td>
+<td>
+<input type=button value="move window" onclick=movewin(this.form) style="background-color:lightgreen;color:blue">
+</td>
+</tr>
+</table>
+</form>
+
+
+
+
+</body>
+</html>

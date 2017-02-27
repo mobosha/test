@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>创建自定义指令，注释约束不管用</title>
+		<script src="http://apps.bdimg.com/libs/angular.js/1.0.6/angular.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body >
+		<!--<div ng-app='myApp'>
+			<guitar-reviews></guitar-reviews>
+		</div>-->
+		<div ng-app='myAppa'>
+			<user-reviews></user-reviews>
+		</div>
+		
+		
+		<script type="text/javascript">
+			/*var app = angular.module("myApp",[]);
+			app.directive('guitarReviews', function() {
+			 return {
+			  restrict  : 'E', // restrict: ‘E' 是指我们在定义一个自定义元素指令
+			  templateUrl : 'data/reviews.html'  // templateUrl则指向要包含的代码片段文件
+			 };
+			});*/
+			
+			
+			var appa = angular.module("myAppa",[]);
+			appa.directive('userReviews', function() {
+			 return {
+			  restrict  : 'E', // used E because of element 
+			  templateUrl : 'data/reviews.html'
+			 };
+			});
+		</script>  
+	</body>
+</html>

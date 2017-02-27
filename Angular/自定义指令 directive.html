@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>创建自定义指令，注意注释书写格式以及参数必须添加replace:true</title>
+		<script src="http://apps.bdimg.com/libs/angular.js/1.4.6/angular.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body ng-app='myApp'>
+		<runoob-directive></runoob-directive><!--E 只限元素名使用-->
+		<!--<button title="sjsljfslsjljl" href="http://www.baidu.com">确定</button>-->
+		<div runoob-directive></div><!--A 只限属性使用-->
+		<div class="runoob-directive"></div><!--C 只限类名使用-->
+		<!-- directive:runoob-directive --> <!--M 只限注释使用, 感觉不管用--> 
+		
+		<script type="text/javascript">
+			var app = angular.module("myApp",[]);
+			app.directive("runoobDirective",function(){
+				return{
+					restrict:"E",
+					replace:true,    //替换的方式插入内容//绑定策略 ;  true 结果：<h1>自定义命令！</h1>    false:<runoob-directive><h1>自定义命令！</h1></runoob-directive>
+					template:"<h1>自定义命令！</h1>"  //template内容，除此之外还有templateUrl，指定一个html模板文件。
+				};
+			});
+		</script>  
+	</body>
+</html>

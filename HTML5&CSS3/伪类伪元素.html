@@ -1,0 +1,209 @@
+<!--<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>【：first-child 和 ：：aftert{content:"";} 区别】
+前面的是伪类，表示所有该标签中的第一个DOM元素，第二个是伪元素，相当于在标签后面再加了个没有DOM实体的标签。
+</title>
+		<style type="text/css">
+			/*p>i:first-child {color: red}*/
+			p:first-letter{color: red}
+		</style>
+	</head>
+	<body>
+	<p>
+	    <i>first</i>
+	    <i>second</i>
+	</p>
+	</body>
+</html>-->
+<!--<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8" />
+<title>E::after_CSS参考手册_web前端开发参考手册系列</title>
+<meta name="author" content="Joy Du(飘零雾雨), dooyoe@gmail.com" />
+<meta name="copyright" content="www.doyoe.com" />
+<style>
+p{position:relative;color:#f00;font-size:14px;font-size:0\9;*font-size:14px;}
+p:after{background:#fff;color:#000;content:"如果你的能看到这段文字，说明你的浏览器只支持E:after";font-size:14px;}
+p::after{background:#fff;color:#000;content:"如果你的能看到这段文字，说明你的浏览器支持E::after和E::after";font-size:14px;}
+</style>
+</head>
+<body>
+<p>Sorry, 你的浏览器不支持E:after和E::after</p>
+</body>
+</html>-->
+<!--<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8" />
+<title>结构性伪类选择符 E:first-of-type_CSS参考手册_web前端开发参考手册系列</title>
+<meta name="author" content="Joy Du(飘零雾雨), dooyoe@gmail.com" />
+<meta name="copyright" content="www.doyoe.com" />
+<style>
+p:first-of-type{color:#f00;}
+</style>
+</head>
+<body>
+<div class="test">
+	<div>我是一个div元素</div>
+	<p>我是一个p元素</p>
+	<p>我是一个p元素</p>
+</div>
+</body>
+</html>-->
+<!--<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8" />
+<title>结构性伪类选择符 E:nth-of-type(n)_CSS参考手册_web前端开发参考手册系列</title>
+<meta name="author" content="Joy Du(飘零雾雨), dooyoe@gmail.com" />
+<meta name="copyright" content="www.doyoe.com" />
+<style>
+p:nth-of-type(2){color:#f00;}
+</style>
+</head>
+<body>
+<div class="test">
+	<p>我是一个p元素</p>
+	<div>我是一个div元素</div>
+	<p>我是一个p元素</p>
+	<p>我是一个p元素</p>
+</div>
+</body>
+</html>-->
+<!--<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8" />
+<title>用户界面(UI)元素状态伪类选择符 E:checked_CSS参考手册_web前端开发参考手册系列</title>
+<meta name="author" content="Joy Du(飘零雾雨), dooyoe@gmail.com" />
+<meta name="copyright" content="www.doyoe.com" />
+<style>
+input:checked+span{background:#f00;}
+input:checked+span:after{content:" 我被选中了";}
+</style>
+</head>
+<body>
+<form method="post" action="#">
+<fieldset>
+	<legend>选中下面的项试试</legend>
+	<ul>
+		<li><label><input type="radio" name="colour-group" value="0" /><span>蓝色</span></label></li>
+		<li><label><input type="radio" name="colour-group" value="1" /><span>红色</span></label></li>
+		<li><label><input type="radio" name="colour-group" value="2" /><span>黑色</span></label></li>
+	</ul>
+</fieldset>
+<fieldset>
+	<legend>选中下面的项试试</legend>
+	<ul>
+		<li><label><input type="checkbox" name="colour-group2" value="0" /><span>蓝色</span></label></li>
+		<li><label><input type="checkbox" name="colour-group2" value="1" /><span>红色</span></label></li>
+		<li><label><input type="checkbox" name="colour-group2" value="2" /><span>黑色</span></label></li>
+	</ul>
+</fieldset>
+</form>
+</body>
+</html>-->
+<!--<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8" />
+<title>目标伪类选择符 E:target_CSS参考手册_web前端开发参考手册系列</title>
+<meta name="author" content="Joy Du(飘零雾雨), dooyoe@gmail.com" />
+<meta name="copyright" content="www.doyoe.com" />
+<style>
+.test .hd{padding:10px 0;}
+.test .bd .panel{width:500px;margin-top:5px;border:1px solid #ddd;}
+.test .bd h2{border-bottom:1px solid #ddd;}
+.test .bd .panel:target{border-color:#f60;}
+.test .bd .panel:target h2{border-color:#f60;}
+h2,p{margin:0;padding:10px;font-size:16px;}
+</style>
+</head>
+<body>
+<div class="test">
+	<div class="hd">
+		<a href="#panel1">前往区块1</a>
+		<a href="#panel2">前往区块2</a>
+		<a href="#panel3">前往区块3</a>
+		<a href="#panel4">前往区块4</a>
+		<a href="#panel5">前往区块5</a>
+	</div>
+	<div class="bd">
+		<div id="panel1" class="panel">
+			<h2>区块1</h2>
+			<div><p>区块1内容</p><p>区块1内容</p><p>区块1内容</p></div>
+		</div>
+		<div id="panel2" class="panel">
+			<h2>区块2</h2>
+			<div><p>区块2内容</p><p>区块2内容</p><p>区块2内容</p></div>
+		</div>
+		<div id="panel3" class="panel">
+			<h2>区块3</h2>
+			<div><p>区块3内容</p><p>区块3内容</p><p>区块3内容</p></div>
+		</div>
+		<div id="panel4" class="panel">
+			<h2>区块4</h2>
+			<div><p>区块4内容</p><p>区块4内容</p><p>区块4内容</p></div>
+		</div>
+		<div id="panel5" class="panel">
+			<h2>区块5</h2>
+			<div><p>区块5内容</p><p>区块5内容</p><p>区块5内容</p></div>
+		</div>
+	</div>
+</div>
+</body>
+</html>-->
+
+<!--<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8" />
+<title>否定伪类选择符 E:not()_CSS参考手册_web前端开发参考手册系列</title>
+<meta name="author" content="Joy Du(飘零雾雨), dooyoe@gmail.com" />
+<meta name="copyright" content="www.doyoe.com" />
+<style>
+p:not(.abc){color:#f00;}
+</style>
+</head>
+<body>
+<p class="abc">否定伪类选择符 E:not()</p>
+<p id="abc">否定伪类选择符 E:not()</p>
+<p class="abcd">否定伪类选择符 E:not()</p>
+<p>否定伪类选择符 E:not()</p>
+</body>
+</html>-->
+
+
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8" />
+<title>用户行为伪类选择符 E:focus_CSS参考手册_web前端开发参考手册系列</title>
+<meta name="author" content="Joy Du(飘零雾雨), dooyoe@gmail.com" />
+<meta name="copyright" content="www.doyoe.com" />
+<style>
+h1{font-size:16px;}
+ul{list-style:none;margin:0;padding:0;}
+input:focus{background:#f6f6f6;color:#f60;border:1px solid #f60;outline:none;}
+</style>
+</head>
+<body>
+<h1>请聚焦到以下输入框</h1>
+<form action="#">
+	<ul>
+		<li><input value="姓名" /></li>
+		<li><input value="单位" /></li>
+		<li><input value="年龄" /></li>
+		<li><input value="职业" /></li>
+	</ul>
+</form>
+</body>
+</html>
+			
+			
+			
+			
+			

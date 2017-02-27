@@ -1,0 +1,27 @@
+  //分割特别说明
+/*		content = data.results[0].special_remark;
+		//alert(content)
+		var arry = content.split('。');
+		//alert(arry.length)
+		for(var i=0;i<arry.length-1;i++){
+			$('#pro').append('<p style="padding-top:.5em;">'+arry[i]+'。</p>');
+			}*/
+
+
+
+
+
+
+
+
+
+
+function（data）{
+content=data.results.register_protocol;
+var aArr=content.split('\r\n');
+var str='';
+for(var i=0; i<aArr.length;i++){
+str+='<p>'+aArr[i]+'</p>';
+}
+$('#box').html(str);
+}

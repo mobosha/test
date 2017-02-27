@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="http://libs.baidu.com/jquery/1.10.2/jquery.min.js"></script>
+		<script type="text/javascript"> 
+			$(function(){ 
+				
+				$("#chk").bind({click: function(){ 
+				if($(this).is(':checked')){ 
+					//alert('jsd');
+				$("#passwd2").val($("#passwd").val()); 
+				
+				$("#passwd").hide(); 
+				$("#passwd2").show(); 
+				
+				}else{ 
+					//alert('jsd111');
+				$("#passwd").val($("#passwd2").val()); 
+				$("#passwd2").hide(); 
+				$("#passwd").show(); 
+				}
+				} 
+				}); 
+			}); 
+		</script> 
+	</head>
+	<body>
+	<form name="formName"> 
+	<input id="passwd" type="password" 
+	size="24" maxlength="17" 
+	style="ime-mode: disabled; display: inline;"/> 
+	<input id="passwd2" type="text" 
+	size="24" maxlength="17" 
+	style="ime-mode: disabled; display: none;" /> 
+	<input id="chk" type="checkbox" />显示密码 
+	</form> 
+	
+	</body>
+</html>

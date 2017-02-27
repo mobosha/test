@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+<meta name="apple-mobile-web-app-capable" content="no">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no" >
+<style type="text/css">
+/*reset*/
+html,body,div,h1,h2,h3,h4,h5,h6,p,span,em,cite,del,a,img,ul,li,ol,button,input,textarea,dl,dt,dd,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;}
+table{border-collapse:collapse;border-spacing:0;}
+fieldset,img{border:0;}
+ol,ul{list-style:none;}
+body{font:12px/1.5 Arial,Verdana,Lucida,Helvetica,simsun,sans-serif;text-align:left;color:#000;}
+h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}
+em{font-style:normal;}
+input{font-size:12px; color:#000;outer:none;outline:none;}
+table{border-collapse:collapse;border-spacing:0;border:0 none;}
+a{cursor:pointer;text-decoration:none;outline:none;color:#000;-webkit-transition:all .2s linear;transition:all .2s linear;-moz-transition:all .2s linear;-ms-transition:all .2s linear;-o-transition:all .2s linear;transition:all .2s linear;}
+button{cursor:pointer;}
+a:hover{text-decoration:underline;color:#000;}
+input, select, form img, button,label,textarea{font-size:12px;vertical-align:middle; font-family:Tahoma;color:#000;}
+/*global*/
+a.untransition{-webkit-transition:none;transition:none;-moz-transition:none;-ms-transition:none;-o-transition:none;transition:none}
+.clearfix{zoom:1;}
+.clearfix:after{content:"";display:block;height:0;line-height:0;clear:both;visibility:hidden;}
+/*article*/
+body{
+	font:14px/1.5 'Apple LiGothic Medium','Apple LiSung Light', 'Times New Roman', Times;
+	color: #333;
+}
+.wrapper {
+	width:100%;
+	margin:0 auto;
+}
+.content{
+	padding:25px 15px 10px;
+}
+.wrapper .tit{
+	text-align:center;
+	font-weight:900;
+	font-size:18px;
+	margin:10px auto;
+}
+.wrapper .subtit{
+	color:#787878;
+	font-size:12px;
+	text-align:center;
+	margin:10px auto;
+}
+.wrapper .subtit span{
+	margin-right:10px;
+}
+
+.wrapper p{
+	padding:5px 0;
+	text-indent:2em;
+	color:#333;
+}
+
+.wrapper p.img{
+	text-align:center;
+	margin:0 auto;
+	text-indent:0;
+}
+.wrapper .img img{
+	width:240px;
+	height:160px;	
+}
+.content .inner{
+	overflow:hidden;
+	height:480px;
+}
+
+.content .card{
+	background:#f3f3f3;
+	position:relative;
+	padding:10px 0;
+	margin:5px auto;
+}
+.content .card .moreabout{
+	position:absolute;
+	left:0;
+	top:0;
+	right:0;
+	bottom:0;
+}
+.content .flag{
+	position:absolute;
+	top:-8px;
+	left:5px;
+	background:url("../images/clip.png") no-repeat scroll 0 0 transparent;
+	width:17px;
+	height:19px;
+	background-size: 17px 19px;
+}
+.content .icon{
+	position:absolute;
+	top:10px;
+	left:20px;
+}
+.content .icon,.content .icon img{
+	width:72px;
+	height:72px;
+	overflow:hidden;
+}
+.content .info{
+	padding-left:100px;
+	min-height:72px;
+}
+.info .card-tit{
+	color:#333;
+	padding:5px 0;
+	font-size:15px;
+}
+.info .card-detail{
+	color:#666;
+	line-height:1.5;
+	padding-right:5px;
+	font-size:12px;
+}
+.info .card-detail span{
+	margin-right:10px;
+	word-wrap:break-word;
+	word-break:break-all;
+}
+.content .toggle{
+	color:#999;
+	text-align:center;
+	width:100%;
+	margin:10px auto;
+	font-size:12px;
+}
+.toggle i{
+	width:20%;
+	border-top:1px solid #e4e4e4;
+	display:inline-block;
+	margin:0 15px ;
+	vertical-align:middle;
+}
+.comment{
+	margin-bottom:10px;
+}
+.comment .combar{
+	height:25px;
+	line-height:25px;
+	border-bottom:2px solid #efefef;
+	position:absolute;
+	left:0;
+	top:0;
+	width:100%;
+	z-index:2;
+}
+.combar span, .combar a{
+	font-weight:900;
+	letter-spacing:1px;
+	font-size:13px;
+	padding:0 5px;
+}
+.combar .combar-tit{
+	position:absolute;
+	left:15px;
+	color:#333;
+	border-bottom:2px solid #ce0000;
+	outline:none;
+}
+.combar .combar-togg{
+	position:absolute;
+	right:0;
+	/*background:#ce0000;
+	padding:0 30px;*/
+	background:url("../images/tog.png") no-repeat scroll 0 0 transparent;
+	height:25px;
+	width:76px;
+	background-size:76px 25px;
+}
+.combar .combar-goto{
+	position:absolute;
+	right:0;
+	background:#ce0000;
+	padding:0 15px;
+	height:25px;
+	line-height:25px;
+	color:#fff;
+}
+.combar-togg > *{
+	display:inline-block;
+}
+.combar-togg span{
+	color:#fff;	
+}
+.combar-togg b{
+	width:23px;
+	height:23px;
+	background:url("../images/bg.png") no-repeat scroll -5px -58px transparent;
+}
+.combar-togg i{
+	width:14px;
+	height:14px;
+	background:url("../images/bg.png") no-repeat scroll -5px -102px transparent;
+}
+.comlist{
+	margin:5px auto;
+}
+.comitem{
+	position:relative;
+	//float:left;
+	//width:100%;
+	border-bottom:1px solid #eee;
+	min-height:40px;
+	padding:5px 10px;
+	//background-color:#FAFAFA;
+}
+.comitem .comitem-pic{
+	width:40px;
+	height:40px;
+	margin:5px 10px 5px 0px;
+	overflow:hidden;
+	float:left;
+	display:inline-block;
+}
+.comitem-pic img{
+	width:40px;
+	height:40px;
+	
+}
+.comitem .comitem-para{
+	display:inline-block;
+	/*width:78%;*/
+	width:100%;
+}
+.comitem .para-by{
+	color:#999;
+	font-size:12px;
+	padding:2px 0;
+}
+.comitem .para-by em{
+	margin-right:20px;
+}
+.comitem .para-con{
+	color:#444;
+	font-size:14px;
+}
+.border-btnone{
+	border-bottom:0;
+}
+.fixbar{
+	position:absolute;
+	bottom:0;
+	left:0;
+	height:50px;
+	width:100%;
+	z-index:2;
+
+}
+.fixbar > div{
+	padding:0 10px;
+}
+.fixbar .fixstretch{
+	position:absolute;
+	left:0;
+	right:0;
+	top:0;
+	bottom:0;
+	background-image:-moz-linear-gradient(center top , #fff, #343434);
+	background-image:-webkit-gradient(linear,left top,left bottom,color-stop(0,#fff),color-stop(1,#343434));
+	background-image:-o-linear-gradient(top, #fff, #343434);
+
+	opacity:0.3;
+}
+.fixbar a{
+	display:block;
+	width:40px;
+	height:40px;
+	background-color:#7f7f7f;
+	border-radius:25px;
+	position:absolute;
+	top:0;
+	cursor:pointer;
+	outline:none;
+}
+.fixbar a b{
+	display:block;
+	width:40px;
+	height:40px;
+
+}
+.fixbar a.ret{
+	left:15px;
+}
+.fixbar a.reply{
+	right:30px;
+}
+
+.fixbar a.ret b{
+	background:url("../images/back.png") no-repeat scroll center center transparent;
+	background-size:16px 16px;
+}
+.fixbar a.reply b{
+	background:url("../images/edit.png") no-repeat scroll center center transparent;
+	background-size:16px 16px;
+}
+</style>
+<script type="text/javascript" src="http://libs.baidu.com/jquery/1.9.0/jquery.min.js"></script>
+<script type="text/javascript" src="js/iscroll.js"></script>
+<script type="text/javascript">
+
+var myScroll,
+	pullDownEl, pullDownOffset,
+	pullUpEl, pullUpOffset,
+	generatedCount = 0,
+	pullcount=0;
+function msgalert(msg, pos){
+	//$('#swrap').css('display','-webkit-box');
+	$(".pull" + pos).css('background-image','none').text(msg);
+	setTimeout(function(){
+		$(".pull" + pos).fadeOut(500);
+	},1000);
+}
+function loadImg(){
+	var transform = $('#scroller').css('transform');
+	var aStr = transform.substring(7,transform.length-1);
+	var aArr = new Array();
+	aArr = aStr.split(',');
+	var aScroll = parseInt(aArr[5]);
+	var $scroller = $('#scroller'),
+		mh = $('#wrapper').height() +50;
+	$scroller.find('img').each(function(){
+		var  i = {
+			obj:this,
+			tag:this.nodeName.toLowerCase,
+			url:$(this).attr('src'),
+			rurl:$(this).attr('dynamic-src'),
+			offsetH:$(this).offset().top 
+		}
+		if(!i.url && (i.offsetH<=mh)){
+			$(this).attr('src',i.rurl);
+		}
+	})
+}
+function loadAjax(url,data,callback){
+	$.ajax({
+		url:url,
+		type:'post',
+		dataType:'json',
+		data:data,
+		success:callback,
+		error: function(XMLHttpRequest, textStatus, errorThrown) {
+			//msgalert('服务器出错~', 'DownLabel');
+		},
+	})
+}
+function dataProcess(data,html,obj){
+	html = '';
+	for(var i = 0, len = data.comments.length; i < len; i++){
+		li = data.comments[i];
+		html += '<div class="comitem">' + 
+					'<div class="comitem-para">' + 
+						'<div class="para-by"><em>' + li.userName + '</em><span>' + li.commentDate + '</span></div>' + 
+						'<div class="para-con">' + li.content + '</div>' + 
+					'</div>' + 
+				'</div>';				
+	}
+	obj.append(html);
+	//loadImg();
+}
+function pullDownAction () {
+	var html = '',$el=$('#thelist');
+	//$('#pullUp').hide();
+	var url = 'http://192.168.4.20:8080/';//上拉刷新数据
+	var purl = window.location.href;
+	var pIndex = purl.indexOf('aid=');
+	if(pIndex == -1){
+		return;
+	}else{
+		var aid = purl.substring(pIndex+4);
+		var aIndex = aid.indexOf('&');
+		if(aIndex>-1){
+			aid = aid.substring(0,aIndex);
+		}	
+	}	
+	var posts = {"aid":aid,"start":0};
+	loadAjax(url,posts,function(json){
+		if(json.statuscode == 1){
+			$el.html(html);
+			dataProcess(json,html,$el);
+			pullcount=0;
+		}
+		else if(json.statuscode == 2){
+			msgalert('没有数据了，已加载完成！', 'DownLabel');
+		}else msgalert('刷新数据出错了，请重试~', 'DownLabel');
+		//$('#pullUp').show();
+		myScroll.refresh();
+	})
+}
+function pullUpAction () {
+	var html='',$el = $('#thelist');
+	var purl = window.location.href;
+	var pIndex = purl.indexOf('aid=');
+	if(pIndex == -1){
+		return;
+	}else{
+		var aid = purl.substring(pIndex+4);
+		var aIndex = aid.indexOf('&');
+		if(aIndex>-1){
+			aid = aid.substring(0,aIndex);
+		}
+	}
+	var	start = $el.children('.comitem').length,number = 3,
+		data = {start:start,aid:aid};
+		//data = {start:start,number:number,aid:aid};
+	var url = 'http://192.168.4.20:80/<div class="dp-highlighter bg_html"><div class="bar"><div class="tools"><b>[html]</b> <a href="#" class="ViewSource" title="view plain" onclick="dp.sh.Toolbar.Command('ViewSource',this);return false;">view plain</a><a href="#" class="CopyToClipboard" title="copy" onclick="dp.sh.Toolbar.Command('CopyToClipboard',this);return false;">copy</a><a href="#" class="PrintSource" title="print" onclick="dp.sh.Toolbar.Command('PrintSource',this);return false;">print</a><a href="#" class="About" title="?" onclick="dp.sh.Toolbar.Command('About',this);return false;">?</a><div style="position: absolute; left: 0px; top: 0px; width: 0px; height: 0px; z-index: 99;"><embed id="ZeroClipboardMovie_2" src="http://static.blog.csdn.net/scripts/ZeroClipboard/ZeroClipboard.swf" loop="false" menu="false" quality="best" bgcolor="#ffffff" width="0" height="0" name="ZeroClipboardMovie_2" align="middle" allowscriptaccess="always" allowfullscreen="false" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" flashvars="id=2&width=0&height=0" wmode="transparent"></div></div></div><ol start="1" class="dp-xml"><li class="alt"><span><span>appweb&nbsp;&nbsp;</span></span></li></ol></div><pre name="code" class="html" style="display: none;">appweb</pre>';//下拉加载数据loadAjax(url,data,function(json){if(json.statuscode == 2){if(pullcount==0){msgalert('已经全部加载！', 'UpLabel');pullcount =1;}$('#pullUp').hide();}else if(json.statuscode == 1){dataProcess(json,html,$el);}else{msgalert('加载数据出错了，请重试~', 'UpLabel');//$('#pullUp').hide();}
+ myScroll.refresh();});}function loaded() {pullDownEl = document.getElementById('pullDown');pullDownOffset = pullDownEl.offsetHeight;pullUpEl = document.getElementById('pullUp');pullUpOffset = pullUpEl.offsetHeight;pullDownAction();var documentHeight = document.documentElement.clientHeight
+ + 50;$('#thelist').css('min-height',documentHeight+'px');myScroll = new iScroll('wrapper', {topOffset:pullDownOffset,onRefresh: function () {if (pullDownEl.className.match('loading')) {pullDownEl.className = '';pullDownEl.querySelector('.pullDownLabel').innerHTML
+ = '下拉刷新...';} else if (pullUpEl.className.match('loading')) {pullUpEl.className = '';pullUpEl.querySelector('.pullUpLabel').innerHTML = '上拉加载更多...';}},onScrollMove: function () {if (this.y > 5 && !pullDownEl.className.match('flip')) {pullDownEl.className =
+ 'flip';pullDownEl.querySelector('.pullDownLabel').innerHTML = '释放立即刷新...';this.minScrollY = 0;} else if (this.y < 5 && pullDownEl.className.match('flip')) {pullDownEl.className = '';pullDownEl.querySelector('.pullDownLabel').innerHTML = '下拉刷新...';this.minScrollY
+ = -pullDownOffset;} else if (this.y < (this.maxScrollY - 5) && !pullUpEl.className.match('flip')) {pullUpEl.className = 'flip';pullUpEl.querySelector('.pullUpLabel').innerHTML = '释放立即刷新...';this.maxScrollY = this.maxScrollY;} else if (this.y > (this.maxScrollY
+ + 5) && pullUpEl.className.match('flip')) {pullUpEl.className = '';pullUpEl.querySelector('.pullUpLabel').innerHTML = '上拉加载更多...';this.maxScrollY = pullUpOffset;}},onScrollEnd: function () {if (pullDownEl.className.match('flip')) {pullDownEl.className = 'loading';pullDownEl.querySelector('.pullDownLabel').innerHTML
+ = 'Loading...';pullDownAction();} else if (pullUpEl.className.match('flip')) {pullUpEl.className = 'loading';pullUpEl.querySelector('.pullUpLabel').innerHTML = 'Loading...';pullUpAction();}}});setTimeout(function () { document.getElementById('wrapper').style.left
+ = '0'; }, 800);}document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);document.addEventListener('DOMContentLoaded', function () { setTimeout(loaded, 200); }, false);</script><link media="all" rel="stylesheet" type="text/css" href="css/css.css"
+ ><link media="all" rel="stylesheet" type="text/css" href="css/iscroll.css" ><title>评论列表页面</title></head><body><div class="wrapper"><div class="comment clearfix"><div class="combar"><span class="combar-tit">全部评论</span><!--<a class="combar-goto">返回</a>--></div><div
+ id="wrapper" class="comlist"><div id="scroller"><div id="pullDown"><span class="pullDownIcon"></span><span class="pullDownLabel">下拉刷新...</span></div><div id="thelist" class="clearfix"><div class="comitem"><div class="comitem-para"><div class="para-by"><em>热带小水果</em><span>2013-07-17
+ 12:28</span></div><div class="para-con">不馈是TOP10，都是很棒的游戏，火线追击好爽啊~~推荐！</div></div></div><div class="comitem"><div class="comitem-para"><div class="para-by"><em>大海啊全都是水</em><span>2013-07-17 12:28</span></div><div class="para-con">跑跑卡丁车的界面操作等与PC版类似，最让人惊讶的是赛车的操控性和反应度都十分灵敏。对新手，跑跑卡丁车会比其他手机赛车游戏更难以控制和把握。</div></div></div><div
+ class="comitem"><!--<div class="comitem-pic"><img src="images/portrait.png" alt="这里是人物昵称"></div>--><div class="comitem-para"><div class="para-by"><em>热带小水果</em><span>2013-07-17 12:28</span></div><div class="para-con">不馈是TOP10，都是很棒的游戏，火线追击好爽啊~~推荐！</div></div></div><div
+ class="comitem"><!--<div class="comitem-pic"><img src="images/portrait.png" alt="这里是人物昵称"></div>--><div class="comitem-para"><div class="para-by"><em>热带小水果</em><span>2013-07-17 12:28</span></div><div class="para-con">不馈是TOP10，都是很棒的游戏，火线追击好爽啊~~推荐！</div></div></div><div
+ class="comitem"><!--<div class="comitem-pic"><img src="images/portrait.png" alt="这里是人物昵称"></div>--><div class="comitem-para"><div class="para-by"><em>愤怒的小鸟</em><span>2013-07-17 12:28</span></div><div class="para-con">愤怒的小鸟愤怒的小鸟愤怒的小鸟愤怒的小鸟愤怒的小鸟~~推荐！</div></div></div><div
+ class="comitem"><!--<div class="comitem-pic"><img src="images/portrait.png" alt="这里是人物昵称"></div>--><div class="comitem-para"><div class="para-by"><em>玩机宝典</em><span>2013-07-17 12:28</span></div><div class="para-con">玩机宝典玩机宝典玩机宝典玩机宝典玩机宝典玩机宝典~~推荐！</div></div></div><div
+ class="comitem"><!--<div class="comitem-pic"><img src="images/portrait.png" alt="这里是人物昵称"></div>--><div class="comitem-para"><div class="para-by"><em>热带小水果</em><span>2013-07-17 12:28</span></div><div class="para-con">不馈是TOP10，都是很棒的游戏，火线追击好爽啊~~推荐！</div></div></div><div
+ class="comitem"><!--<div class="comitem-pic"><img src="images/portrait.png" alt="这里是人物昵称"></div>--><div class="comitem-para"><div class="para-by"><em>大海啊全都是水</em><span>2013-07-17 12:28</span></div><div class="para-con">跑跑卡丁车的界面操作等与PC版类似，最让人惊讶的是赛车的操控性和反应度都十分灵敏。对新手，跑跑卡丁车会比其他手机赛车游戏更难以控制和把握。</div></div></div><div
+ class="comitem"><!--<div class="comitem-pic"><img src="images/portrait.png" alt="这里是人物昵称"></div>--><div class="comitem-para"><div class="para-by"><em>热带小水果</em><span>2013-07-17 12:28</span></div><div class="para-con">不馈是TOP10，都是很棒的游戏，火线追击好爽啊~~推荐！</div></div></div><div
+ class="comitem"><!--<div class="comitem-pic"><img src="images/portrait.png" alt="这里是人物昵称"></div>--><div class="comitem-para"><div class="para-by"><em>热带小水果</em><span>2013-07-17 12:28</span></div><div class="para-con">不馈是TOP10，都是很棒的游戏，火线追击好爽啊~~推荐！</div></div></div><div
+ class="comitem"><!--<div class="comitem-pic"><img src="images/portrait.png" alt="这里是人物昵称"></div>--><div class="comitem-para"><div class="para-by"><em>愤怒的小鸟</em><span>2013-07-17 12:28</span></div><div class="para-con">愤怒的小鸟愤怒的小鸟愤怒的小鸟愤怒的小鸟愤怒的小鸟~~推荐！</div></div></div><div
+ class="comitem"><!--<div class="comitem-pic"><img src="images/portrait.png" alt="这里是人物昵称"></div>--><div class="comitem-para"><div class="para-by"><em>玩机宝典</em><span>2013-07-17 12:28</span></div><div class="para-con">玩机宝典玩机宝典玩机宝典玩机宝典玩机宝典玩机宝典~~推荐！</div></div></div><div
+ class="comitem"><!--<div class="comitem-pic"><img src="images/portrait.png" alt="这里是人物昵称"></div>--><div class="comitem-para"><div class="para-by"><em>愤怒的小鸟</em><span>2013-07-17 12:28</span></div><div class="para-con">愤怒的小鸟愤怒的小鸟愤怒的小鸟愤怒的小鸟愤怒的小鸟~~推荐！</div></div></div><div
+ class="comitem"><!--<div class="comitem-pic"><img src="images/portrait.png" alt="这里是人物昵称"></div>--><div class="comitem-para"><div class="para-by"><em>玩机宝典</em><span>2013-07-17 12:28</span></div><div class="para-con">玩机宝典玩机宝典玩机宝典玩机宝典玩机宝典玩机宝典~~推荐！</div></div></div><div
+ class="comitem"><!--<div class="comitem-pic"><img src="images/portrait.png" alt="这里是人物昵称"></div>--><div class="comitem-para"><div class="para-by"><em>大海啊全都是水</em><span>2013-07-17 12:28</span></div><div class="para-con">跑跑卡丁车的界面操作等与PC版类似，最让人惊讶的是赛车的操控性和反应度都十分灵敏。对新手，跑跑卡丁车会比其他手机赛车游戏更难以控制和把握。</div></div></div><div
+ class="comitem"><!--<div class="comitem-pic"><img src="images/portrait.png" alt="这里是人物昵称"></div>--><div class="comitem-para"><div class="para-by"><em>热带小水果</em><span>2013-07-17 12:28</span></div><div class="para-con">不馈是TOP10，都是很棒的游戏，火线追击好爽啊~~推荐！</div></div></div><div
+ class="comitem"><!--<div class="comitem-pic"><img src="images/portrait.png" alt="这里是人物昵称"></div>--><div class="comitem-para"><div class="para-by"><em>热带小水果</em><span>2013-07-17 12:28</span></div><div class="para-con">不馈是TOP10，都是很棒的游戏，火线追击好爽啊~~推荐！</div></div></div><div
+ class="comitem"><!--<div class="comitem-pic"><img src="images/portrait.png" alt="这里是人物昵称"></div>--><div class="comitem-para"><div class="para-by"><em>愤怒的小鸟</em><span>2013-07-17 12:28</span></div><div class="para-con">愤怒的小鸟愤怒的小鸟愤怒的小鸟愤怒的小鸟愤怒的小鸟~~推荐！</div></div></div><div
+ class="comitem"><!--<div class="comitem-pic"><img src="images/portrait.png" alt="这里是人物昵称"></div>--><div class="comitem-para"><div class="para-by"><em>玩机宝典</em><span>2013-07-17 12:28</span></div><div class="para-con">玩机宝典玩机宝典玩机宝典玩机宝典玩机宝典玩机宝典~~推荐！</div></div></div><div
+ class="comitem border-btnone"><!--<div class="comitem-pic"><img src="images/portrait.png" alt="这里是人物昵称"></div>--><div class="comitem-para"><div class="para-by"><em>大海啊全都是水</em><span>2013-07-17 12:28</span></div><div class="para-con">跑跑卡丁车的界面操作等与PC版类似，最让人惊讶的是赛车的操控性和反应度都十分灵敏。对新手，跑跑卡丁车会比其他手机赛车游戏更难以控制和把握。</div></div></div></div><div
+ id="pullUp"><span class="pullUpIcon"></span><span class="pullUpLabel">上拉加载更多...</span></div></div></div><div class="fixbar"><div><div class="fixstretch"></div><a href="http://game.feiliu.com/qianghaoqi/pages/article.html" class="btn ret"><b></b></a><a href="http://game.feiliu.com/qianghaoqi/wansha.php?m=2&pid=1157&plat=ios"
+ class="btn reply"><b></b></a></div></div></div></div></body></html>
+<pre></pre>
+<br>
+对应CSS文件css.css：
+<p></p>
+<p></p>
+<div class="dp-highlighter bg_css"><div class="bar"><div class="tools"><b>[css]</b> <a href="#" class="ViewSource" title="view plain" onclick="dp.sh.Toolbar.Command('ViewSource',this);return false;">view plain</a><a href="#" class="CopyToClipboard" title="copy" onclick="dp.sh.Toolbar.Command('CopyToClipboard',this);return false;">copy</a><a href="#" class="PrintSource" title="print" onclick="dp.sh.Toolbar.Command('PrintSource',this);return false;">print</a><a href="#" class="About" title="?" onclick="dp.sh.Toolbar.Command('About',this);return false;">?</a><div style="position: absolute; left: 0px; top: 0px; width: 0px; height: 0px; z-index: 99;"><embed id="ZeroClipboardMovie_3" src="http://static.blog.csdn.net/scripts/ZeroClipboard/ZeroClipboard.swf" loop="false" menu="false" quality="best" bgcolor="#ffffff" width="0" height="0" name="ZeroClipboardMovie_3" align="middle" allowscriptaccess="always" allowfullscreen="false" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" flashvars="id=3&width=0&height=0" wmode="transparent"></div></div></div><ol start="1" class="dp-css"><li class="alt"><span><span>@charset&nbsp;</span><span class="string">"utf-8"</span><span>;&nbsp;&nbsp;</span></span></li><li class=""><span><span class="comment">/*--------------------------------------------------------------------</span>&nbsp;</span></li><li class="alt"><span><span class="comment">version:&nbsp;&nbsp;&nbsp;&nbsp;1.0</span>&nbsp;</span></li><li class=""><span><span class="comment">author:&nbsp;cupblue</span>&nbsp;</span></li><li class="alt"><span><span class="comment">last&nbsp;update:&nbsp;&nbsp;&nbsp;&nbsp;2013-07-18</span>&nbsp;</span></li><li class=""><span><span class="comment">---------------------------------------------------------------------*/</span><span>&nbsp;&nbsp;</span></span></li><li class="alt"><span><span class="comment">/*reset*/</span><span>&nbsp;&nbsp;</span></span></li><li class=""><span>html,body,div,h<span class="value">1</span><span>,h</span><span class="value">2</span><span>,h</span><span class="value">3</span><span>,h</span><span class="value">4</span><span>,h</span><span class="value">5</span><span>,h</span><span class="value">6</span><span>,p,span,em,cite,del,a,img,ul,li,ol,button,input,textarea,dl,dt,dd,table,</span><span class="value">caption</span><span>,tbody,tfoot,thead,tr,th,td{</span><span class="keyword">margin</span><span>:</span><span class="value">0</span><span>;</span><span class="keyword">padding</span><span>:</span><span class="value">0</span><span>;}&nbsp;&nbsp;</span></span></li><li class="alt"><span>table{<span class="keyword">border-collapse</span><span>:</span><span class="value">collapse</span><span>;</span><span class="keyword">border-spacing</span><span>:</span><span class="value">0</span><span>;}&nbsp;&nbsp;</span></span></li><li class=""><span>fieldset,img{<span class="keyword">border</span><span>:</span><span class="value">0</span><span>;}&nbsp;&nbsp;</span></span></li><li class="alt"><span>ol,ul{<span class="keyword">list-style</span><span>:</span><span class="value">none</span><span>;}&nbsp;&nbsp;</span></span></li><li class=""><span>body{<span class="keyword">font</span><span>:</span><span class="value">12px</span><span>/</span><span class="value">1.5</span><span>&nbsp;</span><span class="value">Arial</span><span>,</span><span class="value">Verdana</span><span>,Lucida,</span><span class="value">Helvetica</span><span>,simsun,</span><span class="value">sans-serif</span><span>;</span><span class="keyword">text-align</span><span>:</span><span class="value">left</span><span>;</span><span class="keyword">color</span><span>:</span><span class="value">#000</span><span>;}&nbsp;&nbsp;</span></span></li><li class="alt"><span>h<span class="value">1</span><span>,h</span><span class="value">2</span><span>,h</span><span class="value">3</span><span>,h</span><span class="value">4</span><span>,h</span><span class="value">5</span><span>,h</span><span class="value">6</span><span>{</span><span class="keyword">font-size</span><span>:</span><span class="value">100%</span><span>;</span><span class="keyword">font-weight</span><span>:</span><span class="value">normal</span><span>;}&nbsp;&nbsp;</span></span></li><li class=""><span>em{<span class="keyword">font-style</span><span>:</span><span class="value">normal</span><span>;}&nbsp;&nbsp;</span></span></li><li class="alt"><span>input{<span class="keyword">font-size</span><span>:</span><span class="value">12px</span><span>;&nbsp;</span><span class="keyword">color</span><span>:</span><span class="value">#000</span><span>;outer:</span><span class="value">none</span><span>;</span><span class="keyword">outline</span><span>:</span><span class="value">none</span><span>;}&nbsp;&nbsp;</span></span></li><li class=""><span>table{<span class="keyword">border-collapse</span><span>:</span><span class="value">collapse</span><span>;</span><span class="keyword">border-spacing</span><span>:</span><span class="value">0</span><span>;</span><span class="keyword">border</span><span>:</span><span class="value">0</span><span>&nbsp;</span><span class="value">none</span><span>;}&nbsp;&nbsp;</span></span></li><li class="alt"><span>a{<span class="keyword">cursor</span><span>:</span><span class="value">pointer</span><span>;</span><span class="keyword">text-decoration</span><span>:</span><span class="value">none</span><span>;</span><span class="keyword">outline</span><span>:</span><span class="value">none</span><span>;</span><span class="keyword">color</span><span>:</span><span class="value">#000</span><span>;-webkit-transition:</span><span class="value">all</span><span>&nbsp;.</span><span class="value">2</span><span>s&nbsp;linear;transition:</span><span class="value">all</span><span>&nbsp;.</span><span class="value">2</span><span>s&nbsp;linear;-moz-transition:</span><span class="value">all</span><span>&nbsp;.</span><span class="value">2</span><span>s&nbsp;linear;-ms-transition:</span><span class="value">all</span><span>&nbsp;.</span><span class="value">2</span><span>s&nbsp;linear;-o-transition:</span><span class="value">all</span><span>&nbsp;.</span><span class="value">2</span><span>s&nbsp;linear;transition:</span><span class="value">all</span><span>&nbsp;.</span><span class="value">2</span><span>s&nbsp;linear;}&nbsp;&nbsp;</span></span></li><li class=""><span>button{<span class="keyword">cursor</span><span>:</span><span class="value">pointer</span><span>;}&nbsp;&nbsp;</span></span></li><li class="alt"><span>a:hover{<span class="keyword">text-decoration</span><span>:</span><span class="value">underline</span><span>;</span><span class="keyword">color</span><span>:</span><span class="value">#000</span><span>;}&nbsp;&nbsp;</span></span></li><li class=""><span>input,&nbsp;select,&nbsp;form&nbsp;img,&nbsp;button,label,textarea{<span class="keyword">font-size</span><span>:</span><span class="value">12px</span><span>;</span><span class="keyword">vertical-align</span><span>:</span><span class="value">middle</span><span>;&nbsp;</span><span class="keyword">font-family</span><span>:</span><span class="value">Tahoma</span><span>;</span><span class="keyword">color</span><span>:</span><span class="value">#000</span><span>;}&nbsp;&nbsp;</span></span></li><li class="alt"><span><span class="comment">/*global*/</span><span>&nbsp;&nbsp;</span></span></li><li class=""><span>a.untransition{-webkit-transition:<span class="value">none</span><span>;transition:</span><span class="value">none</span><span>;-moz-transition:</span><span class="value">none</span><span>;-ms-transition:</span><span class="value">none</span><span>;-o-transition:</span><span class="value">none</span><span>;transition:</span><span class="value">none</span><span>}&nbsp;&nbsp;</span></span></li><li class="alt"><span>.clearfix{zoom:<span class="value">1</span><span>;}&nbsp;&nbsp;</span></span></li><li class=""><span>.clearfix:after{<span class="keyword">content</span><span>:</span><span class="string">""</span><span>;</span><span class="keyword">display</span><span>:</span><span class="value">block</span><span>;</span><span class="keyword">height</span><span>:</span><span class="value">0</span><span>;</span><span class="keyword">line-height</span><span>:</span><span class="value">0</span><span>;</span><span class="keyword">clear</span><span>:</span><span class="value">both</span><span>;</span><span class="keyword">visibility</span><span>:</span><span class="value">hidden</span><span>;}&nbsp;&nbsp;</span></span></li><li class="alt"><span><span class="comment">/*article*/</span><span>&nbsp;&nbsp;</span></span></li><li class=""><span>body{&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">font</span><span>:</span><span class="value">14px</span><span>/</span><span class="value">1.5</span><span>&nbsp;</span><span class="string">'Apple&nbsp;LiGothic&nbsp;Medium'</span><span>,</span><span class="string">'Apple&nbsp;LiSung&nbsp;Light'</span><span>,&nbsp;</span><span class="string">'Times&nbsp;New&nbsp;Roman'</span><span>,&nbsp;Times;&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">color</span><span>:&nbsp;</span><span class="value">#333</span><span>;&nbsp;&nbsp;</span></span></li><li class="alt"><span>}&nbsp;&nbsp;</span></li><li class=""><span>.wrapper&nbsp;{&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">width</span><span>:</span><span class="value">100%</span><span>;&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">margin</span><span>:</span><span class="value">0</span><span>&nbsp;</span><span class="value">auto</span><span>;&nbsp;&nbsp;</span></span></li><li class="alt"><span>}&nbsp;&nbsp;</span></li><li class=""><span>.content{&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">padding</span><span>:</span><span class="value">25px</span><span>&nbsp;</span><span class="value">15px</span><span>&nbsp;</span><span class="value">10px</span><span>;&nbsp;&nbsp;</span></span></li><li class=""><span>}&nbsp;&nbsp;</span></li><li class="alt"><span>.wrapper&nbsp;.tit{&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">text-align</span><span>:</span><span class="value">center</span><span>;&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">font-weight</span><span>:</span><span class="value">900</span><span>;&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">font-size</span><span>:</span><span class="value">18px</span><span>;&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">margin</span><span>:</span><span class="value">10px</span><span>&nbsp;</span><span class="value">auto</span><span>;&nbsp;&nbsp;</span></span></li><li class=""><span>}&nbsp;&nbsp;</span></li><li class="alt"><span>.wrapper&nbsp;.subtit{&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">color</span><span>:</span><span class="value">#787878</span><span>;&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">font-size</span><span>:</span><span class="value">12px</span><span>;&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">text-align</span><span>:</span><span class="value">center</span><span>;&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">margin</span><span>:</span><span class="value">10px</span><span>&nbsp;</span><span class="value">auto</span><span>;&nbsp;&nbsp;</span></span></li><li class=""><span>}&nbsp;&nbsp;</span></li><li class="alt"><span>.wrapper&nbsp;.subtit&nbsp;span{&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">margin-right</span><span>:</span><span class="value">10px</span><span>;&nbsp;&nbsp;</span></span></li><li class="alt"><span>}&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;</span></li><li class="alt"><span>.wrapper&nbsp;p{&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">padding</span><span>:</span><span class="value">5px</span><span>&nbsp;</span><span class="value">0</span><span>;&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">text-indent</span><span>:</span><span class="value">2em</span><span>;&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">color</span><span>:</span><span class="value">#333</span><span>;&nbsp;&nbsp;</span></span></li><li class="alt"><span>}&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;</span></li><li class="alt"><span>.wrapper&nbsp;p.img{&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">text-align</span><span>:</span><span class="value">center</span><span>;&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">margin</span><span>:</span><span class="value">0</span><span>&nbsp;</span><span class="value">auto</span><span>;&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">text-indent</span><span>:</span><span class="value">0</span><span>;&nbsp;&nbsp;</span></span></li><li class="alt"><span>}&nbsp;&nbsp;</span></li><li class=""><span>.wrapper&nbsp;.img&nbsp;img{&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">width</span><span>:</span><span class="value">240px</span><span>;&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">height</span><span>:</span><span class="value">160px</span><span>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span></li><li class="alt"><span>}&nbsp;&nbsp;</span></li><li class=""><span>.content&nbsp;.inner{&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">overflow</span><span>:</span><span class="value">hidden</span><span>;&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">height</span><span>:</span><span class="value">480px</span><span>;&nbsp;&nbsp;</span></span></li><li class="alt"><span>}&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;</span></li><li class="alt"><span>.content&nbsp;.card{&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">background</span><span>:</span><span class="value">#f3f3f3</span><span>;&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">position</span><span>:</span><span class="value">relative</span><span>;&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">padding</span><span>:</span><span class="value">10px</span><span>&nbsp;</span><span class="value">0</span><span>;&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">margin</span><span>:</span><span class="value">5px</span><span>&nbsp;</span><span class="value">auto</span><span>;&nbsp;&nbsp;</span></span></li><li class=""><span>}&nbsp;&nbsp;</span></li><li class="alt"><span>.content&nbsp;.card&nbsp;.moreabout{&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">position</span><span>:</span><span class="value">absolute</span><span>;&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;left:<span class="value">0</span><span>;&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;top:<span class="value">0</span><span>;&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;right:<span class="value">0</span><span>;&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;bottom:<span class="value">0</span><span>;&nbsp;&nbsp;</span></span></li><li class="alt"><span>}&nbsp;&nbsp;</span></li><li class=""><span>.content&nbsp;.flag{&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">position</span><span>:</span><span class="value">absolute</span><span>;&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;top:<span class="value">-8px</span><span>;&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;left:<span class="value">5px</span><span>;&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">background</span><span>:</span><span class="value">url</span><span>(</span><span class="string">"../images/clip.png"</span><span>)&nbsp;</span><span class="value">no-repeat</span><span>&nbsp;</span><span class="value">scroll</span><span>&nbsp;</span><span class="value">0&nbsp;0</span><span>&nbsp;</span><span class="value">transparent</span><span>;&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">width</span><span>:</span><span class="value">17px</span><span>;&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">height</span><span>:</span><span class="value">19px</span><span>;&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;background-<span class="keyword">size</span><span>:&nbsp;</span><span class="value">17px</span><span>&nbsp;</span><span class="value">19px</span><span>;&nbsp;&nbsp;</span></span></li><li class=""><span>}&nbsp;&nbsp;</span></li><li class="alt"><span>.content&nbsp;.<span class="value">icon</span><span>{&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">position</span><span>:</span><span class="value">absolute</span><span>;&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;top:<span class="value">10px</span><span>;&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;left:<span class="value">20px</span><span>;&nbsp;&nbsp;</span></span></li><li class="alt"><span>}&nbsp;&nbsp;</span></li><li class=""><span>.content&nbsp;.<span class="value">icon</span><span>,.content&nbsp;.</span><span class="value">icon</span><span>&nbsp;img{&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">width</span><span>:</span><span class="value">72px</span><span>;&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">height</span><span>:</span><span class="value">72px</span><span>;&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">overflow</span><span>:</span><span class="value">hidden</span><span>;&nbsp;&nbsp;</span></span></li><li class=""><span>}&nbsp;&nbsp;</span></li><li class="alt"><span>.content&nbsp;.info{&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">padding-left</span><span>:</span><span class="value">100px</span><span>;&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">min-height</span><span>:</span><span class="value">72px</span><span>;&nbsp;&nbsp;</span></span></li><li class=""><span>}&nbsp;&nbsp;</span></li><li class="alt"><span>.info&nbsp;.card-tit{&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">color</span><span>:</span><span class="value">#333</span><span>;&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">padding</span><span>:</span><span class="value">5px</span><span>&nbsp;</span><span class="value">0</span><span>;&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">font-size</span><span>:</span><span class="value">15px</span><span>;&nbsp;&nbsp;</span></span></li><li class="alt"><span>}&nbsp;&nbsp;</span></li><li class=""><span>.info&nbsp;.card-detail{&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">color</span><span>:</span><span class="value">#666</span><span>;&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">line-height</span><span>:</span><span class="value">1.5</span><span>;&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">padding-right</span><span>:</span><span class="value">5px</span><span>;&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">font-size</span><span>:</span><span class="value">12px</span><span>;&nbsp;&nbsp;</span></span></li><li class="alt"><span>}&nbsp;&nbsp;</span></li><li class=""><span>.info&nbsp;.card-detail&nbsp;span{&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">margin-right</span><span>:</span><span class="value">10px</span><span>;&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;word-wrap:break-word;&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;word-break:break-<span class="value">all</span><span>;&nbsp;&nbsp;</span></span></li><li class=""><span>}&nbsp;&nbsp;</span></li><li class="alt"><span>.content&nbsp;.toggle{&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">color</span><span>:</span><span class="value">#999</span><span>;&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">text-align</span><span>:</span><span class="value">center</span><span>;&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">width</span><span>:</span><span class="value">100%</span><span>;&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">margin</span><span>:</span><span class="value">10px</span><span>&nbsp;</span><span class="value">auto</span><span>;&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">font-size</span><span>:</span><span class="value">12px</span><span>;&nbsp;&nbsp;</span></span></li><li class="alt"><span>}&nbsp;&nbsp;</span></li><li class=""><span>.toggle&nbsp;i{&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">width</span><span>:</span><span class="value">20%</span><span>;&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">border-top</span><span>:</span><span class="value">1px</span><span>&nbsp;</span><span class="value">solid</span><span>&nbsp;</span><span class="value">#e4e4e4</span><span>;&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">display</span><span>:inline-</span><span class="value">block</span><span>;&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">margin</span><span>:</span><span class="value">0&nbsp;15px</span><span>&nbsp;;&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">vertical-align</span><span>:</span><span class="value">middle</span><span>;&nbsp;&nbsp;</span></span></li><li class=""><span>}&nbsp;&nbsp;</span></li><li class="alt"><span>.comment{&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">margin-bottom</span><span>:</span><span class="value">10px</span><span>;&nbsp;&nbsp;</span></span></li><li class="alt"><span>}&nbsp;&nbsp;</span></li><li class=""><span>.comment&nbsp;.combar{&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">height</span><span>:</span><span class="value">25px</span><span>;&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">line-height</span><span>:</span><span class="value">25px</span><span>;&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">border-bottom</span><span>:</span><span class="value">2px</span><span>&nbsp;</span><span class="value">solid</span><span>&nbsp;</span><span class="value">#efefef</span><span>;&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">position</span><span>:</span><span class="value">absolute</span><span>;&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;left:<span class="value">0</span><span>;&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;top:<span class="value">0</span><span>;&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">width</span><span>:</span><span class="value">100%</span><span>;&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">z-index</span><span>:</span><span class="value">2</span><span>;&nbsp;&nbsp;</span></span></li><li class="alt"><span>}&nbsp;&nbsp;</span></li><li class=""><span>.combar&nbsp;span,&nbsp;.combar&nbsp;a{&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">font-weight</span><span>:</span><span class="value">900</span><span>;&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">letter-spacing</span><span>:</span><span class="value">1px</span><span>;&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">font-size</span><span>:</span><span class="value">13px</span><span>;&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">padding</span><span>:</span><span class="value">0&nbsp;5px</span><span>;&nbsp;&nbsp;</span></span></li><li class="alt"><span>}&nbsp;&nbsp;</span></li><li class=""><span>.combar&nbsp;.combar-tit{&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">position</span><span>:</span><span class="value">absolute</span><span>;&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;left:<span class="value">15px</span><span>;&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">color</span><span>:</span><span class="value">#333</span><span>;&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">border-bottom</span><span>:</span><span class="value">2px</span><span>&nbsp;</span><span class="value">solid</span><span>&nbsp;</span><span class="value">#ce0000</span><span>;&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">outline</span><span>:</span><span class="value">none</span><span>;&nbsp;&nbsp;</span></span></li><li class=""><span>}&nbsp;&nbsp;</span></li><li class="alt"><span>.combar&nbsp;.combar-togg{&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">position</span><span>:</span><span class="value">absolute</span><span>;&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;right:<span class="value">0</span><span>;&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">/*background:#ce0000;</span>&nbsp;</span></li><li class="alt"><span><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;padding:0&nbsp;30px;*/</span><span>&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">background</span><span>:</span><span class="value">url</span><span>(</span><span class="string">"../images/tog.png"</span><span>)&nbsp;</span><span class="value">no-repeat</span><span>&nbsp;</span><span class="value">scroll</span><span>&nbsp;</span><span class="value">0&nbsp;0</span><span>&nbsp;</span><span class="value">transparent</span><span>;&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">height</span><span>:</span><span class="value">25px</span><span>;&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">width</span><span>:</span><span class="value">76px</span><span>;&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;background-<span class="keyword">size</span><span>:</span><span class="value">76px</span><span>&nbsp;</span><span class="value">25px</span><span>;&nbsp;&nbsp;</span></span></li><li class=""><span>}&nbsp;&nbsp;</span></li><li class="alt"><span>.combar&nbsp;.combar-goto{&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">position</span><span>:</span><span class="value">absolute</span><span>;&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;right:<span class="value">0</span><span>;&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">background</span><span>:</span><span class="value">#ce0000</span><span>;&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">padding</span><span>:</span><span class="value">0&nbsp;15px</span><span>;&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">height</span><span>:</span><span class="value">25px</span><span>;&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">line-height</span><span>:</span><span class="value">25px</span><span>;&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">color</span><span>:</span><span class="value">#fff</span><span>;&nbsp;&nbsp;</span></span></li><li class="alt"><span>}&nbsp;&nbsp;</span></li><li class=""><span>.combar-togg&nbsp;>&nbsp;*{&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">display</span><span>:inline-</span><span class="value">block</span><span>;&nbsp;&nbsp;</span></span></li><li class=""><span>}&nbsp;&nbsp;</span></li><li class="alt"><span>.combar-togg&nbsp;span{&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">color</span><span>:</span><span class="value">#fff</span><span>;&nbsp;&nbsp;&nbsp;</span></span></li><li class="alt"><span>}&nbsp;&nbsp;</span></li><li class=""><span>.combar-togg&nbsp;b{&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">width</span><span>:</span><span class="value">23px</span><span>;&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">height</span><span>:</span><span class="value">23px</span><span>;&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">background</span><span>:</span><span class="value">url</span><span>(</span><span class="string">"../images/bg.png"</span><span>)&nbsp;</span><span class="value">no-repeat</span><span>&nbsp;</span><span class="value">scroll</span><span>&nbsp;</span><span class="value">-5px</span><span>&nbsp;</span><span class="value">-58px</span><span>&nbsp;</span><span class="value">transparent</span><span>;&nbsp;&nbsp;</span></span></li><li class=""><span>}&nbsp;&nbsp;</span></li><li class="alt"><span>.combar-togg&nbsp;i{&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">width</span><span>:</span><span class="value">14px</span><span>;&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">height</span><span>:</span><span class="value">14px</span><span>;&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">background</span><span>:</span><span class="value">url</span><span>(</span><span class="string">"../images/bg.png"</span><span>)&nbsp;</span><span class="value">no-repeat</span><span>&nbsp;</span><span class="value">scroll</span><span>&nbsp;</span><span class="value">-5px</span><span>&nbsp;</span><span class="value">-102px</span><span>&nbsp;</span><span class="value">transparent</span><span>;&nbsp;&nbsp;</span></span></li><li class="alt"><span>}&nbsp;&nbsp;</span></li><li class=""><span>.comlist{&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">margin</span><span>:</span><span class="value">5px</span><span>&nbsp;</span><span class="value">auto</span><span>;&nbsp;&nbsp;</span></span></li><li class=""><span>}&nbsp;&nbsp;</span></li><li class="alt"><span>.comitem{&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">position</span><span>:</span><span class="value">relative</span><span>;&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;//<span class="keyword">float</span><span>:</span><span class="value">left</span><span>;&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;//<span class="keyword">width</span><span>:</span><span class="value">100%</span><span>;&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">border-bottom</span><span>:</span><span class="value">1px</span><span>&nbsp;</span><span class="value">solid</span><span>&nbsp;</span><span class="value">#eee</span><span>;&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">min-height</span><span>:</span><span class="value">40px</span><span>;&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">padding</span><span>:</span><span class="value">5px</span><span>&nbsp;</span><span class="value">10px</span><span>;&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;//<span class="keyword">background-color</span><span>:</span><span class="value">#FAFAFA</span><span>;&nbsp;&nbsp;</span></span></li><li class="alt"><span>}&nbsp;&nbsp;</span></li><li class=""><span>.comitem&nbsp;.comitem-pic{&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">width</span><span>:</span><span class="value">40px</span><span>;&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">height</span><span>:</span><span class="value">40px</span><span>;&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">margin</span><span>:</span><span class="value">5px</span><span>&nbsp;</span><span class="value">10px</span><span>&nbsp;</span><span class="value">5px</span><span>&nbsp;</span><span class="value">0px</span><span>;&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">overflow</span><span>:</span><span class="value">hidden</span><span>;&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">float</span><span>:</span><span class="value">left</span><span>;&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">display</span><span>:inline-</span><span class="value">block</span><span>;&nbsp;&nbsp;</span></span></li><li class="alt"><span>}&nbsp;&nbsp;</span></li><li class=""><span>.comitem-pic&nbsp;img{&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">width</span><span>:</span><span class="value">40px</span><span>;&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">height</span><span>:</span><span class="value">40px</span><span>;&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></li><li class=""><span>}&nbsp;&nbsp;</span></li><li class="alt"><span>.comitem&nbsp;.comitem-para{&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">display</span><span>:inline-</span><span class="value">block</span><span>;&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">/*width:78%;*/</span><span>&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">width</span><span>:</span><span class="value">100%</span><span>;&nbsp;&nbsp;</span></span></li><li class="alt"><span>}&nbsp;&nbsp;</span></li><li class=""><span>.comitem&nbsp;.para-by{&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">color</span><span>:</span><span class="value">#999</span><span>;&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">font-size</span><span>:</span><span class="value">12px</span><span>;&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">padding</span><span>:</span><span class="value">2px</span><span>&nbsp;</span><span class="value">0</span><span>;&nbsp;&nbsp;</span></span></li><li class=""><span>}&nbsp;&nbsp;</span></li><li class="alt"><span>.comitem&nbsp;.para-by&nbsp;em{&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">margin-right</span><span>:</span><span class="value">20px</span><span>;&nbsp;&nbsp;</span></span></li><li class="alt"><span>}&nbsp;&nbsp;</span></li><li class=""><span>.comitem&nbsp;.para-con{&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">color</span><span>:</span><span class="value">#444</span><span>;&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">font-size</span><span>:</span><span class="value">14px</span><span>;&nbsp;&nbsp;</span></span></li><li class="alt"><span>}&nbsp;&nbsp;</span></li><li class=""><span>.border-btnone{&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">border-bottom</span><span>:</span><span class="value">0</span><span>;&nbsp;&nbsp;</span></span></li><li class=""><span>}&nbsp;&nbsp;</span></li><li class="alt"><span>.fixbar{&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">position</span><span>:</span><span class="value">absolute</span><span>;&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;bottom:<span class="value">0</span><span>;&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;left:<span class="value">0</span><span>;&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">height</span><span>:</span><span class="value">50px</span><span>;&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">width</span><span>:</span><span class="value">100%</span><span>;&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">z-index</span><span>:</span><span class="value">2</span><span>;&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;</span></li><li class="alt"><span>}&nbsp;&nbsp;</span></li><li class=""><span>.fixbar&nbsp;>&nbsp;div{&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">padding</span><span>:</span><span class="value">0&nbsp;10px</span><span>;&nbsp;&nbsp;</span></span></li><li class=""><span>}&nbsp;&nbsp;</span></li><li class="alt"><span>.fixbar&nbsp;.fixstretch{&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">position</span><span>:</span><span class="value">absolute</span><span>;&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;left:<span class="value">0</span><span>;&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;right:<span class="value">0</span><span>;&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;top:<span class="value">0</span><span>;&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;bottom:<span class="value">0</span><span>;&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">background-image</span><span>:-moz-linear-gradient(</span><span class="value">center</span><span>&nbsp;</span><span class="value">top</span><span>&nbsp;,&nbsp;</span><span class="value">#fff</span><span>,&nbsp;</span><span class="value">#343434</span><span>);&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">background-image</span><span>:-webkit-gradient(linear,</span><span class="value">left</span><span>&nbsp;</span><span class="value">top</span><span>,</span><span class="value">left</span><span>&nbsp;</span><span class="value">bottom</span><span>,color-stop(</span><span class="value">0</span><span>,</span><span class="value">#fff</span><span>),color-stop(</span><span class="value">1</span><span>,</span><span class="value">#343434</span><span>));&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">background-image</span><span>:-o-linear-gradient(</span><span class="value">top</span><span>,&nbsp;</span><span class="value">#fff</span><span>,&nbsp;</span><span class="value">#343434</span><span>);&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;opacity:<span class="value">0.3</span><span>;&nbsp;&nbsp;</span></span></li><li class=""><span>}&nbsp;&nbsp;</span></li><li class="alt"><span>.fixbar&nbsp;a{&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">display</span><span>:</span><span class="value">block</span><span>;&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">width</span><span>:</span><span class="value">40px</span><span>;&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">height</span><span>:</span><span class="value">40px</span><span>;&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">background-color</span><span>:</span><span class="value">#7f7f7f</span><span>;&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;border-radius:<span class="value">25px</span><span>;&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">position</span><span>:</span><span class="value">absolute</span><span>;&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;top:<span class="value">0</span><span>;&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">cursor</span><span>:</span><span class="value">pointer</span><span>;&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">outline</span><span>:</span><span class="value">none</span><span>;&nbsp;&nbsp;</span></span></li><li class="alt"><span>}&nbsp;&nbsp;</span></li><li class=""><span>.fixbar&nbsp;a&nbsp;b{&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">display</span><span>:</span><span class="value">block</span><span>;&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">width</span><span>:</span><span class="value">40px</span><span>;&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">height</span><span>:</span><span class="value">40px</span><span>;&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;</span></li><li class="alt"><span>}&nbsp;&nbsp;</span></li><li class=""><span>.fixbar&nbsp;a.ret{&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;left:<span class="value">15px</span><span>;&nbsp;&nbsp;</span></span></li><li class=""><span>}&nbsp;&nbsp;</span></li><li class="alt"><span>.fixbar&nbsp;a.reply{&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;right:<span class="value">30px</span><span>;&nbsp;&nbsp;</span></span></li><li class="alt"><span>}&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;</span></li><li class="alt"><span>.fixbar&nbsp;a.ret&nbsp;b{&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">background</span><span>:</span><span class="value">url</span><span>(</span><span class="string">"../images/back.png"</span><span>)&nbsp;</span><span class="value">no-repeat</span><span>&nbsp;</span><span class="value">scroll</span><span>&nbsp;</span><span class="value">center</span><span>&nbsp;</span><span class="value">center</span><span>&nbsp;</span><span class="value">transparent</span><span>;&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;background-<span class="keyword">size</span><span>:</span><span class="value">16px</span><span>&nbsp;</span><span class="value">16px</span><span>;&nbsp;&nbsp;</span></span></li><li class=""><span>}&nbsp;&nbsp;</span></li><li class="alt"><span>.fixbar&nbsp;a.reply&nbsp;b{&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">background</span><span>:</span><span class="value">url</span><span>(</span><span class="string">"../images/edit.png"</span><span>)&nbsp;</span><span class="value">no-repeat</span><span>&nbsp;</span><span class="value">scroll</span><span>&nbsp;</span><span class="value">center</span><span>&nbsp;</span><span class="value">center</span><span>&nbsp;</span><span class="value">transparent</span><span>;&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;background-<span class="keyword">size</span><span>:</span><span class="value">16px</span><span>&nbsp;</span><span class="value">16px</span><span>;&nbsp;&nbsp;</span></span></li><li class=""><span>}&nbsp;&nbsp;</span></li></ol></div><pre name="code" class="css" style="display: none;">@charset "utf-8";
+/*--------------------------------------------------------------------
+version:	1.0
+author:	cupblue
+last update:	2013-07-18
+---------------------------------------------------------------------*/
+
+
+</pre><br>
+<br>
+<p></p>
+    
+        <div style="padding-top:20px">         
+            <p style="font-size:12px;">版权声明：本文为博主原创文章，未经博主允许不得转载。</p>
+        </div>

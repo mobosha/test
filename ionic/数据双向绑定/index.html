@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="../js/ionic.bundle.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="data.js" type="text/javascript" charset="utf-8"></script>
+		<link rel="stylesheet" type="text/css" href="../css/ionic.min.css"/>
+	</head>
+	<body ng-controller="searchscanCtrl">
+		<table border="1" cellspacing="" cellpadding="">
+			<tr><th>Header</th><th>footer</th></tr>
+			<tr ng-repeat="data in datas">
+				<td ng-bind="data.name">Data</td><td ng-show="{{data.sex}}== 1 || {{data.sex}}== 3 ">Data</td>
+			</tr>
+		</table>
+		<button onclick="ss();">sdf  hsdhfskfhskdf</button>
+	</body>
+</html>

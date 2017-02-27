@@ -1,0 +1,14 @@
+template.helper('data', function (value) {
+	var now = "";
+	var now = new Date(value).getFullYear()+"-";
+	var now = now + (parseInt(new Date(value).getMonth())+1) +"-";
+	var now = now + new Date(value).getDate();	
+	return now;
+});
+
+
+
+
+
+
+<span class="data">{{data(v.add_time)}}</span>

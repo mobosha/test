@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<script>
+tit = '疑症筛查记录';
+setTimeout(function(){
+	//alert('cc');
+	if(order_type == 'screening' || tit.indexOf('疑症筛查') != -1){
+		alert('aa');
+	}
+	else{
+		alert('bb');
+	}
+ var backurl = (order_type == 'screening'|| tit.indexOf('疑症筛查') != -1) ? '<?php echo $this->createUrl('screening/uploads')?>?orders_id='+order_id : '<?php echo $this->createUrl('index')?>';
+   href(backurl);
+}, 100);
+</script>
+</head>
+
+<body>
+sfmsldfjsflj
+</body>
+</html>

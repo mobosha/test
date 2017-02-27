@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<script src="http://libs.baidu.com/jquery/1.10.2/jquery.min.js">
+</script>
+<script>
+$(document).ready(function(){
+  $("#get_first_form_username").click(function(){
+	alert($("[name=username]",$("#form1")[0]).val());//这里的$("#form1")[0]是将jQuery对象转换成了DOM对象了
+	});
+	$("#get_second_form_username").click(function(){
+	alert($("[name=username]",$("#form2")[0]).val());//这里的$("#form2")[0]是将jQuery对象转换成了DOM对象了
+	});
+	
+	$("#test1").click(function(){
+	alert($("[name=username]",$("#form1")[0]).selector);
+	});
+	
+	$("#test2").click(function(){
+	alert($("[name=username]",$("#form1")[0]).context);//Form object
+	alert($("[name=username]",$("#form1")[0]).context.nodeName);//FORM
+	});
+	
+	$("#test3").click(function(){
+	alert($("[name=username]",$("#form1")).context);//document
+	alert($("[name=username]",$("#form1")).context.nodeName);//#document
+	});
+
+});
+</script>
+</head>
+
+<body>
+<form id="form1">
+<input type="text" name="username" value="我是一个form中的用户名" />
+<input type="text" name="email" value="sky64566@gmail.com"/>
+</form>
+
+<form id="form2">
+<input type="text" name="username" value="我是二个form中的用户名" />
+<input type="text" name="email" value="sky64566@gmail.com"/>
+</form>
+
+
+<input type="button" id="get_first_form_username" value="按钮1">
+<input type="button" id="get_second_form_username" value="按钮2">
+<input type="button" id="test1" value="按钮3">
+<input type="button" id="test2" value="按钮4">
+<input type="button" id="test3" value="按钮5">
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html ng-app="ionicApp">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="http://apps.bdimg.com/libs/angular.js/1.4.6/angular.min.js"></script>
+		<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+		<script type="text/javascript">
+		/*二维码回掉方法 start*/
+		 function scanCallback(data){
+		 		scandata = data;
+		    document.getElementById("scanval").value = data;
+		}
+		/*二维码回掉方法 end*/
+		
+		var eleapp = angular.module('ionicApp', ['ionic']);
+		eleapp.controller('searchscanCtrl',function($scope,$rootScope,$location,$window,$http,$interval){
+			
+			
+			 var watch = $scope.$watch('scanval',function(newValue,oldValue, scope){
+
+		        console.log(newValue);
+						alert("ss1122");
+						alert(newValue);
+						alert(oldValue);
+		        console.log(oldValue);
+		
+			});
+			
+			
+			
+			
+		});
+	
+	
+		</script>
+	</head>
+	<body ng-controller="searchscanCtrl">
+		<div class="col s-pos-r">
+			<a onclick="scanCallback("ele-sign-397")"><img src="../../static/webapp/images/index/icon_scanl.png" class="s-scan" /></a>
+			<input type="hidden" name="" id="scanval" value="" ng-model="scanval" />
+		</div>
+	</body>
+</html>

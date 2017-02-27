@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html ng-app="ionicApp">
+	<head>
+		<title>章节详情</title>
+		<meta charset="UTF-8"> 
+		<meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1.0, user-scalable=no, width=device-width">
+	    <meta name="apple-mobile-web-app-capable" content="yes" />
+	    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	    <link rel="stylesheet" href="../../static/ionic/css/ionic.css" />
+	    <link rel="stylesheet" href="../../static/webapp/css/common.css"/>	    
+	    <link rel="stylesheet" href="../../static/webapp/css/task.css"/>	
+	  
+	    <script src="../../static/ionic/js/ionic.bundle.js" type="text/javascript" charset="utf-8"></script>
+	    <script src="../../static/webapp/js/common.js" type="text/javascript" charset="utf-8"></script>
+	    
+
+ <style>
+        #wrapper, .wrapper {
+            position: absolute;
+            z-index: 1;
+            top: 3.0937em;
+            bottom: 3.6875em;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+        }
+        div {
+            outline: 0 !important;
+            -webkit-text-size-adjust: none;
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+            position: relative;
+        }
+        /** {
+            margin: 0;
+            padding: 0;
+            font-family: "微软雅黑";
+        }
+        * {
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+            outline: none;
+        }*/
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        #header, header {
+            position: fixed;
+            z-index: 2;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3.0937em;
+            background-color: #df2128;
+            padding: 0;
+            color: #fff;
+            text-align: center;
+        }
+        header h1.titleName {
+            width: 86%;
+            padding: 0 2em 0 3em;
+        }
+        .overflowstyle {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        header h1 {
+            color: #ffffff;
+            font-family: "黑体";
+        }
+        #header h1, header h1 {
+            font-size: 1em;
+            color: #444;
+            overflow: hidden;
+            font-weight: 100;
+        }
+        #absolute {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            left: 0;
+            top: 0;
+        }
+        .ub {
+            display: -webkit-box !important;
+            display: box !important;
+            position: relative;
+        }
+        #page, #page-window {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            display: -webkit-box;
+            display: -moz-box;
+            display: -o-box;
+            display: box;
+            -webkit-box-orient: horizontal;
+            -moz-box-orient: horizontal;
+            -o-box-orient: horizontal;
+            box-orient: horizontal;
+        }
+        #page #content, #page-window .content {
+            width: 100%;
+            left: 0;
+            top: 0px;
+            position: absolute;
+            height: 100%;
+            -webkit-box-flex: 1;
+            -moz-box-flex: 1;
+            -o-box-flex: 1;
+            box-flex: 1;
+            z-index: 3;
+        }
+        #viewport {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+        #wrapper2 {
+            width: 100%;
+            height: 100%;
+            margin: 0 auto;
+        }
+        #scroller {
+            position: absolute;
+            z-index: 1;
+            -webkit-tap-highlight-color: rgba(0,0,0,0);
+
+            height: 100%;
+            -webkit-transform: translateZ(0);
+            -moz-transform: translateZ(0);
+            -ms-transform: translateZ(0);
+            -o-transform: translateZ(0);
+            transform: translateZ(0);
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            -webkit-text-size-adjust: none;
+            -moz-text-size-adjust: none;
+            -ms-text-size-adjust: none;
+            -o-text-size-adjust: none;
+            text-size-adjust: none;
+            background-color:#fff
+        }
+        .slide.border{
+
+            -webkit-box-shadow:0 0 10px #eee;
+
+        }
+
+        #scroller .slide:first-child span{
+            /*display:none;*/
+        }
+
+        .data-loading{
+            display:block;
+            width:2em;
+            height:2em;
+            background-repeat:no-repeat;
+            background-size:100% 100%;
+        }
+
+        .slide img{
+            max-width: 97%;
+            max-height: 100%;
+            vertical-align: middle;
+            -webkit-transform: scale(1) translate(0px,0px);
+            -moz-transform: scale(1) translate(0px,0px);
+            transform: scale(1) translate(0px,0px);
+            visibility: visible;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            user-select: none;
+        }
+        /* header>h1{
+            margin-left:3em;
+            margin-right: 4em;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        } */
+       
+       .s-header-gray h1{
+       	margin: .5em auto;
+       	text-align: center;
+       	
+       }
+       .s-header-gray .progress{
+       	text-align: right;
+       }
+    </style>
+    
+    
+    <style type="text/css">
+    	/*公共 提示窗口 start*/
+/*公共提示框样式*/
+@media (max-width: 768px) {
+	#alert_info .bg {
+		padding: .95em!important;
+		width: 70%!important;
+		min-width:250px!important;
+	}
+}
+#alert_info {
+	z-index: 1999;
+	position: absolute;
+	width: 100%;
+	height: 2.6em;
+	top: 35%;
+	margin-top: -1.3em;
+	text-align: center;
+}
+#alert_info .bg {
+	margin: auto auto;
+	min-width: 8em;
+	width: 45%;
+	max-width:600px!important;
+	border-radius: 0.5em;
+	background: rgba(45,45,45,.7);
+	padding: 1.7em;
+	color: #000;
+	font-size: 1em;
+	border: 1px solid #bbb;
+	box-shadow:4px 6px 12px rgba(0,0,0,.3);
+}
+/*公共 提示窗口 end*/
+
+
+/*模块底部分界线*/
+.s-boundary{
+	height: .176em;
+	border: 1px solid #dedede;
+	border-left: none;
+	border-right: none;
+	background-color: #f7f7f7;
+}
+    </style>
+
+</head>
+<body ng-controller="pdfplayCtrl">
+	<div class="absolute" class="ub x0 animate" style="width: 100%; height: 100%; position: absolute;">
+		
+    <div id="page">
+        <div id="content">
+            
+            <ion-header-bar align-title="center" class="s-header-gray bar bar-header">
+			    <div class="buttons" style="width: 10%;">
+			        <button class="button button-block s-goback s-bl" onclick="goback();"></button>
+			    </div>
+			    <h1 class="titleName" style="width: 60%;" ng-bind="pdfcontents.sectionName| cut:true:10:' ...'"></h1>
+			    
+			    <div class="progress" style="position:absolute; top:0; right:.5em; width: 20%; line-height:3.0937em;"></div>
+			</ion-header-bar>
+            <div id="wrapper" style="top:3em; bottom:0 ">
+                <div id="viewport">
+                    <div id="wrapper2">
+                        <div id="scroller" class="ub">
+                        
+                        
+	                        <div class="slide ub-f1 ub ub-pc tx-middle ub-ver" style="overflow:hidden;text-align: center;" id="slide-{{$index}}" ng-repeat="image in arrimgs">
+		                        <img class="ub-f1" data-original="{{image}}" src="" ratio="1">
+		                        <span class="data-loading uhide"></span>
+	                        </div>
+	                        
+                        </div>
+                    </div>
+                </div>
+                <div id="indicator">
+                    <div id="dotty"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+	
+	</div>
+	<!--<div id="alert_info" style="top: 609px; opacity: 1;"><div class="alert_ub ub-pc ub"><div class="bg">woxihuan</div></div></div>-->
+	<button style=" position: absolute; z-index: 1000; bottom: 1em;" onclick="Xalert('woxihuan',800,30)">弹框弹框弹框弹框弹框</button>
+	<!--<button style=" position: absolute; z-index: 1000; bottom: 1em;" onclick="Xalert('close',800,30)">弹框弹框弹框弹框弹框</button>-->
+	
+</body>
+</html>
+
+
+<script type="text/javascript">
+//底层共用
+var iBase = {
+    Id: function(name){
+        return document.getElementById(name);
+    },
+	//设置元素透明度,透明度值按IE规则计,即0~100
+    SetOpacity: function(ev, v){
+        ev.filters ? ev.style.filter = 'alpha(opacity=' + v + ')' : ev.style.opacity = v / 100;
+    }
+}
+//淡出效果(含淡出到指定透明度)
+function fadeOut(elem, speed, opacity,fn){
+	/*
+	 * 参数说明
+	 * elem==>需要淡入的元素
+	 * speed==>淡入速度,正整数(可选)
+	 * opacity==>淡入到指定的透明度,0~100(可选)
+	 */
+    speed = speed || 20;
+    opacity = opacity || 0;
+    //初始化透明度变化值为0
+    var val = 100;
+	//循环将透明值以5递减,即淡出效果
+    (function(){
+        iBase.SetOpacity(elem, val);
+        val -= 5;
+        if (val >= opacity) {
+            setTimeout(arguments.callee, speed);
+        }else if (val < 0) {
+			//元素透明度为0后隐藏元素
+            elem.style.display = 'none';
+           	fn && fn();
+        }
+    })();
+}
+
+function alert_info(t, time, time2) {
+	var isscroll = document.body.clientHeight - window.innerHeight;
+	var topstyle = isscroll ? document.body.clientHeight/2 + window.innerHeight/2 : ''
+	var b = document.createElement('div');
+	b.setAttribute('id','alert_info');
+	b.style.top = topstyle + 'px';
+	var d = '<div class="alert_ub ub-pc ub"><div class=bg>' + t + '</div></div>';
+	b.innerHTML = d;
+	document.getElementsByTagName('body')[0].appendChild(b);
+	
+	var c = document.getElementById('alert_info');
+    if (time && c) {
+       	speed = time2 ? time2 : 1000;
+        setTimeout(function() {
+			fadeOut(c, speed, 0 ,function(){
+				document.getElementsByTagName('body')[0].removeChild(c);
+			})           
+        },
+        time);
+
+    }
+}
+
+function Xalert(str, time,time2) {
+    if (str == 'close') {
+        /*$('#alert_info').remove();*/
+       var c = document.getElementById('alert_info');
+       document.getElementsByTagName('body')[0].removeChild(c);
+    } else {
+        alert_info(str, time,time2);
+    }
+}
+</script>
+
+
+
+
+

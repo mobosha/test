@@ -1,0 +1,24 @@
+<html ng-app="ionicApp">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+        <title>菜鸟教程(runoob.com)</title>
+        <link href="http://www.runoob.com/static/ionic/css/ionic.min.css" rel="stylesheet">
+        <script src="http://www.runoob.com/static/ionic/js/ionic.bundle.min.js"></script>
+        <script type="text/javascript">
+        angular.module('ionicApp', ['ionic']);
+        </script>
+        <style type="text/css">
+        body {
+          cursor: url('http://www.runoob.com/try/demo_source/finger.png'), auto;
+        }
+        </style>
+    </head>
+    <body>
+    <ion-view title="Home" hide-nav-bar="true">
+      <ion-scroll zooming="true" direction="xy" scrollbar-x="true" style="width: 500px; height: 500px">
+        <div style="width: 5000px; height: 5000px; background: url('http://www.runoob.com/try/demo_source/Europe_geological_map-en.jpg') repeat"></div>
+      </ion-scroll>
+    </ion-view>
+    </body>
+</html>

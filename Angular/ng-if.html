@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+	<head>
+		<meta charset="UTF-8">
+		<title>$index,$odd,$even</title>
+		<script src="http://apps.bdimg.com/libs/angular.js/1.4.6/angular.min.js"></script>
+	</head>
+	<body onbeforeunload="checkLeave()" ng-controller="customersCtrl"> 
+		<div  >
+			<table>
+				<tr ng-repeat="x in names">
+					<td ng-if="$odd" style="background-color:#f1f1f1">{{ $index + 1 }}</td>
+					<td ng-if="$even">{{ $index + 1 }}{{$even}}{{$odd}}</td>
+					<td ng-if="$odd" style="background-color:#f1f1f1">{{ x.Name }}</td>
+					<td ng-if="$even">{{ x.Name }}</td>
+					<td ng-if="$odd" style="background-color:#f1f1f1">{{ x.Country }}</td>
+					<td ng-if="$even">{{ x.Country }}</td>
+			    </tr>
+			</table>
+		</div>
+		<a onclick="goback()">baidu</a><a onclick="goback()">baidu111</a>
+		<script>
+		var app = angular.module('myApp', []);
+		app.controller('customersCtrl', function($scope, $http) {
+		    $http.get("js/Customers_JSON.php")
+		    .success(function (response) {$scope.names = response.records;});
+		});
+		</script>
+		<script>
+	　　　function checkLeave(){
+	     　　　　event.returnValue="确定离开当前页面吗？";
+	　　　}
+		var indexUrl = "http://dev.chinamobo.com/ele_h5/views/index/index.html#/footer/home";							             
+		/*页面header goback start*/
+		function goback(){
+			if (document.referrer){
+		        window.history.go(-1);
+			}else{
+				window.location.href = indexUrl;//默认进入首页
+			}
+		}
+	　　　</script>
+	</body>
+</html>

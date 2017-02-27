@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html ng-app="dialogApp">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link href="bootstrap.min.css" type="text/css" rel="stylesheet">
+		<script src="angular.min.js"></script>
+		<script src="angular-sanitize.min.js"></script>
+		<script src="angular-translate.min.js"></script>
+		<script src="angular-translate-loader-static-files.min.js"></script>
+		<script>
+			function configExtend(config, sourceConfig){
+				for (var property in sourceConfig) {
+					config[property] = sourceConfig[property];
+				}
+				return config; 	
+			}
+ 
+		</script>
+	</head>
+	<style>
+		.alert-container {
+			margin: 50px auto;
+		}
+		.dddd {
+			border: 1px solid red;
+		}
+		.display-block {
+			display: block;
+		}
+		.display-none {
+			display: none;
+		}
+	</style>
+	<body ng-controller="dialogController">
+
+		<a ng-click="showDialog()">click me show dialog</a>
+		
+		<div class="dddd" common-dialog="dialog"></div>
+		
+		<span translate="public.cancel"></span>
+		
+	<script>
+		angular.module('dialogApp',['pascalprecht.translate', 'ngSanitize'])
+		.config(['$translateProvider', function($translateProvider){
+			var lang = 'en';
+			$translateProvider.useStaticFilesLoader({
+			    prefix: 'i18n/',
+			    suffix: '.json'
+		    });
+		     
+		    $translateProvider.preferredLanguage(lang);
+		    $translateProvider.useSanitizeValueStrategy('sanitize');
+		   	// $translateProvider.fallbackLanguage(lang);
+		}])
+		
+		.factory('jsonData', ['$http', '$q', function($http, $q) {
+			var jsonDefer = $q.defer()
+    		var lang = 'en';
+    		$http.get('i18n/'+lang+'.json').success(function(data){
+    			alert(data.index.title);
+    			 jsonDefer.resolve(data); 
+    		});
+		    return jsonDefer.promise;
+		}])
+		 
+		.controller('dialogController',['$scope','$timeout', 'jsonData',  '$translate',function($scope, $timeout, jsonData, $translate){
+			 //$scope.T = t;
+			 //t.init($scope);
+			 //$translate.use('en');
+			 //jsonData.then(function(data){
+			 	 //$scope.langJsonData = data;
+			 	 //console.log($scope.langJsonData);
+			 ///});
+			 /*
+			 function jsonMacth(key,jsonData){
+			 	var keys = key.split('.'); 
+			 	var parentKey = keys[0],childKey = keys[1];
+			 	var value; 
+			 	for(var i in jsonData){
+			 		if(jsonData[parentKey]){
+			 			for(var j in jsonData[parentKey]){
+			 				if(jsonData[parentKey][childKey]){
+			 					value = jsonData[parentKey][childKey];
+			 				}
+			 				break;
+			 			}
+			 			break;
+			 		}
+			 	}
+			 	return value;
+			 }*/
+			 
+			 
+			 $scope.showDialog = function(){
+			 	$scope.dialog = {show:true,  text: 'allstate.dengdaibaoming', config:{}};
+			 }
+			  
+		}]) 
+		
+		.directive('commonDialog',['$timeout',function($timeout){
+			return {
+				restrict: 'EA',
+				templateUrl: 'dialog.html',
+				link: function (scope, element, attrs) {
+
+					var dialogConfig,defaultConfig = {
+						showSureBtn : true,
+						showCancelBtn : true,
+						closeDelayTime : 1000,
+						dialogStyle : {},
+						cancelDelayTime : false
+					};
+					
+					scope.$watch(attrs.commonDialog, function(dialog){
+						if(dialog&&dialog.config)  {
+							dialogConfig = configExtend(defaultConfig, dialog.config);
+							initDialog(dialogConfig); 
+							if(dialog.show){
+								scope.dialog.show(dialog.text);
+							}
+						}
+					})
+					 
+					scope.close = function(){
+					 	scope.dialog.close();
+					}
+					
+					function initDialog(config){
+						scope.dialog =  
+						{
+					        showDialog : false, 
+					        showSureBtn : config.showSureBtn, 
+					        showCancelBtn : config.showCancelBtn, 
+					        dialogText : null,
+					        show : function (text) 
+					        {
+					            if (text && text != "") {
+					                scope.dialog.dialogText = text ;
+					                scope.dialog.showDialog = true;
+					            }
+					        },
+					        close : function () 
+					        {
+					            if (config.cancelDelayTime) {
+					                scope.dialog.showDialog = false;
+					                scope.dialog.dialogText = null;
+					            }
+					            else
+					            {
+					                $timeout(function ()
+					                {
+                						scope.dialog.showDialog = false;
+					                    scope.dialog.dialogText = null;
+					                }, config.closeDelayTime); 
+					            }
+					        }
+					    }
+					}
+				}
+			}
+		}])
+	</script>
+	</body>
+</html>

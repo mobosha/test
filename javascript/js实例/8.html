@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<script src="js/jquery-1.10.2.min.js"></script>
+
+</head>
+
+<body>
+<div class="data-list uhide">
+<div class="order_mian">
+	<p class="c-4c4c4c padding-1 fw_b">{{list.details.title}}</p>
+    <div class="ub bg-fff border-b c-lh uinn1-1">
+    	<div class="c-666">订单时间111：</div>
+    	<div class="ub-f1 c-666 r_d_p">{{list.details.add_time}}</div>
+    </div>
+    <div class="ub bg-fff border-b c-lh uinn1-1">
+    	<div class="c-666">订单状态：</div>
+    	<div class="ub-f1 c-23B165 ddzt">{{list.details.status_txt}}</div>
+    </div>
+    <div class="ub bg-fff border-b c-lh uinn1-1">
+    	<div class="c-666">订单金额：</div>
+    	<div class="ub-f1 c-dd1a1a">{{list.details.price}}</div>
+    </div>
+    
+    <div class="ub bg-fff border-b c-lh uhid uinn1-1 tqzf">
+    	<div class="c-666 c-dd1a1a" style="color:#F00">请在{{list.expire_time}}前完成订单支付</div>
+    </div>
+</div>
+</div>
+
+<div class="data-list">
+	<div class="order_mian">
+	<p class="c-4c4c4c padding-1 fw_b">{{list.details.title}}</p>
+    <div class="ub bg-fff border-b c-lh uinn1-1">
+    	<div class="c-666">订单时间111：</div>
+    	<div class="ub-f1 c-666 r_d_p">{{list.details.add_time}}</div>
+    </div>
+    <div class="ub bg-fff border-b c-lh uinn1-1">
+    	<div class="c-666">订单状态：</div>
+    	<div class="ub-f1 c-23B165 ddzt">{{list.details.status_txt}}</div>
+    </div>
+    <div class="ub bg-fff border-b c-lh uinn1-1">
+    	<div class="c-666">订单金额：</div>
+    	<div class="ub-f1 c-dd1a1a">{{list.details.price}}</div>
+    </div>
+    
+    <div class="ub bg-fff border-b c-lh uhid uinn1-1 tqzf">
+    	<div class="c-666 c-dd1a1a" style="color:#F00">请在{{list.expire_time}}前完成订单支付</div>
+    </div>
+</div>
+</div>
+<script>
+$(function(){
+	$(".data-list:last").children(".order_mian").children("div:eq(2)").children("div:contains('订单金额')").attr("id","zzdd");
+});
+</script>
+</body>
+</html>

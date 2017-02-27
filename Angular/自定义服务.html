@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			.factory('sessionService',['$http', function($http){
+					    	var sessionService = {
+				    			 user:null,
+				    			 logined:false,
+				    			 login:function(){
+				    				 $http.get("/ele_tomrvices/sso/getUser").success(function(data){
+				    					 //登陆成功
+				    					 sessionService.setUser(data);
+				    					 sessionService.logined = true;
+				    				 }).error(function(data){
+				    					 //登陆失败
+				    				 })
+				    			 },
+				    			 logout:function(){
+				    				 $http.get("/ele_tomrvices/sso/logout").success(function(data){
+				    					 //推出成功
+				    					 sessionService.clearUser();
+				    				 }).error(function(data){
+				    					 //推出失败
+				    					 sessionService.clearUser();
+				    				 })
+				    			 },
+				    			 setUser:function(user){
+				    				 sessionService.user = user;
+				    			 },
+				    			 clearUser:function(){
+				    				 sessionService.user = null;
+				    				 sessionService.logined = false;
+				    			 }
+					    	}; 
+					    	return sessionService;
+					    }])
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			.controller('mainController', ['$scope','$http','$state', 'dialogService', 'sessionService', function ($scope, $http, $state, dialogService, sessionService) {
+	//自定义会话框
+	$scope.dialog = dialogService;
+	//登录验证
+	$scope.sessionService = sessionService;
+	$scope.sessionService.login();
+
+	}])		
+			
+
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

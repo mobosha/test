@@ -1,0 +1,89 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<script>
+window.onload=function(){
+	ss(12,4);
+	/*if(nowtime()){
+		alert(1);	
+	}*/
+	///var dd = UnixTime(2);
+	//alert(dd);
+	///var ss =a(3,7); 
+	//alert(ss);
+	
+	
+	
+	
+}
+function nowtime(nos) {
+    var date = new Date(); //日期对象
+	
+    var now = "";
+    now = date.getFullYear() + "-"; //读英文就行了
+	
+    now = now + (date.getMonth() + 1) + "-"; //取月的时候取的是当前月-1如果想取当前月+1就可以了
+    now = now + date.getDate() + " ";
+	
+    now = now + date.getHours() + ":";
+    now = now + date.getMinutes();
+	
+    if (!nos) now = now + ":" + date.getSeconds();
+	//alert(now);
+    return now;//只是保存到计算机上了，而且return 以后的下边的js 代码不再继续执行
+	
+}
+
+function UnixTime(t) {
+    var time = new Date().getTime();
+    if (t) time = Math.round(time / 1000);
+    return time //return 就是把这个值赋值给了这个函数
+}
+
+
+function a( b, c ) {
+	//var ss =b + c;
+    return b + c;   //只是保存到计算机上了，而且return 以后的下边的js 代码不再继续执行
+}
+
+
+function ss( b, c ) {
+document.write( b + c );
+}
+//var abc = ss(12,4);
+//alert(abc);
+
+</script>
+</head>
+
+<body>
+<!--专业解释-->
+
+
+return是向函数返回值，并终止函数的运行
+比如：
+function a(){
+return 10;//这个时候，函数a的值会等于10，并且函数中下面的内容不再执行
+document.write(50);//由于上面已经return了，这条代码不会执行
+}
+@@@@@@至于什么时候会用到，那看你要函数来做什么，你要他返回值就返回咯，不要他返回就不返回咯！@@@@
+比如，用函数来做一个加法运算，需要他返回值，那就这样
+function a( b, c ) {
+return b + c;
+}
+那么调用：
+var abc = a(5, 80);
+这个时候，abc这个变量的值会是85
+如果想直接输出结果，不要返回值那就
+function a( b, c ) {
+document.write( b + c );
+}
+
+这个时候调用， var abc = a(5, 80);
+那么页面会输出85，但abc是没有值的
+当然，js中的return不一定非得用在函数function中，有时候也可以用来阻止某些动作，
+比如表单的提交，让表单的提交事件返回false，那表单就不会提交：onsubmit="return false"
+</body>
+</html>

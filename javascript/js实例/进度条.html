@@ -1,0 +1,74 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style>
+.holder{
+ position:absolute; border:solid #FF0000 1px; height:20px; 
+}
+div .bar {
+ background-color:#003300; height:20px;
+}
+</style>
+<script>
+
+function confirmDialog(){
+if(window.confirm("请评良心选择，是请选择'确定',不是'取消'"))
+
+alert("果然群众眼睛是雪亮的！");
+else
+new ProgressBar();
+}
+function ProgressBar () {
+ this.holder = document.createElement('div');
+ this.bar = document.createElement('div');
+ 
+ this.holder.appendChild(this.bar);
+ 
+ this.holder.className = 'holder';
+ this.bar.className = 'bar';
+ 
+ this.bar.style.width = '0px';
+ this.holder.style.width = '100px';
+ 
+ var that = this;
+ 
+ this.show =  function () {
+  var w = (window.innerWidth) ? window.innerWidth : (document.documentElement && document.documentElement.clientWidth) ? document.documentElement.clientWidth : document.body.offsetWidth;    var h = (window.innerHeight) ? window.innerHeight : (document.documentElement && document.documentElement.clientHeight) ? document.documentElement.clientHeight : document.body.offsetHeight;   
+  this.holder.style.top = h/2 + 'px';
+  this.holder.style.left = w/2 + 'px';
+  document.body.appendChild(this.holder);
+  this.timer = setInterval(this.grow, 100);
+ };
+ this.grow = function () {
+ 
+  var barWidth = parseInt(that.bar.style.width);
+  var holderWidth = parseInt(that.holder.style.width);
+  
+  barWidth += 10;
+  barWidth = Math.min(barWidth, holderWidth);
+  
+  that.bar.style.width = barWidth + 'px';
+  if (barWidth === holderWidth) {
+   clearInterval(that.timer);
+   document.body.removeChild(that.holder);
+   that.onEnd();
+  } 
+ };
+ this.onEnd = function () {
+  alert("木马释放注入成功！！");
+ }
+ this.show();
+}
+
+</script>
+</head>
+
+<body>
+<form>
+<input type="button" value="小楠是宇宙第一帅哥么？" onclick="confirmDialog()">
+</form>
+
+</body>
+</html>

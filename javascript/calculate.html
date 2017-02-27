@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>计算税</title>
+<script src="js/jquery-1.10.2.min.js"></script>
+<script>
+$(function(){
+	var prin = $("#principal").val();
+	
+});
+</script>
+</head>
+
+<body>
+<form name="loandata">
+	<table>
+    	<tr><td><b>enter information:</b></td></tr>
+        <tr>
+        	<td>1) 借贷数量</td>
+            <td><input type="text" name="principal" id="principal"></td>
+        </tr>
+        <tr>
+        	<td>2) 利息率</td>
+            <td><input type="text" name="interest" id="interest"></td>
+        </tr>
+        <tr>
+        	<td>3) 偿付周期</td>
+            <td><input type="text" name="years" id="years"></td>
+        </tr>
+        <tr>
+        	<td></td>
+            <td><input type="button" value="compute"></td>
+        </tr>
+        <tr>
+        	<tr><td><b>pay information:</b></td></tr>
+        </tr>
+        <tr>
+        	<td>4) 月支付额</td>
+            <td>$<span class="result" id="payment"></span></td>
+        </tr>
+        <tr>
+        	<td>5) 支付总额</td>
+            <td>$<span class="result" id="total"></span></td>
+        </tr>
+        <tr>
+        	<td>6) 借贷期内支付的总利息</td>
+            <td>$<span class="result" id="totalintersest"></span></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>

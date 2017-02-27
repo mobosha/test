@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title> js判断某个方法是否存在</title>
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<script type="text/javascript">
+ window.onload = function(){
+  try{
+   if(test && typeof(test) == "function"){
+    test();
+   }
+  }catch(e){
+   alert("方法不存在");
+  }
+ }
+ //注释test方法测试弹出结果
+ function test(){
+  alert("我是test()方法");
+ }
+</script>
+</head>
+<body>
+	<div class="sfsdf">
+		sfsdfjlfl
+	</div>
+</body>
+</html>
