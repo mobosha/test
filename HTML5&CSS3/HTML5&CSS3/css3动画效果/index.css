@@ -1,0 +1,145 @@
+blockquote, body, button, dd, dl, dt, fieldset, form, h1, h2, h3, h4, h5, h6, hr, input, lengend, li, ol, p, pre, td, textarea, th, ul {
+    margin: 0;
+    padding: 0;
+}
+.part_3_2 {
+    height: 380px;
+    background-color: #fff;
+}
+.section {
+    position: relative;
+    overflow: hidden;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.section__inner {
+    position: relative;
+    z-index: 2;
+    width: 1100px;
+    min-width: 1100px;
+    height: 100%;
+    margin: 0 auto;
+    overflow: hidden;
+}
+.sound_effect_list {
+    position: absolute;
+    top: 38px;
+    left: 0;
+    overflow: hidden;
+}
+
+.active .sound_effect_list__item.item--1 {
+    -webkit-animation-delay: .3s;
+    animation-delay: .3s;
+}
+.active .sound_effect_list__item {
+    -webkit-animation: slideUp .5s ease-in both;
+    animation: slideUp .5s ease-in both;
+}
+.sound_effect_list__item {
+    float: left;
+    margin: 0 52px;
+    text-align: center;
+}
+li {
+    list-style: none;
+}
+
+.active .sound_effect_list__item.item--2 {
+    -webkit-animation-delay: .5s;
+    animation-delay: .5s;
+}
+
+.active .sound_effect_list__item.item--3 {
+    -webkit-animation-delay: .7s;
+    animation-delay: .7s;
+}
+
+.active .sound_effect_list__item.item--4 {
+    -webkit-animation-delay: .9s;
+    animation-delay: .9s;
+}
+
+.sound_effect_list__media {
+    height: 112px;
+}
+
+.sound_effect_list__tit {
+    margin: 35px 0 5px;
+    font-size: 18px;
+    font-weight: 400;
+    color: #000;
+}
+
+.sound_effect_list__desc {
+    font-size: 14px;
+    color: grey;
+}
+
+
+.sound_effect_list__icon.icon--1 {
+    height: 112px;
+}
+.sound_effect_list__icon {
+    display: block;
+    width: 165px;
+    background-image: url(http://imgcache.gtimg.cn/mediastyle/app/download/img/mac_small/sprite_sound_effect.png?max_age=2592000&v=ac564cb31ec75030a36a9f76237d459f);
+}
+
+.sound_effect_list__icon.icon--2 {
+    height: 110px;
+    background-position: 0 -120px;
+}
+.sound_effect_list__icon {
+    display: block;
+    width: 165px;
+    background-image: url(http://imgcache.gtimg.cn/mediastyle/app/download/img/mac_small/sprite_sound_effect.png?max_age=2592000&v=ac564cb31ec75030a36a9f76237d459f);
+}
+
+.sound_effect_list__icon.icon--3 {
+    height: 101px;
+    background-position: 0 -240px;
+}
+.sound_effect_list__icon {
+    display: block;
+    width: 165px;
+    background-image: url(http://imgcache.gtimg.cn/mediastyle/app/download/img/mac_small/sprite_sound_effect.png?max_age=2592000&v=ac564cb31ec75030a36a9f76237d459f);
+}
+
+
+.sound_effect_list__icon.icon--4 {
+    height: 98px;
+    background-position: 0 -360px;
+}
+.sound_effect_list__icon {
+    display: block;
+    width: 165px;
+    background-image: url(http://imgcache.gtimg.cn/mediastyle/app/download/img/mac_small/sprite_sound_effect.png?max_age=2592000&v=ac564cb31ec75030a36a9f76237d459f);
+}
+
+
+
+
+@-webkit-keyframes slideUp {
+	0% {
+		opacity: 0;
+		-webkit-transform: translate3d(0,30px,0)
+	}
+
+	100% {
+		opacity: 1;
+		-webkit-transform: translate3d(0,0,0)
+	}
+}
+
+@keyframes slideUp {
+	0% {
+		opacity: 0;
+		transform: translate3d(0,30px,0)
+	}
+
+	100% {
+		opacity: 1;
+		transform: translate3d(0,0,0)
+	}
+}

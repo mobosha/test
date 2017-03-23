@@ -1,0 +1,31 @@
+<!doctype html>
+<html ng-app="app">
+<meta charset="UTF-8"/>
+<head>
+<!--<script src="js/angular.min.js"></script>-->
+<script src="http://apps.bdimg.com/libs/angular.js/1.4.6/angular.min.js"></script>
+<script src="chen.js"></script>
+</head>
+<body ng-controller="formController">
+  <table border='1' cellpadding=0 cellspacing=0>
+    <tr>
+      <td>商品</td>
+      <td>单价</td>
+      <td>数量</td>
+      <td>总价</td>
+      <td>优惠</td>
+    </tr>
+    <tr ng-repeat="a in array">
+      <td>{{a.name}}</td>
+      <td>{{a.price}}</td>
+      <td>{{a.count}}</td>
+      <td>{{a.count*a.price}}</td>
+      <td><input size="1" ng-model='a.discount'
+        ng-change="chanage(this)" /> 折 = <input size="1" ng-model='a.p'
+        ng-change="chanage2(this)" /></td>
+    </tr>
+  </table>
+  买家应付：  {{itemSum}}-{{preferential}}={{sum}}
+  <br> 支付说明： 总价-优惠=实际支付
+</body>
+</html>
