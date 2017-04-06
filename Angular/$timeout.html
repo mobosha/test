@@ -8,7 +8,9 @@
 	<body ng-app="myApp">
 		<div ng-controller="MyController">
 			{{clock}}
+			<button ng-click="ss">确定</button>
 		</div>
+		
 		<script type="text/javascript">
 			var app = angular.module("myApp",[]);
 			app.controller("MyController",function($scope,$interval){
@@ -21,19 +23,14 @@
 				$interval(function(){
 						updateClock();
 				},1000);
+				
+				$scope.ss = function(){
+					alert("sss");
+				}
 					
 				/*updateClock();*/
 			});
-			/*function MyController($scope,$timeout){
-				var updateClock = function(){
-					var dates = new Date();
-					$scope.clock=dates.toLocaleString();
-					$timeout(function(){
-						updateClock();
-					},1000);
-				};
-				updateClock();
-			};*/
+			
 		</script>
 	</body>
 </html>
