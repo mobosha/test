@@ -8,12 +8,12 @@
         "experimentalDecorators": true,
         "removeComments": false,
         "noImplicitAny": false,
-        "outDir": "webapp/js/"
+        "outDir": "app/app.js/"
         
          
     },
-    "exclude": [
-        "node_modules"
+    "include": [
+        "app/app.ts/*"
     ],
     "compileOnSave": true
 }
