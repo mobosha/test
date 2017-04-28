@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html ng-app="ionicApp">
+	<head>
+		<meta charset="UTF-8">
+		<title>没看出来no-tap-scroll="true"效果</title>
+		 <link href="css/ionic.min.css" rel="stylesheet">
+  <!--<link href="css/style.css" rel="stylesheet">-->
+
+  <script src="js/ionic.bundle.min.js"></script>
+  <!--<script type="text/javascript" charset="utf-8" src="js/script.js"></script>-->
+	</head>
+	<body ng-controller="AppCtrl">
+		<ion-header-bar align-title="left" class="bar-positive" no-tap-scroll="true">
+		  <div class="buttons">
+		    <button class="button" ng-click="doSomething()">Left Button</button>
+		  </div>
+		  <h1 class="title">Title!</h1>
+		  <div class="buttons">
+		    <button class="button">Right Button</button>
+		  </div>
+		</ion-header-bar>
+		
+		<ion-content>
+		  Some content!
+		  <div id="" style="height: 1000px;">
+		  	
+		  </div>
+		</ion-content>
+		<ion-footer-bar align-title="left" class="bar-assertive">
+		  <div class="buttons">
+		    <button class="button">Left Button</button>
+		  </div>
+		  <h1 class="title">Title!</h1>
+		  <div class="buttons" ng-click="doSomething()">
+		    <button class="button">Right Button</button>
+		  </div>
+		</ion-footer-bar>
+	</body>
+	<script type="text/javascript">
+		angular.module('ionicApp', ['ionic'])
+
+.controller('AppCtrl', function ($scope, $ionicActionSheet) {});
+	</script>
+</html>

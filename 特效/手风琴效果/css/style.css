@@ -1,0 +1,8 @@
+
+* {margin:0px; padding:0px;}
+//body {background:black;}
+#box {width:815px; height:400px; margin:50px auto; position: relative; border:3px solid #fff; border-left:none; -webkit-box-shadow:0 10px 20px #fff; -moz-box-shadow:0 10px 20px #fff; box-shadow: 0 10px 20px #fff;}
+ul {position: absolute; left:0px; top:0px; list-style: none;}
+ul li{width:100px; height:300px; float:left; border-left:3px solid #fff; cursor: pointer;}
+.active {width:400px; height:300px; background:#ff6600;}
+#foot_bm a,p,p a{font-size:12px;color:#666;}

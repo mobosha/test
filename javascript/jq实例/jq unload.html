@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<script src="http://libs.baidu.com/jquery/1.10.2/jquery.min.js">
+<script type="text/javascript">
+$(document).ready(function(){
+	//<![CDATA[
+
+$(window).bind('beforeunload', function(){
+  return 'Are you sure you want to leave?';
+});
+
+$(window).unload(function(){
+  alert('Bye.');
+});
+
+//]]> 
+
+
+});
+</script>
+</head>
+<body>
+<p>当您点击 <a href="http://w3school.com.cn">这个链接</a> 时，或者关闭窗口，会触发一个警告框。</p>
+</body>
+</html>

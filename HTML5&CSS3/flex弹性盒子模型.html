@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>
+			注意，设为Flex布局以后，子元素的float、clear和vertical-align属性将失效。
+			http://www.ibm.com/developerworks/cn/web/1409_chengfu_css3flexbox/
+		</title>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			
+			.in-box{
+				display: inline-flex;
+			}
+			.box{
+				display: flex;
+				flex-direction: row-reverse;
+			}
+			.f1,.f2,.f3{
+				border: 1px solid #737373;
+				
+				
+			}
+			.f1{
+				/*order: 3;*/
+				flex: 1;
+				flex-grow: 1;
+				flex-shrink:1;
+				flex-basis:100px;
+			}
+			.f2{
+				/*order: 1;*/
+				flex: 2;
+				flex-grow: 1;
+				flex-shrink:1;
+				flex-basis:100px;
+			}
+			.f3{
+				/*order: 2;*/
+				flex: 3;
+				flex-grow: 2;
+				flex-shrink:1;
+				flex-basis:100px;
+			}
+			
+			
+			.flex-container {
+			   list-style: none;
+			   display: flex;
+			   flex-direction:column-reverse;
+			   flex-wrap:nowrap;            /*第一行在最下边，最后一行在最上边*/
+			  
+			}
+			
+			.flex-item {
+			   padding: 5px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<div class="f1">
+				1发顺丰讲述了副教授了副教授了减肥了数据分类设计费了数据分类设计费了就是浪费发顺丰讲述了副教授了副教授了减肥了数据分类设计费了数据分类设计费了就是浪费发顺丰讲述了副教授了副教授了减肥了数据分类设计费了数据分类设计费了就是浪费发顺丰讲述了副教授了副教授了减肥了数据分类设计费了数据分类设计费了就是浪费发顺丰讲述了副教授了副教授了减肥了数据分类设计费了数据分类设计费了就是浪费
+			</div>
+			<div class="f2">
+				2发了啥就发了几舒服了睡觉了发送就发了几舒服了啥家乐福就说了句
+			</div>
+			<div class="f3">
+				3讲述了减肥了设计费了数据分类设计费了沙发吉林市解放路三间房了数据分类设计费了沙发讲述了放假了司法局了沙发记录数据分类数据分类
+			</div>
+		</div>
+		<div class="in-box">
+			1
+		</div>
+		
+		<hr />
+		
+		
+		
+		<ul class="flex-container">
+		   <li class="flex-item"><img src="http://placehold.it/300&text=1">1</li>
+		   <li class="flex-item"><img src="http://placehold.it/300&text=2">2</li>
+		   <li class="flex-item"><img src="http://placehold.it/300&text=3">3</li>
+		   <li class="flex-item"><img src="http://placehold.it/300&text=4">4</li>
+		   <li class="flex-item"><img src="http://placehold.it/300&text=5">5</li>
+		   <li class="flex-item"><img src="http://placehold.it/300&text=6">6</li>
+		</ul>
+		
+		
+		
+	</body>
+</html>

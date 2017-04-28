@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>无法实现今天日期格式</title>
+		<script src="http://apps.bdimg.com/libs/angular.js/1.0.6/angular.min.js"></script>
+		
+	</head>
+	<body ng-app>
+		<div ng-app="myApp" >
+			{{ 123 | currency }}
+			<br />
+			{{ 1304375948024 | date }}
+			<br />
+			<div ng-controller="MyController" ng-bind="dates">
+				<!--{{ 1304375948024 | date:"MM/dd/yyyy @ h:mma" }}-->
+			</div>
+			
+			<br />
+			{{ ['Ari','Lerner','Likes','To','Eat','Pizza'] | filter:'e' }}
+			<br />
+			{{ {'name': 'Ari', 'City': 'SanFrancisco'} | json }}
+			<br />
+			<!--{{ {'name': 'Ari', 'City': 'SanFrancisco'} | json }}-->
+			{{'San Francisco is very cloudy' | limitTo:3}}
+			<br />
+			{{'San Francisco is very cloudy' | lowercase}}
+			<br />
+			{{"San Francisco is very cloudy" | uppercase}}
+			<br />
+			{{327493.273496 | number:2}}
+			<br />
+			{{"San Francisco is very cloudy" | orderBy:'+'}}
+			<br />
+			
+			<!--自定义过滤器-->
+			
+		</div>
+		<script type="text/javascript">
+			var datee = new Date();
+			/*console.log(datee);*/
+			var app = angular.module("myApp",[]);
+			app.controller("MyController", function($scope){
+				$scope.dates = new Date();
+				console.log(dates);
+			})
+		</script>
+	</body>
+</html>

@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<script  type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+<script  type="text/javascript">
+window.onload = function(){
+Date.prototype.format = function(pattern) {
+/*初始化返回值字符串*/
+var returnValue = pattern;
+/*正则式pattern类型对象定义*/
+//q 代表季度   S代表毫秒  
+var format = {
+	"y+": this.getFullYear(),
+	"M+": this.getMonth()+1,
+	"d+": this.getDate(),
+	"H+": this.getHours(),
+	"m+": this.getMinutes(),
+	"s+": this.getSeconds(),
+	"S": this.getMilliseconds(),
+	"h+": (this.getHours()%12),
+	"q+": Math.floor((this.getMonth() + 3) / 3), 
+	"a": (this.getHours()/12) <= 1? "AM":"PM"
+};
+/*遍历正则式pattern类型对象构建returnValue对象*/
+for(var key in format) {
+	var regExp = new RegExp("("+key+")");
+	if(regExp.test(returnValue)) {
+		var zero = "";
+		for(var i = 0; i < RegExp.$1.length; i++) { zero += "0"; }
+		var replacement = RegExp.$1.length == 1? format[key]:(zero+format[key]).substring(((""+format[key]).length));
+		returnValue = returnValue.replace(RegExp.$1, replacement);
+	}
+}
+return returnValue;
+};
+	
+	
+	var now = new Date(); 
+	alert(typeof now);
+	var nowStr = now.format("yyyy-MM-dd hh:mm:ss S q a"); //yyyy年MM月dd日 HH时mm分ss秒
+	
+	alert(nowStr);
+}
+
+</script>
+</head>
+
+<body>
+<div class="aa"></div>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" /> 
+<title>JS实现倒计时(时、分，秒)</title> 
+<script language="javascript" type="text/javascript"> 
+window.onload=function(){
+	var oB=document.getElementById('divdown1');
+	oB.innerHTML = 10+"分"+0+"秒";
+}
+var time=599;
+function times(){
+	if(time==0){clearInterval(timer);}
+	var oB=document.getElementById('divdown1');
+	var m=Math.floor(time/60);
+	var s=Math.floor(time-m*60); 
+	oB.innerHTML = m+"分"+s+"秒";
+	time--;
+	
+}
+var timer=setInterval(times,1000)
+</script> 
+</head> 
+<body> 
+<div id="divdown1"></div> 
+</body> 
+</html> 

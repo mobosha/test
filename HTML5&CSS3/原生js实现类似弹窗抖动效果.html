@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+    div{text-align: center;line-height: 150px;font-weight: bold;}
+    #dv{width: 300px;height: 150px;position: absolute;left: 200px;top: 100px;background: red;}
+    #dv2{width: 300px;height: 150px;position: absolute;left: 600px;top: 100px;background: yellow;}
+  </style>
+  <script>
+      window.onload=function(){
+        // 得到0--255的随机数
+        function getRandNumber(rmin,rmax){
+          var cha = rmax-rmin;
+          var rand = Math.random();
+          return rmin+Math.round(cha*rand)
+        }
+        var oDv = document.getElementById('dv')
+        var oDv2 = document.getElementById('dv2')
+        //抖动需要获取的值一个数组
+        var arr=[];
+          
+        // 随机变色
+        setInterval(function(){
+          var arr2 = [
+            getRandNumber(0,255),
+            getRandNumber(0,255),
+            getRandNumber(0,255)
+            ];
+  
+          oDv.style.backgroundColor="rgb("+arr2[0]+","+arr2[1]+","+arr2[2]+")"
+        },130) 
+        // 抖动获取值放到数组中
+          for(var i=20;i>0;i-=2){
+            arr.push(i,-i)
+          }
+        // 第一个盒子抖动
+        oDv.onclick=function(){
+          sb(oDv,'left',function(){
+            sb(oDv,'top')
+          })
+            
+        }
+        // 第二个盒子抖动
+        oDv2.onclick=function(){
+          sb(oDv2,'left',function(){
+            sb(oDv2,'top')
+          })
+            
+        }
+        // 抖动
+        function sb(obj,attr,fnEnd){
+          var timer=null;
+          var num=0;
+      
+          clearInterval(timer)
+          timer=setInterval(function(){
+          obj.style[attr]=parseInt(getStyle(obj,attr))+arr[num]+'px'
+          num++;
+          if(num===arr.length){
+            clearInterval(timer)
+            fnEnd&&fnEnd()
+            obj.innerHTML='我是'+getStyle(obj,'backgroundColor')+'色'
+            //alert(1)
+          }
+              
+          },50)
+  
+        }
+      
+        function getStyle(obj,attr){
+          return obj.currentStyle?obj.currentStyle[attr]:getComputedStyle(obj)[attr]
+        }
+      };
+  </script>
+</head>
+<body>
+  <div id="dv">点我呀</div>
+  <div id="dv2">点我呀</div>
+</body>
+</html>

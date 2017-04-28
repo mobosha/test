@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>width()用法</title>
+<script src="http://libs.baidu.com/jquery/1.10.2/jquery.min.js">
+</script>
+<script>
+$(document).ready(function(){
+    var s = $("#dd").width();
+    //alert(s);
+    window.onload = function(){
+    	document.getElementById("dd").style.minWidth= s+150+"px";
+    }
+   
+});
+
+
+</script>
+	</head>
+	<body>
+	<table border="1" id="dd"> 
+	  <tr>
+	    <th>Month</th>
+	    <th>Savings</th>
+	  </tr>
+	  <tr>
+	    <td>January</td>
+	    <td>$100</td>
+	  </tr>
+	</table>
+	</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			/*function f1(){
+		　　　　 n=999;
+		　　　　 function f2(){
+		　　　　　　 //alert(n);
+				 return n;
+		　　　　 }
+		　　　　 return f2;
+		　　 }
+		　　 var result=f1();
+		　　 result(); // 999
+		   console.log( result());*/
+		  function f1(){
+		　　　　var n=999;
+		　　　　nAdd=function(){n+=1}
+		　　　　function f2(){
+		　　　　　　alert(n);
+		　　　　}
+		　　　　return f2;
+		　　}
+		　　var result=f1();
+		　　result(); // 999
+		　　nAdd();
+		  alert(n);
+		　　result(); // 1000
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>执行方法时，页面中要么window.onload调用要么 <body onload="function()">尽量不要不用同时使用两个来调用方法，同时使用的话，window.onload的执行的优先级高于<body onload="function()"> ，总共五种方法，前两种是单个函数调用，后三个是多个函数调用</title>
+</head>
+<script type="text/javascript">  
+/*function a1(){
+	alert("a1");
+}
+*/
+
+/*function a2(){
+	alert("a2");
+}
+window.onload = a2;*/
+
+/*function a31(){
+	alert("a31");
+}
+function a32(){
+	alert("a32");
+}
+window.onload = function(){
+	a31();
+	a32();
+}*/
+
+/*function a41(){
+	alert("a41");
+}
+function a42(){
+	alert("a42");
+}*/
+
+
+function a51(){
+	alert("a51");
+}
+function a52(){
+	alert("a52");
+}
+//onload事件侦听函数
+function addLoadEvent(func){
+var oldonload=window.onload;
+if(typeof window.onload!="function"){window.onload=func;}else{window.onload=function(){oldonload();func();}};
+}
+//调用方式
+addLoadEvent(a51);
+addLoadEvent(a52);
+
+</script>  
+</head>  
+<!--<body onLoad="a1();">  -->
+<body>
+<!--<body onLoad="a41();a42();">-->
+1、简单的调用方法a1（只调用一个方法）
+2、简单的调用方法a2（只调用一个方法）
+调用多个函数使用方法
+3、多个函数使用方法a3
+4、多个函数使用方法a4
+5、多个函数使用方法a5
+</body>
+</html>

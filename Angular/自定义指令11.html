@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="http://apps.bdimg.com/libs/angular.js/1.4.6/angular.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div ng-app="myModule">
+	    <h3>请分别修改父、子作用域表单里的值</h3>
+	    <div ng-controller="myController">
+	        父作用域：<br/>
+	        <input type="text" ng-model="name" /><br/>
+	        <input type="text" ng-model="sex" /><br/>
+	        <input type="button" ng-click="say()" value="点击执行父域的say方法" /><br/>
+	        子作用域：<br/>
+	        <my-directive my-name="{{name}}" my-sex="sex" get-name='say()'></my-directive><br/>
+	    </div>
+	
+	</div>
+	<script type="text/javascript">
+	    var myModule = angular.module("myModule", []);
+	    myModule.controller("myController", ['$scope', function($scope){
+	        $scope.name = "wangmeijian";
+	        $scope.sex = "boy";
+	        $scope.say = function(){
+	            alert( $scope.name +" is a"+ $scope.sex )
+	        }
+	    }])
+	    myModule.directive("myDirective", function(){
+	        return {
+	            restrict: "EA",
+//	            scope: {
+//	                myName: "@",
+//	                mySex: "=",
+//	                getName: "&"
+//	            },
+	            template: "<input type='text' ng-model='myName' /><br/>"+
+	                      "<input type='text' ng-model='mySex' /><br/>"+
+	                      "<input type='button' ng-click='say()' value='点击执行子域的say方法' />",
+	            link:function(scope){
+	            	scope.say = function(){
+			            alert( scope.myName +" is sdfdsfsf"+ scope.mySex);
+			        }
+	            }
+	        }
+	    })
+	
+	</script>
+	</body>
+</html>

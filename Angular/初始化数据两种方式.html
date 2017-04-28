@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>使用 ng-init 不是很常见。您将在控制器一章中学习到一个更好的初始化数据的方式。</title>
+		<script src="http://apps.bdimg.com/libs/angular.js/1.4.6/angular.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<!-- 1.ng-init初始化数据 -->
+		<!--<div ng-app='myApp' ng-controller='myCtrl' ng-init="firstName='john1';secondName='dOE'">
+			名：<input type="text" ng-model='firstName' /><br />
+			姓：<input type="text" ng-model='secondName' /><br />
+			<br />
+			姓名：{{firstName+" "+secondName}}
+			<span ng-bind='firstName +" "+ secondName'></span>
+		</div>
+		<script type="text/javascript">
+			var app = angular.module('myApp',[]); //angular js 模块
+			app.controller('myCtrl',function($scope){ // angular js 控制器
+				
+			})
+		</script>-->
+		
+		
+		
+		<!-- 2.控制器初始化数据 -->
+		<div ng-app='myApp' ng-controller='myCtrl'>
+			名：<input type="text" ng-model='firstName' /><br />
+			姓：<input type="text" ng-model='secondName' /><br />
+			<br />
+			姓名：{{firstName+" "+secondName}}
+			<span ng-bind='firstName +" "+ secondName'></span>
+		</div>
+		<script type="text/javascript">
+			var app = angular.module('myApp',[]); //angular js 模块
+			app.controller('myCtrl',function($scope){ // angular js 控制器
+				$scope.firstName='John';
+				$scope.secondName='Doe';
+			})
+		</script>
+	</body>
+</html>

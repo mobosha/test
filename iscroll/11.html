@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"/>
+        <meta name="apple-mobile-web-app-capable" content="yes"/>
+        <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+        <title>Wireless</title>
+        <link rel="stylesheet"type="text/css" href="css/base.css"/>
+    </head>
+	<script>
+		document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
+    </script>
+    <body>
+	<input type="button" onClick="testInsertContent();" value="testInsertContent">
+        <div id="screen">
+            <header id="nav">
+                <ul>
+                    <li>
+                        <a class="active" href="javascript:" title="Post it" rel="0" onClick="goToPage(0)"><span class="icon ico-post"></span><span class="text">Post it</span></a>
+                    </li>
+                    <li>
+                        <a href="javascript:" title="Calendar" rel="1" onClick="goToPage(1)"><span class="icon ico-calendar"></span><span class="text">Calendar</span></a>
+                    </li>
+                    <li>
+                        <a href="javascript:" title="Address" rel="2" onClick="goToPage(2)"><span class="icon ico-address"></span><span class="text">Address</span></a>
+                    </li>
+                    <li>
+                        <a href="javascript:" title="Map" rel="3" onClick="goToPage(3)"><span class="icon ico-map"></span><span class="text">Map</span></a>
+                    </li>
+                </ul>
+            </header>
+            <div id="pagewrapper">
+                <div id="pageflip">
+                    <div class="scrollerwrapper">
+                        <div class="scroller" id=temp1>
+				可以每个上下滚动设置id 填充不同的内容<br/>
+				此处 scroller 里的内容都可以随意替换 但scroller 必须保留.iscroll滚动默认滚动为wrapper下的第一个结点                             
+                        </div>
+                    </div>
+                    <div class="scrollerwrapper">
+                        <div class="scroller">
+                            <ul>
+                                <li>
+                                    此处 scroller 里的内容都可以随意替换 但scroller 必须保留.iscroll滚动默认滚动为wrapper下的第一个结点                         
+				</li>
+                                <li>
+                                    Contact Name2
+                                </li>
+                                <li>
+                                    Contact Name2
+                                </li>
+                                <li>
+                                    Contact Name2
+                                </li>
+                                <li>
+                                    Contact Name2
+                                </li>
+                                 
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="scrollerwrapper">
+                        <div class="scroller">
+                            <ul>
+                                <li>
+                                    Contact Name3
+                                </li>
+                                <li>
+                                    Contact Name3
+                                </li>
+                                <li>
+                                    Contact Name3
+                                </li>
+                                <li>
+                                    Contact Name3
+                                </li>
+                                <li>
+                                    Contact Name3
+                                </li>
+                                 
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="scrollerwrapper">
+                        <div class="scroller">
+                            <ul>
+                                <li>
+                                    Contact Name4
+                                </li>
+                                <li>
+                                    Contact Name4
+                                </li>
+                                <li>
+                                    Contact Name4
+                                </li>
+                                <li>
+                                    Contact Name4
+                                </li>
+                                <li>
+                                    Contact Name4
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="js/iscroll.js" type="text/javascript"></script>
+	<script type="text/javascript" src="http://libs.baidu.com/jquery/1.9.0/jquery.min.js"></script>
+        <script>
+			function testInsertContent(){
+			 //简单的测试 按钮
+			 //填充数据,刷新scroll.
+			 //再看刷新后的滚动情况
+				 
+				var a=$("#temp1").html();
+				$("#temp1").html("33333333333333333333333333333Contact Name1 <br/>  Contact Name1 <br/><br/>"+a+"<br>aaa");
+				//刷新上下滚动.左右滚动
+				vertical_scroll[0].refresh();
+				page_flip.refresh();
+			}
+		
+            	//v基本参数定义
+                var page_flip, vertical_scroll = [], pages, t, p, iDevice = (/iphone|ipad/gi).test(navigator.appVersion), $id = function(id){
+                    return document.getElementById(id);
+                }, $sa = function(s){
+                    return document.querySelectorAll(s);
+                }, $s = function(s){
+                    return document.querySelector(s);
+                }, initScroll = function(){//初始化iscroll
+                    if (window.scrollY != 1) {
+                        t = setTimeout(initScroll, 100);
+                    }
+                    else {
+                        clearTimeout(t);
+                        t = null;
+						//获取上下滚动的iscroll
+                        pages = $sa('.scrollerwrapper');
+						//设置左右滚动的iscroll
+                        page_flip = new iScroll('pagewrapper', {
+                            bounce: false,
+                            hScrollbar: false,
+                            vScrollbar: false,
+                            snap: true,//此处必须为true
+                            momentum: false,
+                            lockDirection: true,
+                            fixedScrollbar: false,//只有按住屏幕的时候才能显示出滚动条
+                            onScrollEnd: function(){
+								//此处利用this.currPagex 获取当前是在第几屏 . 从0开始:0,1,2,3,4.....
+								//active为处于当前某个栏目时导航的样式.
+                                $s('#nav a.active').className = '';
+                                $s('#nav li:nth-child(' + (this.currPageX + 1) + ') a').className = 'active';
+                            }
+                        });
+						//此处的获取size函数不能缺少.除非你自定义css.
+                        setSize();
+                        for (var a = 0; a < pages.length; a++) {
+						//利用数组来定义出上下滚动的iscroll
+                            vertical_scroll[a] = new iScroll(pages[a], {
+                                bounce: false,
+                                hScrollbar: false,
+                                vScrollbar: true,
+                                fixedScrollbar: false,
+                                lockDirection: true,
+                                fadeScrollbar: true,
+                                hideScrollbar: true
+                            });
+                        }
+						//此段其实可以去掉，是侦听手机屏幕旋转的，一般webpp应该都是固定屏幕的。
+                        window.addEventListener('onorientationchange' in window ? 'orientationchange' : 'resize', function(){
+                            setSize();
+                            setTimeout(function(){
+                                var a = page_flip.currPageX;
+                                page_flip.scrollToPage(a, 0, 0)
+                            }, 400);
+                            
+                        }, false);
+						//监听导航栏的点击事件，这里我是去掉的，直接在导航那里加onclick函数，因为有时内页面内容过多或有问题。
+                        //delegate('nav', 'touchstart', goToPage);
+						
+						//禁止其他页面脚本 此段我也去掉了。我在页面头部就直接加了禁止脚本。
+                        //document.addEventListener('touchmove', stopDefault, false);
+                        
+                    }
+                }, setSize = function(){//重新计算宽度
+                    if (window.scrollY != 1) {
+                        window.scrollTo(0, 1);
+                        p = setTimeout(setSize, 100);
+                    }
+                    else {
+						//清除
+                        clearTimeout(p);
+                        p = null;
+						//vsrollH 为屏幕高度- 头部高度，即为滚动区域高度
+                        var vscrollH = window.innerHeight - $id('nav').offsetHeight;
+                        if (iDevice) {
+							//高度设置。其实完全可以在css里设置height：100%。
+                            $id('pagewrapper').style.height = vscrollH + 'px';
+                        }
+                        var e = $id('pagewrapper'), a = $id('pageflip'), b = e.offsetWidth;
+						
+						//这里的4可以随便替换成你所要
+						//几个左右滚动页这里为几。
+						//宽度设置
+						//同样可以在css里设置
+                        a.style.width = b * 4 + 'px';
+                        for (var c = 0; c < pages.length; c++) {
+                            pages[c].style.width = b + 'px';
+                            if (vertical_scroll[c]) {
+								//设置上下滚动的每个iscroll的高度
+                                pages[c].style.height = vscrollH + 'px';
+                                vertical_scroll[c].refresh();
+                            }
+                        }
+                        page_flip.refresh();
+                    }
+                    
+                }, loaded = function(){//初始化load事件
+                    window.scrollTo(0, 1);
+                    t = setTimeout(initScroll, 100);
+                    window.removeEventListener('load', loaded, false);
+                }, stopDefault = function(e){
+                    e.preventDefault()
+                }, delegate = function(obj, fun, callback){
+                    var parent = $id(obj);
+                    parent.addEventListener(fun, callback, false);
+                }, goToPage = function(n){
+                    //try {
+                       // var a = e.target;
+                        //if (a.nodeName.toLowerCase() === 'a' || a.nodeName.toLowerCase() === 'span') {
+                            //var n = a.nodeName.toLowerCase() === 'a' ? +a.getAttribute('rel') : +a.parentNode.getAttribute('rel');
+                            //stopDefault(e);
+                            
+							//因为我是在nav里加了onclick函数，所以只保留此段即可。
+							//可以加入try catch 避免page_flip没有加载完成
+							page_flip.scrollToPage(n, 0, 400);
+                       // }
+                    //} 
+                    //catch (e) {
+                       // console.log(e);
+                    //}
+                }, init = function(){
+                    window.addEventListener('DOMContentLoaded', loaded, false);
+                }
+                //return {
+//                    start: function(){
+//                        init();
+//                    }
+//                }
+            //, wa = new WebApp();
+           // wa.start();
+		   init();
+        </script>
+    </body>
+</html>

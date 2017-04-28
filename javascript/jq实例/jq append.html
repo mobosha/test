@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+.ss{
+	color:#F00;
+}
+</style>
+<script src="http://libs.baidu.com/jquery/1.10.2/jquery.min.js">
+</script>
+<script>
+$(function(){
+	
+	
+	$("button").click(function(){
+		var all = $("div").position();
+		var left = all.left;
+		var top = all.top;
+		alert(left);
+		alert(top);
+	});
+	
+})
+
+
+</script>
+</head>
+
+<body style="width:1000px; height:1000px">
+<div style="position:absolute; left:0; top:800px;">dddd</div>
+<button style="position:fixed; top:0px;"></button>
+</body>
+</html>

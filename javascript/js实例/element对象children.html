@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			function getVal () {
+				var ele = document.getElementById('about_box');
+				console.log( ele.childNodes);
+				console.log(ele.firstElementChild);//firstElementChild,LastElementChild 获取子元素节点的在ie9以下浏览器中无效
+			}
+		</script>
+	</head>
+	<body>
+		<div id="about_box">
+			<p class="f1f">   </p>
+			<p class="ff"></p>
+		</div>
+		<p class="ddf"></p>
+		<button id="btn" onclick="getVal();">获取</button>
+	</body>
+</html>

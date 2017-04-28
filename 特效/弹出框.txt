@@ -1,0 +1,100 @@
+点击按钮
+
+
+<div class="hand-in uc-a1" onClick="submit();" >
+        <input type="submit" id="hand" name="" value="交卷" class="t-wh ulev0" >
+      </div>
+
+
+
+
+弹出层
+
+<div id="mask" class="mask opacity tx-middle" style="top:-100%">
+  <div class="content">
+    <div class="frame-top tx-middle c-999898"><font class="noda"></font>确认交卷吗？</div>
+    <div class="frame-bot ub">
+      <div class="ub-f1 tx-middle" style="border-right:1px solid #d9d9d9" onClick="submit(0);"><span class="frame-no tx-middle">取消</span></div>
+      <div class="ub-f1 tx-middle" onClick="submit(1);"><span class="frame-yes tx-middle">确定</span></div>
+    </div>
+  </div>
+</div>
+
+
+
+
+js:
+
+
+
+function submit(m){
+	$('#mask').animate({top:0}, 500);
+}
+
+
+
+
+css:
+
+/*hand_frame*/
+.mask {
+	height: 100%;
+	width: 100%;
+	position: fixed;
+	_position: absolute;
+	top: 0;
+	z-index: 1000;
+}
+.opacity {
+	background: rgba(0,0,0,0.3);
+}
+.content {
+	height: 18%;
+	width: 80%;
+	background-color: #fff;
+	z-index: 1001;
+	word-wrap: break-word;
+	/* padding-left:.5em;
+	padding-right:.5em; */
+}
+.ph {
+	height: 1000px;
+}
+.frame-top {
+	width: 100%;
+	height: 50%;
+	border-bottom: 1px solid #d9d9d9;
+	text-align: center;
+}
+.frame-bot {
+	width: 100%;
+	height:50%;
+	display: inline-block;
+}
+.frame-bot span {
+	color: #999898;
+}
+.frame-bot span:hover {
+	color: #DF2129;
+}
+.frame-yes {
+}
+.frame-yes input {
+	width: 100%;
+	text-align: center;
+	cursor: pointer;
+}
+.frame-bot input[type=submit]:checked + value {
+	color: #F00;
+}
+.frame-no {
+	/* border-right: 1px solid #d9d9d9; */
+}
+.frame-no input {
+	width: 100%;
+	text-align: center;
+	cursor: pointer;
+}
+.frame-click {
+	margin-top: .75em;
+}

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+		
+		   /*var name = "The Window";   
+		　　var object = {   
+		　　　　name : "My Object",   
+		　　　　getNameFunc : function(){   
+		　　　　　　return function(){   
+		　　　　　　　　return this.name;   
+		　　　　　};   
+		　　　　}   
+		   };   
+alert(object.getNameFunc()());  //The Window*/
+function a() { 
+ var i = 0; 
+ function b() { /*alert(++i);*/ return ++i; } 
+ return b;
+}
+var c = a();
+var s = c();
+alert(s)
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

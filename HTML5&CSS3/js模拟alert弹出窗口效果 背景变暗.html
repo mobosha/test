@@ -1,0 +1,111 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta charset="UTF-8"/>
+<title>Alert效果</title>
+<style>
+*{ padding:0; margin:0; font-size:12px;}
+#bg{background:#000000;opacity: 0.5;-moz-opacity:0.5; filter:alpha(opacity=60); width:100%; height:100%;position:absolute; top:0; left:0}
+#info{height:0px; width:0px;top:50%; left:50%;position:absolute;  line-height:1.7}
+#center{background:#fff;border:1px solid #217AC1; width:300px; height:100px; position:absolute; margin:-50px -150px;}
+#center strong{ display:block; padding:2px 5px; background:#EBF4FC; color:#519FEE;}
+#center p{padding:10px; text-align:center; color:#1C6FB8;}
+</style>
+<script>
+//底层共用
+    var iBase = {
+        Id: function(name){
+            return document.getElementById(name);
+        },
+		//设置元素透明度,透明度值按IE规则计,即0~100
+        SetOpacity: function(ev, v){
+            ev.filters ? ev.style.filter = 'alpha(opacity=' + v + ')' : ev.style.opacity = v / 100;
+        }
+    }
+//淡出效果(含淡出到指定透明度)
+function fadeOut(elem, speed, opacity){
+	/*
+	 * 参数说明
+	 * elem==>需要淡入的元素
+	 * speed==>淡入速度,正整数(可选)
+	 * opacity==>淡入到指定的透明度,0~100(可选)
+	 */
+    speed = speed || 20;
+    opacity = opacity || 0;
+    //初始化透明度变化值为0
+    var val = 100;
+	//循环将透明值以5递减,即淡出效果
+    (function(){
+        iBase.SetOpacity(elem, val);
+        val -= 5;
+        if (val >= opacity) {
+            setTimeout(arguments.callee, speed);
+        }else if (val < 0) {
+			//元素透明度为0后隐藏元素
+            elem.style.display = 'none';
+        }
+    })();
+}
+
+  
+    
+
+function boxs(c,t){
+ window.scrollTo(0,0);
+ var bo = document.getElementsByTagName('body')[0];
+ var ht = document.getElementsByTagName('html')[0];
+ var boht = document.getElementById('boxs');
+ alert("ss");
+ /*boht.innerHTML = '';
+ bo.style.height='auto';
+ bo.style.overflow='auto';
+ ht.style.height='auto';*/
+ if(t){
+  bo.style.height='100%';
+  bo.style.overflow='hidden';
+  ht.style.height='100%';
+  boht.innerHTML = '<div id="bg"></div><div id="info"><div id="center"><strong>友情提示：</strong><p><a href="javascript:boxs(0);">'+c+'</a></p></div></div>';
+  setTimeout(function() {
+	    /*$("#alert_info").fadeOut(time2 ? time2: 1000,
+	    function() {
+	        $(this).remove();
+	        
+	    });*/
+	   fadeOut(boht,40);
+	},
+	t);
+ }
+ 
+ 
+/*  if (time && c) {
+        setTimeout(function() {
+
+            $("#alert_info").fadeOut(time2 ? time2: 1000,
+            function() {
+                $(this).remove();
+                
+            });
+        },
+        time);
+
+    }*/
+ 
+ 
+}
+
+</script>
+</head>
+<body>
+<span id="boxs"></span>
+
+
+
+<div onclick="boxs('sfsfsfsfsff',50)">
+	点这里弹出
+</div>
+<div class="">
+	
+</div>
+<!--<button onclick="fadeOut(boht,5,0.1);">shijian</button>-->
+</body>
+</html>

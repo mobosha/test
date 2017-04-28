@@ -1,0 +1,62 @@
+<!DOCTYPE HTML>
+<html ng-app="myApp">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+<script src="http://apps.bdimg.com/libs/angular.js/1.4.6/angular.min.js"></script>
+<script src="http://cdn.bootcss.com/angular.js/1.2.9/angular-route.min.js"></script>
+<script>
+
+var m1 = angular.module('myApp',['ngRoute']);//引入插件angular-route.min.js
+
+m1.config(['$routeProvider',function($routeProvider){//通过供应商初始化配置    
+    $routeProvider
+        .when('/aaa/:int',{//int对应123，456
+            template : '<p>首页的内容</p>{{name}}', //模版加入到ng-view
+            controller : 'Aaa'//改变name的值
+        })
+        .when('/bbb',{
+            template : '<p>学员的内容</p>{{name}}',
+            controller : 'Bbb'
+        })
+        .when('/ccc',{
+            template : '<p>课程的内容</p>{{name}}',
+            controller : 'Ccc'
+        })
+        .otherwise({//初始调用的时候走这里
+            redirectTo : '/aaa'
+        });    
+}]);
+
+m1.run(['$rootScope',function($rootScope){    
+    $rootScope.$on('$routeChangeStart',function(event,current,pre){//routeChangeStart是ngRoute切换之前执行的，
+        console.log(event);
+        console.log(current);
+        console.log(pre);
+    });    
+}]);
+
+m1.controller('Aaa',['$scope','$location','$routeParams',function($scope,$location,$routeParams){    
+    $scope.name = 'hello';
+    $scope.$location = $location;    
+    console.log( $routeParams );    
+}]);
+m1.controller('Bbb',['$scope',function($scope){
+    $scope.name = 'hi';
+}]);
+m1.controller('Ccc',['$scope',function($scope){    
+    $scope.name = '你好';    
+}]);
+
+</script>
+</head>
+
+<body>
+<div ng-controller="Aaa">
+   <a href="" ng-click="$location.path('aaa/123')">首页</a>  //$location.path切换路径，$location对应controller里面的$scope.$location
+   <a href="" ng-click="$location.path('bbb')">学员</a>
+   <a href="" ng-click="$location.path('aaa/456')">课程</a>
+   <div ng-view></div>//切换布局的主题
+</div>
+</body>
+</html>

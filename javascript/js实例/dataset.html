@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		
+	</head>
+	<body>
+		<!--<div id="dd" class="sss" dir="ltr">
+			sfsfs
+		</div>
+		<button onclick="getVal();">点击</button>-->
+		<div id="day2-meal-expense" onclick="" data-drink="coffee" data-food="sushi" data-meal="lunch">¥20.12</div>
+<button id="button">点击我</button>
+<script type="text/javascript">
+			/*function getVal () {
+				var ele = document.getElementById('dd');
+				console.log(ele.getAttribute('class'));
+				console.log(ele.textContent);
+				console.log(ele.innerHTML);
+				console.log(ele.innerText);
+				
+			}*/
+			var expenseday2 = document.getElementById("day2-meal-expense");  
+			console.log(expenseday2.attributes);
+			var typeOfDrink = expenseday2.dataset && expenseday2.dataset.drink;
+			document.getElementById("button").onclick = function() {
+			    alert("饮料是：" + typeOfDrink);
+			};
+		</script>
+	</body>
+</html>

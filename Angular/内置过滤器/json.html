@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>json filter</title>
+
+<script src="http://apps.bdimg.com/libs/angular.js/1.3.9/angular.min.js"></script>
+<script>
+var myApp = angular.module("myApp", []);
+    myApp.controller("testCtrl", function($scope){
+        $scope.myClass = {a:1,b:2,c:3};
+        $scope.ss = {'name':'value'};
+        alert( $scope.ss)
+        
+    });
+</script>
+<style>
+.red {color:red}
+.green {color:green}
+</style>
+</head>
+
+<body>
+<div ng-app="myApp">
+  <div ng-controller="testCtrl">
+  	<div ng-bind="myClass">
+   	 	
+   	 </div>
+   	 <div>
+   	 	{{myClass}}
+   	 </div>
+   	 <div ng-bind="myClass  | json">
+   	 	
+   	 </div>
+   	 <span ng-bind="myClass.a">
+   	 	
+   	 </span>
+   	 <pre>{{ ss }}</pre>
+  </div>
+  <div class="" style="width: 25%; float: left;">
+  	dd
+  </div>
+  <div class="" style="width: 25%; float: left;">
+  	dd
+  </div>
+</div>
+<img src="../../bootstrap/bootstrap-3.3.5-dist/fonts/glyphicons-halflings-regular.svg"/>
+<div id="">
+	<img src="../../bootstrap/bootstrap-3.3.5/docs/apple-touch-icon.png"/>
+</div>
+</body>
+</html>

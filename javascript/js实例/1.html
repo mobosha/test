@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<script src="js/jquery-1.10.2.min.js"></script>
+<script>
+/*$(function(){
+	$("#sub1").click(function(){
+	var arr = [];
+	var srcall=$(".src").find('img');
+	$.each(srcall, function(i, v){
+		arr.push($(this).attr('src'));
+		
+		
+	});
+	$(".urlall").text(arr);
+  });
+});*/
+
+$(function(){
+	$("#sub1").click(function(){
+	var arr = [];
+	$(".src").find('img').each(function(i, v){
+		//var srcurl = var srcurl + v.src;	
+		//alert(v.attr("src"));
+		//alert($(this).attr('src'));
+		arr.push($(this).attr('src'));		
+	});
+	$(".urlall").text(arr);
+  });
+});
+</script>
+</head>
+
+<body>
+<div class="src tx-middle uhide">
+  <a class="tx-middle" href="javascript:;" onClick="removeImage(this)"><font class="ulev-1">X</font></a>
+  <img src="../../static/webapp/images/doc1.png">
+</div>
+<div class="src tx-middle">
+  <a class="tx-middle" href="javascript:;" onClick="removeImage(this)"><font class="ulev-1">X</font></a>
+  <img src="../../static/webapp/images/doc2.png">
+</div>
+<div class="src tx-middle">
+  <a class="tx-middle" href="javascript:;" onClick="removeImage(this)"><font class="ulev-1">X</font></a>
+  <img src="../../static/webapp/images/doc3.png">
+</div>
+<div class="src tx-middle">
+  <a class="tx-middle" href="javascript:;" onClick="removeImage(this)"><font class="ulev-1">X</font></a>
+  <img src="../../static/webapp/images/doc4.png">
+</div>
+<div class="urlall"></div>
+<div onclick="uploadImage();" class="ub umh5 margin-t1.5 border tx-middle" id="sub1" style="background: rgb(35, 177, 101);">上传</div>
+</body>
+</html>

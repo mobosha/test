@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html >
+	<head>
+		<meta charset="UTF-8">
+		<title>onbeforeunload测试</title>
+		<script>
+	　　　function checkLeave(){
+	     　　　　event.returnValue="确定离开当前页面吗？";
+	　　　}
+		var indexUrl = "http://dev.chinamobo.com/ele_h5/views/index/index.html#/footer/home";							             
+		/*页面header goback start*/
+		function goback(){
+			if (document.referrer){
+		        window.history.go(-1);
+			}else{
+				window.location.href = indexUrl;//默认进入首页
+			}
+		}
+	　　　</script>
+	</head>
+	<body onbeforeunload="checkLeave()">
+		<a onclick="goback()">baidu</a><a onclick="goback()">baidu111</a>
+　　　</body>
+</html>

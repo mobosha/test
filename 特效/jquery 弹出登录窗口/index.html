@@ -1,0 +1,171 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+ 
+        <title></title>
+     
+        <script language="javascript" type="text/javascript" src="./jquery-1.8.2.min.js"></script>
+		<style>
+		.layer_mask {
+    background-color: #000;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    display: none;
+    width: 100%;
+    height: 100%;
+    opacity: 0.5;
+}
+
+
+.adminLayer {
+    width: 400px;
+    border: 2px solid #3A8BDD;
+    background: none repeat scroll 0% 0% #FFF;
+    display: none;
+    position: absolute;
+}
+
+
+.headLayer {
+    height: 30px;
+    background: none repeat scroll 0% 0% #3A8BDD;
+    padding: 0px 10px;
+}
+
+.headLayer h2 {
+    float: left;
+    font: 14px/30px "Microsoft YaHei";
+    color: #FFF;
+}
+
+.headLayer a {
+    float: right;
+    margin-top: 5px;
+    width: 20px;
+    height: 20px;
+    background: url("../images/adclose.png") no-repeat scroll center center transparent;
+    text-indent: -999em;
+    overflow: hidden;
+}
+
+.pd20 {
+    padding: 20px;
+}
+
+.contLayer table {
+    width: 210px;
+    margin: 0px auto;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0px;
+}
+
+.contLayer td {
+    padding: 10px 0px;
+    line-height: 24px;
+    color: #999;
+    font-size: 14px;
+}
+
+.contLayer .l_input {
+    width: 150px;
+    height: 22px;
+    line-height: 22px;
+    border: 1px solid #CCC;
+}
+
+.contLayer td a.l_btn {
+    width: 75px;
+    height: 22px;
+    line-height: 22px;
+    text-align: center;
+    font-size: 12px;
+    background: url("../images/btn.gif") no-repeat scroll 0% 0% transparent;
+    color: #004E98;
+    display: block;
+}
+		
+		</style>
+    </head>
+    <body>
+<div class="adminLayer pop1" style="left: 454.5px; top: 214.5px; display: none; z-index: 1000;">
+
+    <div class="headLayer">
+        <h2>
+
+            修改信息
+
+        </h2>
+        <a class="gb1" href="javascript:void(0)">
+
+            关闭
+
+        </a>
+    </div>
+    <div class="contLayer pd20">
+        <table width="100%" cellspacing="0" cellpadding="0" border="0">
+            <tbody>
+                <tr>
+                    <td>
+
+                        邮箱：
+
+                    </td>
+                    <td>
+
+                        12****qq.com
+
+                    </td>
+                    <input id="email" type="hidden" value="12356@qq.com" name="email"></input>
+                </tr>
+                <tr>
+                    <td>
+
+                        密　码：
+
+                    </td>
+                    <td>
+                        <input id="password" class="l_input" type="password" onkeydown="javascript: enterPress(event);" value="" name="password"></input>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                        <a class="l_btn" onclick="loginact()" href="#">
+
+                            登录修改
+
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>
+	<!---->
+        <div class="scLayer">
+                	<a href="javascript:void(0)" onclick="showpop('.pop1','.gb1')" >修改</a>             
+                </div>
+    </body>
+	<script>
+	function showpop(a,b){
+	$(a).css({
+		left:($("body").width()-$(a).width())/2-20+"px",
+		top:($(window).height()-$(a).height())/2+$(window).scrollTop()+"px",
+		display:"block",
+		"z-index":"1000"
+	});
+	$(b).click(function(){
+		$(".layer_mask").css("display","none");
+		$(a).css("display","none");
+	})
+	/*遮罩层*/
+	$(".layer_mask").css({display:"block",height:$(document).height()});
+}
+	</script>
+</html>

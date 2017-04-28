@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>使用 ng-model 指令来绑定输入域的值到控制器的属性。</title>
+		<script src="http://apps.bdimg.com/libs/angular.js/1.4.6/angular.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div ng-app="myApp" ng-controller="myCtrl"><!--一定注意ng-app和ng-controller的范围-->
+			名字：<input type="text" ng-model="name" />
+			<h1>你输入了: {{name}}</h1>  <!--双向绑定-->
+		</div>
+		
+		
+		
+		<script type="text/javascript">
+			var app = angular.module("myApp",[]);
+			app.controller('myCtrl',function($scope){
+				$scope.name="john doe";
+			});
+		</script>
+		<p>使用 ng-model 指令来绑定输入域的值到控制器的属性。</p>
+	</body>
+</html>

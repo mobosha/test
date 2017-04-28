@@ -1,0 +1,98 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+body {font-size:14px; border:3px solid #CCC; padding:2px; margin:8px;}
+a,a:visited {color:#00f;}
+#Div_CnLei { width:900px; height:1000px; padding:10px; border:10px solid #ccc; background:#eee; font-size:12px; }
+#Div_CnLei p {margin:0;padding:10px;background:#fff;}
+</style>
+<SCRIPT LANGUAGE="JavaScript">
+window.onload=function(){
+	var ss = document.getElementById("Div_CnLei");
+var s = "";
+    s += "clientWidth 网页可见区域宽："+ document.body.clientWidth;  //获取对象可见内容的宽度，包括padding以内，不包括滚动条，不包括边框,
+    s += " clientHeight网页可见区域高："+ document.body.clientHeight;  // 获取对象可见内容的高度，不包括滚动条，不包括边框；
+	s += "clientLeft 网页可见区域宽："+ document.body.clientLeft;  //获取对象的border宽度
+    s += " clientTop网页可见区域高："+ document.body.clientTop + '</br>';  //获取对象的border高度
+	
+	
+	s += "clientWidth ss网页可见区域宽："+ ss.clientWidth;  //获取对象可见内容的宽度，包括padding以内，不包括滚动条，不包括边框,
+    s += "clientHeight ss 网页可见区域高："+ ss.clientHeight;  // 获取对象可见内容的高度，不包括滚动条，不包括边框；
+	s += "clientLeft ss网页可见区域宽："+ ss.clientLeft;  //获取对象的border宽度
+    s += "clientTop ss网页可见区域高："+ ss.clientTop + '</br>';  //获取对象的border高度
+	
+	//clientWidth = width + padding
+	//clientHeight = height + padding
+	//offsetWidth = width + padding + border
+	//offsetHeight = height + padding + border
+	
+    s += " offsetWidth网页可见区域宽："+ document.body.offsetWidth + " (包括边线和滚动条的宽)"; //当前对象的宽度
+    s += " offsetHeight网页可见区域高："+ document.body.offsetHeight + " (包括边线的宽)";  //当前对象的高度
+	s += " offsetTop当前对象到其上级层上边的距离(ff)："+ document.body.offsetTop;  //当前对象到其上级层顶部边的距离。
+    s += " 当前对象到其上级层上边的距离(1ie)："+ document.documentElement.scrollTop; 
+    s += " offsetLeft当前对象到其上级层左边的距离："+ document.body.offsetLeft ; //当前对象到其上级层左边的距离
+	s += " offsetParent当前对象的上级层对象："+ document.body.offsetParent + '</br>'; //当前对象的上级层对象.
+	
+	
+	s += "offsetWidth ss网页可见区域宽："+ ss.offsetWidth + " (包括边线和滚动条的宽)"; //当前对象的宽度
+    s += "offsetHeight ss网页可见区域高："+ ss.offsetHeight + " (包括边线的宽)";  //当前对象的高度
+	s += "offsetTop ss当前对象到其上级层上边的距离(ff)："+ ss.offsetTop;  //当前对象到其上级层顶部边的距离。
+    //s += " 当前对象到其上级层上边的距离(1ie)："+ document.documentElement.scrollTop; 
+    s += "offsetLeft ss当前对象到其上级层左边的距离："+ss.offsetLeft ; //当前对象到其上级层左边的距离
+	s += "offsetParent ss当前对象的上级层对象："+ ss.offsetParent + '</br>'; //当前对象的上级层对象.
+	
+	
+	
+    s += "scrollWidth 网页正文全文宽："+ document.body.scrollWidth; //获取对象的滚动宽度 ,包括 卷进去+ 可看到 包括padding  ,不包括边框
+    s += "scrollHeight 网页正文全文高："+ document.body.scrollHeight;	
+    s += " 网页被卷去的高(ff)："+ document.body.scrollTop; //网页被卷去的高
+    s += " 网页被卷去的高(ie)："+ document.documentElement.scrollTop;
+    s += " 网页被卷去的左："+ document.body.scrollLeft + '</br>';  //设置或获取位于对象左边界和对象中目前可见内容的最左端之间的距离(width+padding为一体)
+	
+	
+	
+	
+	s += "scrollWidth ss网页正文全文宽："+ ss.scrollWidth; //获取对象的滚动宽度 ,包括 卷进去+ 可看到 包括padding  ,不包括边框
+    s += "scrollHeight ss网页正文全文高："+ ss.scrollHeight;	
+    s += " ss网页被卷去的高(ff)："+ ss.scrollTop; //网页被卷去的高
+    //s += " 网页被卷去的高(ie)："+ document.documentElement.scrollTop;
+    s += " ss网页被卷去的左："+ ss.scrollLeft + '</br>';  //设置或获取位于对象左边界和对象中目前可见内容的最左端之间的距离(width+padding为一体)   
+	
+	
+	
+    s += "screenTop 网页正文部分上："+ window.screenTop;//网页正文部分上
+    s += "screenLeft 网页正文部分左："+ window.screenLeft;//网页正文部分左
+    s += " 屏幕分辨率的高："+ window.screen.height;	//屏幕分辨率的高
+    s += " 屏幕分辨率的宽："+ window.screen.width;   //屏幕分辨率的宽
+    s += " 屏幕可用工作区高度："+ window.screen.availHeight;  //屏幕可用工作区高度
+    s += " 屏幕可用工作区宽度："+ window.screen.availWidth;  //屏幕可用工作区宽度
+	
+	
+	s += " 网页正文部分上："+ window.screenTop;//网页正文部分上
+    s += " 网页正文部分左："+ window.screenLeft;//网页正文部分左
+	
+
+    alert (s);
+
+}
+</SCRIPT>
+</head>
+
+<body>
+
+<div id="Div_CnLei">
+    <p>
+        <a href="javascript:alert(GetClientWidth('Div_CnLei'));">GetClientWidth();</a>
+        <a href="javascript:alert(GetClientHeight('Div_CnLei'));">GetClientHeight();</a>
+    </p>
+    <p>
+        <a href="javascript:alert(GetOffsetWidth('Div_CnLei'));">GetOffsetWidth();</a>
+        <a href="javascript:alert(GetOffsetHeight('Div_CnLei'));">GetOffsetHeight();</a>
+    </p>
+</div>
+
+</body>
+</html>

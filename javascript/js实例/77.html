@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+.test{
+	font-size:16px;
+	color:#F00;
+	}
+</style>
+<script src="js/jquery-1.7.2.min.js"></script>
+<script>
+$(function(){	
+	/*$("<div></div>", {
+	  "class": "test",
+	  text: "Click me!",
+	  click: function(){
+		$(this).toggleClass("test");
+	  }
+	}).appendTo("p");*/
+	//$("b").wrap("i");
+	//$("a").append("<i>ss</i>");
+	//$("b").empty();
+	//$("b").clone().prependTo("p");
+	
+		
+});
+
+$(function(){
+
+    //绑hover
+    $('#test').hover(function(){
+		$(this).html("hover状态");
+    },function(){
+		$(this).html("原始的内容");
+    });
+
+
+   //调用detach;
+   $('#detach').click(function(){
+	   //绑detach
+       //var test = $('#test').detach();
+
+       //绑remove
+	   var test = $('#test').remove();
+           $('#parent').append(test);
+   });
+
+});
+</script>
+</head>
+
+<body>
+<!--<p class="test">ddd</p>
+<i id="i">iii</i>
+<p>ddddd</p>
+<b>helloww11<i id="i">iii</i></b>
+
+<b>helloww22<i id="i">iii</i></b>-->
+<!--<b>Hello</b><p>, how are you?</p>-->
+
+<div id="test" style="width:200px;height:100px;">默认文字</div>
+
+<input type="button" id="detach" value="detach" />
+
+<div id="parent"></div>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<script>
+	var obj = {
+    '3%f'       : '琼台博客',
+    'age'       : 18,
+};
+ 
+document.write( 'name : ' + obj['3%f']+ '<br />' );
+document.write( 'age : ' + obj.age + '<br />' );
+
+var book = {bname:"js权威指南","price":108,'key':[1,3,4]};//bname没加引号，price加了  
+for(var attr in book) {  
+     //两次输出都是string，说明js会动态将其转换成字符串类型  
+     alert( attr + ":" + typeof(attr));  
+}  
+alert(typeof book.key);
+</script>
+</head>
+
+<body>
+</body>
+</html>

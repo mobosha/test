@@ -1,0 +1,504 @@
+
+<!doctype html>
+<html><head>
+    <meta charset="utf-8" />
+    <title>魔学院</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <script type="text/javascript" src="http://mlearning.moxueyuan.com/static/webapp/js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="http://mlearning.moxueyuan.com/static/webapp/js/touchy.js"></script>
+    <style>
+        #wrapper, .wrapper {
+            position: absolute;
+            z-index: 1;
+            top: 3.0937em;
+            bottom: 3.6875em;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+        }
+        div {
+            outline: 0 !important;
+            -webkit-text-size-adjust: none;
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+            position: relative;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: "微软雅黑";
+        }
+        * {
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+            outline: none;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        #header, header {
+            position: fixed;
+            z-index: 2;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3.0937em;
+            background-color: #df2128;
+            padding: 0;
+            color: #fff;
+            text-align: center;
+        }
+        header h1.titleName {
+            width: 86%;
+            padding: 0 2em 0 3em;
+        }
+        .overflowstyle {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        header h1 {
+            color: #ffffff;
+            font-family: "黑体";
+        }
+        #header h1, header h1 {
+            font-size: 1em;
+            color: #444;
+            overflow: hidden;
+            font-weight: 100;
+        }
+        #absolute {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            left: 0;
+            top: 0;
+        }
+        .ub {
+            display: -webkit-box !important;
+            display: box !important;
+            position: relative;
+        }
+        #page, #page-window {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            display: -webkit-box;
+            display: -moz-box;
+            display: -o-box;
+            display: box;
+            -webkit-box-orient: horizontal;
+            -moz-box-orient: horizontal;
+            -o-box-orient: horizontal;
+            box-orient: horizontal;
+        }
+        #page #content, #page-window .content {
+            width: 100%;
+            left: 0;
+            top: 0px;
+            position: absolute;
+            height: 100%;
+            -webkit-box-flex: 1;
+            -moz-box-flex: 1;
+            -o-box-flex: 1;
+            box-flex: 1;
+            z-index: 3;
+        }
+        #viewport {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+        #wrapper2 {
+            width: 100%;
+            height: 100%;
+            margin: 0 auto;
+        }
+        #scroller {
+            position: absolute;
+            z-index: 1;
+            -webkit-tap-highlight-color: rgba(0,0,0,0);
+
+            height: 100%;
+            -webkit-transform: translateZ(0);
+            -moz-transform: translateZ(0);
+            -ms-transform: translateZ(0);
+            -o-transform: translateZ(0);
+            transform: translateZ(0);
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            -webkit-text-size-adjust: none;
+            -moz-text-size-adjust: none;
+            -ms-text-size-adjust: none;
+            -o-text-size-adjust: none;
+            text-size-adjust: none;
+            background-color:#fff
+        }
+        .slide.border{
+
+            -webkit-box-shadow:0 0 10px #eee;
+
+        }
+
+        #scroller .slide:first-child span{
+            /*display:none;*/
+        }
+
+        .data-loading{
+            display:block;
+            width:2em;
+            height:2em;
+            background-repeat:no-repeat;
+            background-size:100% 100%;
+        }
+
+        .slide img{
+            max-width: 97%;
+            max-height: 100%;
+            vertical-align: middle;
+            -webkit-transform: scale(1) translate(0px,0px);
+            -moz-transform: scale(1) translate(0px,0px);
+            transform: scale(1) translate(0px,0px);
+            visibility: visible;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            user-select: none;
+        }
+        /* header>h1{
+            margin-left:3em;
+            margin-right: 4em;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        } */
+    </style>
+    </head>
+<body>
+<div id="absolute" class="ub x0 animate">
+    <div id="page">
+        <div id="content">
+            <header class="tx-middle">
+                <div class="button-return" onclick="goback(1);"></div>
+                <h1 class="titleName overflowstyle">第1章 新员工培训方案范本</h1>
+                <div class="progress" style="position:absolute; top:0; right:.5em; line-height:3.0937em;">1/5</div>
+            </header>
+            <div id="wrapper" style="top:3em; bottom:0 " class="">
+                <div id="viewport">
+                    <div id="wrapper2">
+                        <div id="scroller" class="ub" style="width: 500%; transition-duration: 500ms; transform: translate(0px, 0px) translateZ(0px);">
+
+                            <div class="slide ub-f1 ub ub-pc tx-middle ub-ver" style="overflow: hidden; text-align: center; width: 414px;" id="slide-0">
+                                <img class="ub-f1" data-original="http://www.moxueyuan.com//uploads/0/doc/2015/03/14271000918982/img-0.jpg" src="http://www.moxueyuan.com//uploads/0/doc/2015/03/14271000918982/img-0.jpg" ratio="1" style="width: 414px; transition: all 0ms ease-out; transform: scale(1) translate(0px, 0px) translateZ(0px);">
+                                <span class="data-loading uhide"></span>
+                            </div>
+
+                            <div class="slide ub-f1 ub ub-pc tx-middle ub-ver" style="overflow: hidden; text-align: center; width: 414px;" id="slide-1">
+                                <img class="ub-f1" data-original="http://www.moxueyuan.com//uploads/0/doc/2015/03/14271000918982/img-1.jpg" src="http://www.moxueyuan.com//uploads/0/doc/2015/03/14271000918982/img-1.jpg" ratio="1" style="width: 414px; transition: all 0ms ease-out; transform: scale(1) translate(0px, 0px) translateZ(0px);">
+                                <span class="data-loading uhide"></span>
+                            </div>
+
+                            <div class="slide ub-f1 ub ub-pc tx-middle ub-ver" style="overflow: hidden; text-align: center; width: 414px;" id="slide-2">
+                                <img class="ub-f1" data-original="http://www.moxueyuan.com//uploads/0/doc/2015/03/14271000918982/img-2.jpg" src="" ratio="1" style="width: 414px; transition: all 0ms ease-out; transform: scale(1) translate(0px, 0px) translateZ(0px);">
+                                <span class="data-loading uhide"></span>
+                            </div>
+
+                            <div class="slide ub-f1 ub ub-pc tx-middle ub-ver" style="overflow: hidden; text-align: center; width: 414px;" id="slide-3">
+                                <img class="ub-f1" data-original="http://www.moxueyuan.com//uploads/0/doc/2015/03/14271000918982/img-3.jpg" src="" ratio="1" style="width: 414px;">
+                                <span class="data-loading uhide"></span>
+                            </div>
+
+                            <div class="slide ub-f1 ub ub-pc tx-middle ub-ver" style="overflow: hidden; text-align: center; width: 414px;" id="slide-4">
+                                <img class="ub-f1" data-original="http://www.moxueyuan.com//uploads/0/doc/2015/03/14271000918982/img-4.jpg" src="" ratio="1" style="width: 414px; transition: all 0ms ease-out; transform: scale(1) translate(0px, 0px) translateZ(0px);">
+                                <span class="data-loading uhide"></span>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div id="indicator">
+                    <div id="dotty"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+
+            $(function(){
+
+                $('#scroller .slide').css('width', $(window).width());
+                $('#scroller img').css('width', $(window).width());
+            });
+
+    var translateX = 0;
+    var page = 1;
+    var myScroll;
+    var images = [
+        "http://www.moxueyuan.com/uploads/0/doc/2015/03/14271000918982/img-0.jpg",
+        "http://www.moxueyuan.com/uploads/0/doc/2015/03/14271000918982/img-1.jpg",
+        "http://www.moxueyuan.com/uploads/0/doc/2015/03/14271000918982/img-2.jpg",
+        "http://www.moxueyuan.com/uploads/0/doc/2015/03/14271000918982/img-3.jpg",
+        "http://www.moxueyuan.com/uploads/0/doc/2015/03/14271000918982/img-4.jpg"
+    ];
+    //父容器
+    var $slide = {
+        py:0,//偏移
+        x:0,
+        y:0,
+        eq:0,
+        moving:false,
+        paging: false,
+        tag: null,
+        direction:'',
+        moveX:0,
+    };
+    //单个图片
+    var $img = {
+        tag: null,
+        translate:{x:0, y:0},
+        translate_move:{x:0, y:0},
+        left:0,//
+        top:0,
+        movingLeft:0,//新left
+        movingTop:0,
+        ratio:1,
+        zoom: false,
+        move: false,
+        width:0,
+        height:0,
+    };
+    function transform(x, speed, o, paging){
+        $slide.moving = true;
+        var ele = $('#scroller').get(0).style;
+        ele.webkitTransitionDuration =  ele.transitionDuration =  (speed || 0) + 'ms';
+        ele.webkitTransform = 'translate(' + x + 'px, 0)' + ' translateZ(0)';
+        ele.msTransform = ele.MozTransform = ele.OTransform = 'translateX(' + x + 'px)';
+        if (paging && o){
+            $img.tag && $img.tag.css({'transition': 'all 0.5s ease-out', '-webkit-transition': 'all 0ms ease-out', '-webkit-transform': 'scale(1) translate(0px, 0px) translateZ(0)'}).attr('ratio', 1);
+            var eqs = [$slide.eq, $slide.eq+1];
+            $img.ratio = 1;
+            setTimeout(function(){
+                $.each(eqs, function(i, v){
+                    var div = $('#scroller .slide').eq(v);
+                    if (div.length > 0){
+                        var img = div.children('img');
+                        if(img.attr('src') != img.attr('data-original')) img.attr('src', img.attr('data-original'));
+
+                        img.css({'transition': 'all 0.5s ease-out', '-webkit-transition': 'all 0ms ease-out', '-webkit-transform': 'scale(1) translate(0px, 0px) translateZ(0)'}).attr('ratio', 1);
+
+                        div.children('span').addClass('uhide');
+
+
+                    }
+                });
+                $slide.moving = false;
+            },500);
+            if($slide.eq>=2||$slide.eq<= $('#scroller .slide').length-3){
+                if($slide.eq>=2){
+                    var eqs1 = [0, $slide.eq-2];
+                }else if($slide.eq<= $('#scroller .slide').length-3){
+                    var eqs1 = [$slide.eq+2, $('#scroller .slide').length-1];
+                }
+                $img.ratio = 1;
+                setTimeout(function(){
+                    $.each(eqs1, function(i, v){
+                        var div = $('#scroller .slide').eq(v);
+                        if (div.length > 0){
+                            var img = div.children('img');
+                            if(img.attr('src') == img.attr('data-original')) img.attr('src','');
+
+                            img.css({'transition': 'all 0.5s ease-out', '-webkit-transition': 'all 0ms ease-out', '-webkit-transform': 'scale(1) translate(0px, 0px) translateZ(0)'}).attr('ratio', 1);
+
+                            div.children('span').addClass('uhide');
+
+
+                        }
+                    });
+                    $slide.moving = false;
+                },500);
+            }
+        }
+    }
+    function getTranslateX(obj){
+        obj = obj ? obj : $('#scroller');
+        var transform = obj.css("-webkit-transform").split(',');
+        return transform.length>1 ? {x: parseInt(transform[12] || transform[4]), y:parseInt(transform[13] || transform[5])} : {x:0, y:0};
+    }
+
+
+    function imgmove(obj, o){
+        $img.tag.css({'-webkit-transition': '400ms cubic-bezier(0.08, 0.65, 0.79, 1)', '-webkit-transform': 'scale('+$img.ratio+') translate(0px,0px)'});
+
+    }
+
+    $('#scroller').animate({
+        width: images.length*100+'%'
+    },50, function(){
+        $('#wrapper').removeClass('uhide');
+    });
+
+    $('.progress').text('1/'+images.length);
+
+    transform(0, 500, true, true);
+
+
+    $('#scroller .slide').Touchx({
+        touchstart: function (o){
+            $img.tag = $(o.me).children('img');
+            $img.tag.css({'-webkit-transition': 'all 0s ease-out'});
+            $slide.py = getTranslateX().x;
+            $img.translate = getTranslateX($img.tag);
+            $slide.move = true;
+            $img.move = false;
+
+            $img.width = $img.tag.width();
+            $img.height = $img.tag.height();
+            $img.ratio = $img.original_ratio = parseFloat($img.tag.attr('ratio'));
+        },
+        zoomin: function(o){
+            $img.ratio = Math.round($img.original_ratio * o.ratio * 10) / 10;
+            if ($img.ratio>3) $img.ratio = 3;
+            $img.translate_move.x = $img.translate.x / $img.ratio;
+            $img.translate_move.y = $img.translate.y / $img.ratio;
+
+            $img.tag.css({'-webkit-transition': 'all 0s ease-out', '-webkit-transform': 'scale('+$img.ratio+') translate('+$img.translate_move.x+'px, '+$img.translate_move.y+'px) translateZ(0)'});
+            $img.tag.attr('ratio', $img.ratio);
+            $img.zoom = true;
+            $slide.paging = false;
+        },
+        touchmove: function(o){
+            if (!$slide.move) return false;
+            $img.zoom = false;
+            $slide.direction = o.dirX;
+            $slide.moveX = o.diffX;
+            $slide.paging = false;
+            if ($img.ratio > 1){
+                var minTop = Math.round(($img.height*$img.ratio - o.me.height()) / 2 / $img.ratio);
+                $img.translate_move.x = parseInt(parseInt($img.translate.x) + parseInt(o.diffX)) / $img.ratio;
+                $img.translate_move.y = parseInt(parseInt($img.translate.y) + parseInt(o.diffY)) / $img.ratio;
+                $img.tag.css({'-webkit-transition': 'all 0s ease-out', '-webkit-transform': 'scale('+$img.ratio+') translate('+$img.translate_move.x+'px, '+$img.translate_move.y+'px) translateZ(0)'});
+
+            }
+            else if($img.ratio == 1){
+                $slide.paging = true;
+                if(o.absDiffX > o.absDiffY){
+                    translateX =  (parseInt(o.diffX) + $slide.py) * 1;
+                    transform(translateX);
+                }
+
+            }
+        },
+        touchend: function(o){
+
+            $img.ratio = parseFloat($img.tag.attr('ratio'));
+            //缩放
+            if ($img.ratio <= 1) $img.ratio = 1;
+            if ($img.ratio >= 3) $img.ratio = 3;
+            $img.tag.attr('ratio', $img.ratio);
+            if ($img.ratio == 1){
+                $img.translate_move = {x:0, y:0};
+            }else{
+                var minLeft = Math.round(($img.width*$img.ratio - o.me.width()) / 2 / $img.ratio);
+                var minTop = Math.round(($img.height*$img.ratio - o.me.height()) / 2 / $img.ratio);
+                //增加惯性
+                if (!$img.zoom){
+                    var dis = 300 / o.timeDiff * 10;
+                    if (o.diffX > 0 ){
+                        $img.translate_move.x += dis;
+                    }else if (o.diffX < 0 ){
+                        $img.translate_move.x -= dis;
+                    }
+                    if (o.diffY > 0 ){
+                        $img.translate_move.y += dis;
+                    }else if (o.diffY < 0 ){
+                        $img.translate_move.y -= dis;
+                    }
+                }
+                if ($img.translate_move.x >= minLeft){
+
+                    if ($img.translate_move.x - minLeft > ($img.width / 4)){
+                        $slide.direction = 'right';
+                        $slide.moveX = 151;
+                        $slide.paging = true;
+                    }else{
+                        $img.translate_move.x = minLeft;
+                    }
+                }
+                if ($img.translate_move.x * -1 >= minLeft){
+
+                    if ($img.translate_move.x * -1 - minLeft > ($img.width / 4)){
+                        $slide.moveX = -151;
+                        $slide.direction = 'left';
+                        $slide.paging = true;
+                    }else{
+                        $img.translate_move.x = minLeft * -1;
+                    }
+                }
+                var vvv = false;
+                //顶部溢出
+                if (($img.height * $img.ratio) > o.me.height()){
+                    if ($img.translate_move.y >= minTop){
+                        $img.translate_move.y = minTop;
+                    }else if ($img.translate_move.y * -1 >= minTop){
+                        $img.translate_move.y = minTop * -1
+                    }
+                }else{
+                    if($img.translate_move.y < minTop){
+                        $img.translate_move.y = minTop;
+                    }else if($img.translate_move.y > minTop * -1){
+                        $img.translate_move.y = minTop * -1;
+                    }
+                }
+            }
+            if ($slide.paging){
+
+                if ($slide.direction == 'left' && $slide.moveX < -50){
+                    $slide.eq = $slide.eq+1;
+
+                }else if($slide.direction == 'right' && $slide.moveX > 50){
+                    $slide.eq = $slide.eq-1;
+                }else{
+                    reimg = false;
+                }
+                $slide.eq = $slide.eq<=0 ? 0 : ($slide.eq>=images.length-1 ? images.length-1 : $slide.eq);
+                var translateXX = ($slide.eq*$(window).width()) * -1;
+                translateXX = translateXX >0 ? 0 : translateXX;
+
+
+                transform(translateXX, 500, $img.tag, $slide.direction);
+                $('.progress').text(($slide.eq+1)+'/'+images.length);
+
+
+                /*更改学习状态*/
+                if ($slide.eq+1 == images.length){
+                    //看到最后页了
+                }
+            }else{
+                $img.tag.css({'transition': 'all 0.5s ease-out', '-webkit-transition': 'all 0.5s ease-out', '-webkit-transform': 'scale('+$img.ratio+') translate('+$img.translate_move.x+'px, '+$img.translate_move.y+'px) translateZ(0)'});
+                $img.translate = $img.translate_move;
+                if (!$img.zoom){
+                    //transform(($slide.eq*$(window).width() * -1), 200, $img.tag, $slide.direction);
+                }
+                //$('header h1').html('end:'+JSON.stringify($img.translate_move)+':'+o.diffX+':'+o.diffY+':'+$img.ratio);
+            }
+
+            //Xalert($img.ratio, 500);
+            $slide.move = false;
+            $slide.paging = false;
+        }
+    });
+
+</script>
+
+
+</body>
+</html>

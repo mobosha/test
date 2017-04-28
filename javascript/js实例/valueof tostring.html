@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<script type="text/javascript">
+/*	var bb = { 
+	 i: 10, 
+	 valueOf: function() { 
+	  console.log('valueOf'); 
+	  return this.i; 
+	 } 
+	} 
+	
+	alert(bb);// [object Object] 
+	alert(+bb); // 10 valueOf 
+	alert(''+bb); // 10 valueOf 
+	alert(String(bb)); // [object Object] 
+	alert(Number(bb)); // 10 valueOf 
+	alert(bb == '10'); // true valueOf 
+	
+	var fun = function helloworld () {
+		var i = 10;
+	}
+	alert(fun);*/
+	
+	
+	var person={firstname:"John",lastname:"Doe",age:50,eyecolor:"blue"};
+	
+	alert(person);
+	console.log(person);
+	alert(typeof JSON.stringify(person));
+	
+	/*var arr = [1,2];
+	alert(arr.toString());*/
+	
+	var per = person.toString();
+	alert(typeof per);
+	console.log(per);
+</script>
+</head>
+
+<body>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			function createOrder () {
+				coffee = document.forms[0].coffee;
+				txt = '';
+				for(var i=0;i<coffee.length;i++){
+					if(coffee[i].checked){
+						txt = txt + coffee[i].value+" ";
+					}
+				}
+				document.getElementById('order').value = "您订购的咖啡带有："+txt;
+			}
+		</script>
+	</head>
+	<body>
+		<form action="" method="post">
+			<input type="checkbox" name="coffee" value="奶油" />加奶油 <br />
+			<input type="checkbox" name="coffee" value="糖块" />加糖块 <br />
+			<input type="button" onclick="createOrder()" value="发送订单" />
+			<input type="text" id="order" size="50" />
+		</form>
+	</body>
+</html>

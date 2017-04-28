@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+	<meta charset="UTF-8"/>
+<script src="http://apps.bdimg.com/libs/angular.js/1.4.6/angular.min.js"></script>
+</head>
+<body>
+
+<div ng-app="myApp" ng-controller="myCtrl">
+
+
+<!--方法一,创建下拉列表-->
+<!--<select ng-model="selectedName" ng-options="x for x in names">
+</select>-->
+
+
+<!--方法二，循环下拉列表-->
+<select name="">
+	<option ng-repeat="x in names">{{x}}</option>
+</select>
+
+<!--ng-repeat 指令是通过数组来循环 HTML 代码来创建下拉列表，但 ng-options 指令更适合创建下拉列表，它有以下优势：
+使用 ng-options 的选项的一个对象， ng-repeat 是一个字符串。-->
+
+</div>
+
+<script>
+var app = angular.module('myApp', []);
+app.controller('myCtrl', function($scope) {
+    $scope.names = ["Google", "Runoob", "Taobao"];
+});
+</script>
+
+<p>该实例演示了 ng-options 指令的使用。</p>
+
+</body>
+</html>

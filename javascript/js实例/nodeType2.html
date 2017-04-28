@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>注意childNodes</title>
+		<script type="text/javascript" src="http://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+		<script type="text/javascript">
+			function nodetype () {
+				var ele = document.getElementsByClassName('ny');
+				console.log(ele.length);
+			}
+			/*$(function(){
+				$('#off').click(function(){
+					var all = $('#off').offset();
+					console.log(all.top);
+					console.log(all.left);
+					console.log($('body').scrollTop());
+				});
+			});*/
+		</script>
+	</head>
+	<body style="height: 1500px; border: 2px solid #00008B; padding: 10px; margin: 10px;" class="bodyy">
+		<!--<div id="" style="height: 500px;">
+			
+		</div>-->
+		<div id="fjsfjsf">
+					<dialog>第三代</dialog><div class="ny"  onclick="nodetype ()"><p class="ss" style="padding: 10px;">ddd</p>测试</div>
+		</div>
+
+		<button id="off" style="margin-top: 500px;">点击</button>
+	</body>
+</html>

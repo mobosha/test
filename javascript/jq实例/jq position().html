@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="http://libs.baidu.com/jquery/1.10.2/jquery.min.js">
+</script>
+<script>
+$(document).ready(function(){
+  $("button").click(function(){
+    x=$("p").position();
+    $("#span1").text(x.top);
+    $("#span2").text(x.left);
+  });
+});
+</script>
+</head>
+<body>
+
+<div style="border:1px solid black;padding:10em;margin:50px; position:relative;">
+<p>Position of this paragraph (relative to its parent element) is <span id="span1">x</span> top and <span id="span2">x</span> left.</p>
+<button>Get position</button>
+</div>
+
+</body>
+</html>			

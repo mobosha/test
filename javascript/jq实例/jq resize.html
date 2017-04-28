@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!--<script src="http://libs.baidu.com/jquery/1.10.2/jquery.min.js">-->
+<!--<script src="http://ajax.aspnetcdn.com/ajax/jquery/jquery-2.1.1.min.js"></script>-->
+<script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+</script>
+<script>
+
+$(document).ready(function(){
+  $(window).resize(function(){
+    $("span").eq(0).text(document.body.clientWidth);
+	$("span").eq(1).text(document.body.offsetWidth);
+  });
+});
+</script>
+</head>
+<body>
+
+<p>Window resized <span>0</span> <span>0</span>times.</p>
+<p>Try resizing your browser window.</p>
+
+</body>
+</html>			

@@ -1,0 +1,175 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">  <meta charset="utf-8"> <title>touch</title> <meta content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width" name="viewport">
+        <style>
+            .block{width:200px; height: 100px; position: absolute; left: 0; top: 0; text-align: center; line-height: 100px;}
+            .red{background: red;}
+            .black{background: black;}
+        </style>
+    </head>
+    <body>
+        <div style="position:relative; width:200px; height: 100px; overflow: hidden;">
+            <div class="block red" id="red">向左滑</div>
+            <div class="block black" id="black" style="left: 200; color: white;">向右滑</div>
+        </div>
+
+    </body>
+</html>
+
+<script>
+    var red = document.getElementById('red');
+    var black = document.getElementById('black');
+
+    red.addEventListener('touchstart', start, false);
+    red.addEventListener('touchmove', move, false);
+    red.addEventListener('touchend', end, false);
+
+    black.addEventListener('touchstart', start, false);
+    black.addEventListener('touchmove', moveblack, false);
+    black.addEventListener('touchend', endblack, false);
+
+    var tX = 0;
+    var n = 0;
+
+    function start(event)
+    {
+        event.preventDefault();
+        var t = event.touches[0];
+        tX = t.pageX;
+
+    }
+    function move(event)
+    {
+        event.preventDefault();
+        var m = event.touches[0];
+        n = m.pageX-tX;
+
+        red.style.left=n;
+        black.style.left = 200+n;
+
+    }
+    function end(event)
+    {
+        var num = Math.abs(n);
+        event.preventDefault();
+        if(n<0)
+        {
+            var redId = setInterval(function(){
+                if(num>=0)
+                {
+                    red.style.left=200-num;
+                    black.style.left = num;
+                    if(num>=10)
+                    {
+                        num=num-10;
+                    }
+                    else
+                    {
+
+                        num--;
+                    }
+
+
+                }
+                else
+                {
+                    clearInterval(redId);
+                }
+
+
+            },1);
+        }
+        else
+        {
+            event.preventDefault();
+            var blackId = setInterval(function(){
+                if(n>=0)
+                {
+                    red.style.left=n;
+                    black.style.left = 200;
+                   if(n>=10)
+                    {
+                        n=n-10;
+                    }
+                    else
+                    {
+                        n--;
+                    }
+
+                }
+                else
+                {
+                    clearInterval(blackId);
+                }
+
+
+
+            },1);
+        }
+
+
+    }
+
+    function moveblack(event)
+    {
+        event.preventDefault();
+        var m = event.touches[0];
+        n = m.pageX-tX;
+
+        red.style.left=n-200;
+        black.style.left = n;
+
+    }
+    function endblack(event)
+    {
+
+        event.preventDefault();
+        if(n>0)
+        {
+            var blackId = setInterval(function(){
+                if(n<=200 && n>0)
+                {
+                    red.style.left=n-200;
+                    black.style.left = n;
+                    if(n<=190)
+                    {
+                        n=n+10;
+                    }
+                    else
+                    {
+                        n++;
+                    }
+
+                }
+                else
+                {
+                    clearInterval(blackId);
+                }
+            },1);
+        }
+        else
+        {
+
+            var redId = setInterval(function(){
+                if(n<=0)
+                {
+                    red.style.left=-200;
+                    black.style.left = n;
+
+                    if(n>-10)
+                        n++;
+                    else
+                        n = n+10;
+
+
+
+                }
+                else
+                {
+                    clearInterval(redId);
+                }
+
+
+            },1);
+        }
+    }
+
+</script>

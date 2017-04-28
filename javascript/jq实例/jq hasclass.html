@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+div{
+	border:1px solid #CCC;
+}
+</style>
+<!--<script src="http://libs.baidu.com/jquery/1.10.2/jquery.min.js"></script>-->
+<script src="js/jquery-1.10.2.min.js"></script>
+<script>
+$(function(){
+	$("div").click(function(){
+		  if ( $(this).hasClass("protected") ){
+			  $(this).animate({ width: 200 }).animate({ width: 500 }).animate({ opacity:0.1 });
+			   // $(this).animate({ 'backgroundColor':'#FF0000'}); //jquery 对大小、位置、透明度起作用，对背景颜色不是太管用
+
+		  }
+	});
+	
+	
+});
+</script>
+</head>
+
+<body>
+<div class="protected">dddd</div>
+</body>
+</html>

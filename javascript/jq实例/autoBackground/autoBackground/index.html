@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>jQuery响应式全屏等比例缩放图片背景代码 - 【科e互联】</title>
+<link rel="stylesheet" href="css/lib.css" type="text/css" media="screen">
+<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="js/jquery.ez-bg-resize.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	$("body").ezBgResize({
+		img     : "image/bg.jpg", // Relative path example.  You could also use an absolute url (http://...).
+		opacity : 1, // Opacity. 1 = 100%.  This is optional.
+		center  : true // Boolean (true or false). This is optional. Default is true.
+	});
+});
+</script>
+</head>
+<h1 class="keTitle">jQuery响应式全屏等比例缩放图片背景代码</h1>
+<!--效果html开始-->
+<div id="container">
+  <p class="code"> $.ezBgResize({<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;img      : "image/bg.jpg", // Required.<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;opacity  : 1, // Optional. Default is 100% (1).<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;center   : true // Optional. Default is true.<br />
+    }); </p>
+</div>
+<!--效果html结束-->
+<div class="keBottom">科e互联网页特效集锦---更多特效请访问 <a class="keUrl" href="http://www.internetke.com" target="_blank">www.internetke.com</a> <a target="_blank" href="http://wp.qq.com/wpa/qunwpa?idkey=a7df3558c291e0407375b9ad649d96a6e507286ffeb0650c65a221d1500a0779" class="button red" title="北京网站建设,网页特效QQ交流群-科e互联">加入QQ交流群</a></div>
+</body>
+</html>

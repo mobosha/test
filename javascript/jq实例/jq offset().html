@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="http://libs.baidu.com/jquery/1.10.2/jquery.min.js">
+</script>
+<script>
+$(document).ready(function(){
+  $("button").click(function(){
+    var x=$("button").offset();//scrollTop卷进去 + 当前可以看到   当前元素相对这个文档的左侧，上侧
+    alert("Top: " + x.top + " Left: " + x.left);
+  });
+});
+</script>
+</head>
+<body>
+<div style="border:1px solid black;padding:10em;margin:50px; position:absolute;">
+<p style="height:800px;">This is a paragraph.</p>
+<button>Return the offset coordinates of the p element</button>
+</div>
+</body>
+</html>			

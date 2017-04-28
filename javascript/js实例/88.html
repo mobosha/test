@@ -1,0 +1,73 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+.test{
+	font-size:16px;
+	color:#F00;
+	}
+</style>
+<script src="js/jquery-1.7.2.min.js"></script>
+<script>
+/*$(function(){
+
+   $("button").click(function () { 
+$("div").each(function (index, domEle) { 
+  // domEle == this 
+  $(domEle).css("backgroundColor", "yellow");  
+  if ($(this).is("#stop")) { 
+  $("span").text("Stopped at div index #" + index); 
+  return false; 
+  } 
+});
+});
+
+});*/
+/*$(function(){
+	var vals = $("#nationality").val();
+	alert(vals);
+	})*/
+	
+$("#nationality").change(function(){
+		
+	})
+</script>
+</head>
+
+<body>
+<!--<button>Change colors</button>
+<span>11</span> 
+<div>22</div> 
+<div>33</div>
+
+<div>44</div> 
+<div>55</div>
+<div id="stop">Stop here</div> 
+<div>66</div>
+
+<div>77</div>
+<div>88</div>-->
+
+
+<select name="national" id="nationality">  
+  <option value="1">中国</option>  
+  <option value="2">其他</option>
+</select>
+
+
+<div onclick="goback();">返回上一级</div>
+<div onclick="gogoback ();">返回上二级</div>
+<script type="text/javascript">
+function goback () {
+	window.history.back();
+}
+function gogoback () {
+	window.history.go(-2);
+}
+
+</script>
+
+</body>
+</html>

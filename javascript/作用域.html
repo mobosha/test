@@ -1,0 +1,115 @@
+<!DOCTYPE html>  
+<html>
+    <head></head>
+    <body>
+        <input onkeyup="aa(event);" />
+            确定
+        <script>
+            // function aa(e){
+            //     alert(e);
+            // }
+            // var a =1, b =2;  
+            // function test(){  
+            //     alert(a); 
+            //     alert(b); 
+            //     var a = 2;  
+            //     b = 3;
+            //     alert(a);  
+            // }  
+            // test();  
+            // alert(a); 
+            // alert(b);
+
+
+            // for (var i = 0; i < 5; i++) {
+            // (function () {
+            //     setTimeout(function () {
+            //     console.log(i);
+            //     }, 5);
+            // })();
+            // }
+            
+
+            // var myObject = {value: 100};
+            // myObject.getValue = function () {
+            // var foo = function () {
+            //     console.log(this.value) // => undefined
+            //     console.log(this);// 输出全局对象 global
+            // };
+
+            // foo();
+
+            // return this.value;
+            // };
+
+            // console.log(myObject.getValue()); // => 100
+
+
+            // var myObject = {value: 100};
+
+            // var foo = function(){
+            // console.log(this);
+            // };
+
+            // foo(); // 全局变量 global
+            // foo.apply(myObject); // { value: 100 }
+            // foo.call(myObject); // { value: 100 }
+
+            // var newFoo = foo.bind(myObject);
+            // newFoo(); // { value: 100 }
+
+
+
+            // add.call(sub,3,1);
+
+            // function add(a,b)  
+            // {  
+            //     alert(a+b);  
+            // }  
+            // function sub(a,b)  
+            // {  
+            //     alert(a-b);  
+            // }  
+
+
+
+            // var a =1;  
+            // function test(){  
+            //     alert(a); //a为undefined! 这个a并不是全局变量，这是因为在function scope里已经声明了（函数体倒数第4行）一个重名的局部变量,  
+            //                 //所以全局变量a被覆盖了，这说明了Javascript在执行前会对整个脚本文件的定义部分做完整分析,所以在函数test()执行前,  
+            //                 //函数体中的变量a就被指向内部的局部变量.而不是指向外部的全局变量. 但这时a只有声明，还没赋值，所以输出undefined。  
+            //     a=4         
+            //     alert(a);  //a为4,没悬念了吧？ 这里的a还是局部变量哦！  
+            //     var a;     //局部变量a在这行声明  
+            //     alert(a);  //a还是为4,这是因为之前已把4赋给a了  
+            // }  
+            // test();  
+            // alert(a); //a为1，这里并不在function scope内，a的值为全局变量的值 
+
+
+
+            // var s = 'sss';
+            // var ss = new String('sss');
+            // alert(typeof s);
+            // //var d = s.toUpperCase();
+            // var s = s + "dd";
+            // alert(s)
+            // s.len = 4;
+            // ss.len = 3;
+            // alert(ss.len)
+            // var t = s.len;
+            // console.log(t); 
+            // alert(t);
+
+
+
+            enum Color {Red = 1, Green, Blue};
+            var colorName: string = Color[2];
+            alert(colorName);
+            
+            
+
+        </script>
+    </body>
+</html>
+

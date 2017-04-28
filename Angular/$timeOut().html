@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>setTimeout() 只执行 code 一次。如果要多次调用，请使用 setInterval() 或者让 code 自身再次调用 setTimeout()。</title>
+		<script src="http://apps.bdimg.com/libs/angular.js/1.0.6/angular.js"></script>
+	</head>
+	<body ng-app>
+		<div ng-controller="MyController">
+			{{clock}}
+		</div>
+		<script type="text/javascript">
+			function MyController($scope,$timeout){
+				var updateClock = function(){
+					var dates = new  Date();
+					$scope.clock=dates.toLocaleString();
+					$timeout(function(){
+						updateClock();
+					},1000);
+				};
+				updateClock();
+			};
+		</script>
+	</body>
+</html>

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>使用 ng-init 不是很常见。您将在控制器一章中学习到一个更好的初始化数据的方式。通常情况下，不使用 ng-init。您将使用一个控制器或模块来代替它。</title>
+		<script src="http://apps.bdimg.com/libs/angular.js/1.4.6/angular.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div ng-app ng-init='quantity=1;price=5;'>
+			<h2>价格计算器</h2>
+			数量：<input type="text" ng-model='quantity' />
+			价格：<input type="text" ng-model='price' />
+			<p><b>价格：</b>{{quantity*price}}</p>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html ng-app="ezApp">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+        <title>菜鸟教程(runoob.com)</title>
+        <link href="http://www.runoob.com/static/ionic/css/ionic.min.css" rel="stylesheet">
+        <script src="http://www.runoob.com/static/ionic/js/ionic.bundle.min.js"></script>
+        <style type="text/css">
+        	.ba{
+        		background: url(http://static.oschina.net/uploads/cooperation/question_banner_one_cpVDL.jpg);
+        	}
+        	.ba.activated{
+        		background: url(http://static.oschina.net/uploads/cooperation/question_banner_two_QogPy.png);
+        	}
+        </style>
+        <script>
+var app = angular.module("ezApp", ["ionic"]);
+
+app.controller("ezCtrl",function($scope,$state,$ionicHistory){
+	
+  $scope.go_back = function() {
+		$ionicHistory.goBack();
+	};
+  
+});
+
+		</script>
+    </head>
+    <body ng-controller="ezCtrl">
+    
+    <div class="bar bar-header">
+     <!-- <div class="h1 title">Block Buttons</div>-->
+      <div class="h1 title" ng-click="go_back();">Block 返回</div>
+    </div>
+    
+    <div class="content padding has-header">
+      <button class="button button-block button-light ba">button-light</button>
+      <button class="button button-block button-stable">button-stable</button>
+      <button class="button button-block button-positive">button-positive</button>
+      <button class="button button-block button-calm">button-calm</button>
+      <button class="button button-block button-balanced">button-balanced</button>
+      <button class="button button-block button-energized">button-energized</button>
+      <button class="button button-block button-assertive">button-assertive</button>
+      <button class="button button-block button-royal">button-royal</button>
+      <button class="button button-block button-dark">button-dark</button>
+    </div>
+
+  </body>
+</html>

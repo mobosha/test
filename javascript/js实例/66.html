@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+body{
+	padding:0;
+	margin:0;
+	}
+.main{
+	width:100%;
+	padding:20px;
+	box-sizing:border-box;
+	margin:0px 10px;
+	}
+</style>
+<script type="text/javascript">
+window.onload = function(){
+	tye();
+	}
+function tye(){
+	
+	var aa = document.getElementsByTagName('a');
+	var ss = aa[0].childNodes;
+	for(var i = 0; i<ss.length; i++){
+		var sty = ss[i].nodeType;
+		
+		//alert(sty);
+		}
+	
+	}
+
+
+</script>
+</head>
+
+<body>
+<div class="main">
+<a href="www.baidu.com">dd<i id="12">ss</i></a>
+</div>
+</body>
+</html>
