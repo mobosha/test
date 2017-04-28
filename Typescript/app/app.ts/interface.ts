@@ -123,20 +123,18 @@ interface PenStroke {
 interface ISquare extends IShape, PenStroke {
     sideLength: number;
 } 
-interface Object<T>{
 
-}
-var s:ss<string> = "ss";
 var square = <ISquare>{}; //Array<string> string[]
 
 var square3: ISquare= {color:"red",penWidth:1,sideLength:1,re:'s'}; 
+var square3: ISquare= {color:"red",penWidth:1,sideLength:1}; 
 var square1:any[]= [];
 var square2:Array<string>= [];
 square.color = "blue";
 square.sideLength = 10;
 //square.penWidth = 5.0;
 var s = new Array<string>();
-s.push(2);
+
 
 
 
