@@ -127,7 +127,7 @@ interface Object<T>{
 
 }
 var s:ss<string> = "ss";
-var square: ISquare = {}; //Array<string> string[]
+var square = <ISquare>{}; //Array<string> string[]
 
 var square3: ISquare= {color:"red",penWidth:1,sideLength:1,re:'s'}; 
 var square1:any[]= [];
