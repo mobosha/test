@@ -13,7 +13,9 @@
          
     },
     "include": [
-        "app/app.ts/*"
+        "app/app.ts/*",
+        "app/app.ts/function/*",
+        "app/app.ts/require/*"
     ],
     "compileOnSave": true
 }

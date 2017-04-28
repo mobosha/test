@@ -6,7 +6,7 @@
             "type": "node",
             "request": "launch",
             "name": "Launch Program",
-            "program": "${workspaceRoot}/webapp/js/index.js",
+            "program": "${workspaceRoot}/app/app.js/function/this.js",
             "cwd": "${workspaceRoot}"
         },
         {

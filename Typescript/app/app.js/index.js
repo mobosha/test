@@ -29,4 +29,31 @@ console.log(mySquare1.color + "==" + mySquare1.area); //
 console.log(mySquare2.color + "==" + mySquare2.area); //
 var mySquare3 = createSquare({ color: "yellow", width: 80 }); //这里给了两个变量值，一个是 color，一个是 widthconsole.log(mySquare3.color+"=="+mySquare3.area);//所以这个值必须等于 8000
 console.log(mySquare3.color + "==" + mySquare3.area); //所以这个值必须等于 8000
+var Greeter = (function () {
+    function Greeter(greeting) {
+        this.greeting = greeting;
+    }
+    Greeter.prototype.greet = function () {
+        if (this.greeting) {
+            return "Hello, " + this.greeting;
+        }
+        else {
+            return Greeter.standardGreeting;
+        }
+    };
+    return Greeter;
+}());
+Greeter.standardGreeting = "Hello, there";
+var greeter1;
+greeter1 = new Greeter('sss');
+alert(greeter1.greet());
+console.log(greeter1.greeting);
+var greeterMaker = Greeter;
+greeterMaker.standardGreeting = "Hey there!";
+var greeter2 = new greeterMaker();
+alert(greeter2.greet());
+var greeter3;
+greeter3 = new Greeter();
+alert(greeter3.greet());
+alert(greeterMaker === Greeter);
 //# sourceMappingURL=index.js.map
