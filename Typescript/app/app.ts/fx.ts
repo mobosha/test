@@ -12,3 +12,4 @@ function identity2(arg: any): any {
     
 return arg;
 }
+console.log("sss");
