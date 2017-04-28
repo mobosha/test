@@ -3,6 +3,7 @@
 */
 function identity1(arg: number): number {
 return arg;
+
 }
 /**
 * 或者:我们可以描述使用“任意”类型的标识功能：
