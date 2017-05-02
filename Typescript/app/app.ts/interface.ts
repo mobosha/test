@@ -116,6 +116,7 @@ var newClock = new cs(7, 30);
 //接口扩展
 interface IShape {
     color: string;
+    
 }
 interface PenStroke {
     penWidth: number;
