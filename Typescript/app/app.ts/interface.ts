@@ -22,6 +22,8 @@ function createSquare(config: SquareConfig): { color: string; area: number } {
 }
 
 var mySquare1 = createSquare({ color: "red" });
+var mySquare1 = createSquare({ color: "red" });
+
 //与接口的变量 color 一样，此时这个值 是取出是默认值 color=red 
 //var mySquare2 = createSquare({color1: "red"}); //报错
 //与接口的变量 color 不一样，此时这个值是取出是默认值 color=white
@@ -114,6 +116,7 @@ var newClock = new cs(7, 30);
 //接口扩展
 interface IShape {
     color: string;
+    
 }
 interface PenStroke {
     penWidth: number;
@@ -122,21 +125,19 @@ interface PenStroke {
 //interface ISquare 的成员包含继承IShape的color，PenStroke的penWidth 属性，并且自定义的sideLength属性
 interface ISquare extends IShape, PenStroke {
     sideLength: number;
-} 
-interface Object<T>{
-
 }
-var s:ss<string> = "ss";
-var square = <ISquare>{}; //Array<string> string[]
 
-var square3: ISquare= {color:"red",penWidth:1,sideLength:1,re:'s'}; 
-var square1:any[]= [];
-var square2:Array<string>= [];
+var square = <ISquare>{}; //Array<string> string[]
+var square = <ISquare>{}; //Array<string> string[]
+//var square3: ISquare= {color:"red",penWidth:1,sideLength:1,re:'s'}; 
+var square3: ISquare = { color: "red", penWidth: 1, sideLength: 1 };
+var square1: any[] = [];
+var square2: Array<string> = [];
 square.color = "blue";
 square.sideLength = 10;
 //square.penWidth = 5.0;
 var s = new Array<string>();
-s.push(2);
+
 
 
 

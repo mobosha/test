@@ -94,9 +94,9 @@ function getThisMsgs2() {
             suit: "hearts", card: 4
         }];
     var pickedCard1 = myDeck[pickCard(myDeck)];
-    alert("card: " + pickedCard1.card + " of " + pickedCard1.suit);
+    console.log("card: " + pickedCard1.card + " of " + pickedCard1.suit);
     var pickedCard2 = pickCard(15);
-    alert("card: " + pickedCard2.card + " of " + pickedCard2.suit);
+    console.log("card: " + pickedCard2.card + " of " + pickedCard2.suit);
 }
 getThisMsgs2();
 //# sourceMappingURL=this.js.map
