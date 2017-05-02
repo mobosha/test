@@ -10,7 +10,7 @@ var p: IUserInfo = { age: "" };
 //~~~~~~~~~~~~~~~~~~~~~~用接口interface描述对象类型的数据结构，属性可选
 interface SquareConfig { color?: string; width?: number; }
 
-function createSquare(config: SquareConfig): { color: string; area: number } {
+function createSquare1(config: SquareConfig): { color: string; area: number } {
     //此时 newSquare 里面的参数必须与 :后面里面的参数名称一致. 
     var newSquare = { color: "white", area: 100 };
     if (config.color) {

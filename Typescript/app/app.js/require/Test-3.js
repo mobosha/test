@@ -1,5 +1,5 @@
 "use strict";
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", { value: true });
 var telValidator = require("./TelValidator");
 var emailValidator = require("./EmailValidator");
 //-------------------显示信息 1---------------------

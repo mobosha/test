@@ -11,6 +11,7 @@ notSure = "this string";
 
 // 哈哈哈
 interface SquareConfig {
+    
     color?: string;
     width?: number;
 }
@@ -53,18 +54,19 @@ class Greeter {
 }
 var greeter1: Greeter;
 greeter1 = new Greeter('sss');
-alert(greeter1.greet());
+console.log(greeter1.greet());
 console.log(greeter1.greeting);
 var greeterMaker: typeof Greeter = Greeter;
 greeterMaker.standardGreeting = "Hey there!";
 
 var greeter2: Greeter = new greeterMaker();
-alert(greeter2.greet());
+console.log(greeter2.greet());
+
 
 var greeter3: Greeter;
 greeter3 = new Greeter();
-alert(greeter3.greet());
-alert(greeterMaker === Greeter);
+console.log(greeter3.greet());
+console.log(greeterMaker === Greeter);
 
 
 

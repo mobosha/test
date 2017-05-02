@@ -1,6 +1,6 @@
 //var p: IUserInfo = { age: "", name: "" }; //报错
 var p = { age: "" };
-function createSquare(config) {
+function createSquare1(config) {
     //此时 newSquare 里面的参数必须与 :后面里面的参数名称一致. 
     var newSquare = { color: "white", area: 100 };
     if (config.color) {

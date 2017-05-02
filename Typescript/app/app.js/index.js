@@ -46,14 +46,14 @@ var Greeter = (function () {
 Greeter.standardGreeting = "Hello, there";
 var greeter1;
 greeter1 = new Greeter('sss');
-alert(greeter1.greet());
+console.log(greeter1.greet());
 console.log(greeter1.greeting);
 var greeterMaker = Greeter;
 greeterMaker.standardGreeting = "Hey there!";
 var greeter2 = new greeterMaker();
-alert(greeter2.greet());
+console.log(greeter2.greet());
 var greeter3;
 greeter3 = new Greeter();
-alert(greeter3.greet());
-alert(greeterMaker === Greeter);
+console.log(greeter3.greet());
+console.log(greeterMaker === Greeter);
 //# sourceMappingURL=index.js.map
