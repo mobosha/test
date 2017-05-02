@@ -10,4 +10,5 @@ function identity1(arg) {
 function identity2(arg) {
     return arg;
 }
+console.log("sss");
 //# sourceMappingURL=fx.js.map
