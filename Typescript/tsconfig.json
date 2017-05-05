@@ -1,4 +1,4 @@
-{
+﻿{
     "compilerOptions": {
         "target": "es5",
         "module": "commonjs",
@@ -6,20 +6,21 @@
         "sourceMap": true,
         "emitDecoratorMetadata": true,
         "experimentalDecorators": true,
-        "removeComments": false,
+        "removeComments": false, //删除所有注释，除了以/!*开头的版权信息
         "noImplicitAny": false,
         "outDir": "app/app.js/"
         
          
     },
     "include": [
-        "app/app.ts/*",
-        "app/app.ts/function/*",
-        "app/app.ts/require/*",
-        "app/app.ts/fx/*",
-        "app/app.ts/Mixin/*",
-        "app/app.ts/合并interface/*",
-        "app/app.ts/类型比较/*"
+        "app/app.ts/**/*",  //    **/递归匹配任意子目录
+        "app/app.ts/*"
+        // "app/app.ts/function/*",
+        // "app/app.ts/require/*"
+        // "app/app.ts/fx/*",
+        // "app/app.ts/Mixin/*",
+        // "app/app.ts/合并interface/*",
+        // "app/app.ts/类型比较/*"
         
     ],
     "compileOnSave": true
