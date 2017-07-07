@@ -1,0 +1,125 @@
+@charset "UTF-8";
+/*进阶第二章*/
+/*第二章：sass的函数简介*/
+/*字符串函数-unquote()函数*/
+.test1 {
+  content: Hello Sass!;
+}
+
+.test2 {
+  content: 'Hello Sass!;
+}
+
+.test3 {
+  content: I'm Web Designer;
+}
+
+.test4 {
+  content: 'Hello Sass!';
+}
+
+.test5 {
+  content: "Hello Sass!";
+}
+
+.test6 {
+  content: Hello Sass;
+}
+
+/*字符串函数-quote()函数*/
+.test1 {
+  content: "Hello Sass!";
+}
+
+.test2 {
+  content: "Hello Sass!";
+}
+
+.test3 {
+  content: "ImWebDesigner";
+}
+
+.test4 {
+  content: " ";
+}
+
+/*字符串函数-To-upper-case()、To-lower-case()*/
+.test {
+  text: AAAAA;
+  text: AA-AAAA-AAA;
+}
+
+.test {
+  text: aaaaa;
+  text: aa-aaaa-aaa;
+}
+
+/*数字函数简介*/
+.main {
+  width: 75%;
+  height: 1;
+  padding: 0;
+  margin: 1;
+  line-height: 0.25;
+  font-weight: 0.75;
+  font-size: 0.30521;
+}
+
+.footer {
+  width: 20%;
+}
+
+.footer1 {
+  width: 16px;
+}
+
+.footer2 {
+  width: 3em;
+}
+
+.footer23 {
+  width: 20%;
+  width: 2%;
+}
+
+.footer1 {
+  width: 19px;
+}
+
+.footer2 {
+  width: 3em;
+}
+
+.footer1 {
+  width: 13px;
+}
+
+.footer2 {
+  width: 8em;
+}
+
+.footer {
+  width: 8.9px;
+}
+
+.div1 {
+  width: 3;
+}
+
+.div2 {
+  width: 1%;
+}
+
+.div1 {
+  width: 3;
+}
+
+.div2 {
+  width: 1%;
+}
+
+div {
+  width: 0.68252;
+}
+
+/*# sourceMappingURL=jj-2.css.map */

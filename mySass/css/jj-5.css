@@ -1,0 +1,297 @@
+@charset "UTF-8";
+/*sass进阶篇 第五章 @规则*/
+/*@import*/
+/*如果不愿意写的scss文件被编译 可以命名的文件名称前边加一个下划线 _ */
+/*嵌套 @import*/
+#main .example {
+  color: red;
+}
+
+/*@media*/
+.sidebar {
+  width: 300px;
+}
+@media screen and (orientation: landscape) {
+  .sidebar {
+    width: 500px;
+  }
+}
+
+@media screen and (orientation: landscape) {
+  .sidebar {
+    width: 500px;
+  }
+}
+
+@media screen and (orientation: landscape) {
+  .sidebar {
+    width: 500px;
+  }
+}
+@media screen and (-webkit-min-device-pixel-ratio: 1.5) {
+  .sidebar {
+    width: 500px;
+  }
+}
+@media screen and (-webkit-min-device-pixel-ratio: 1.5) {
+  .sidebar {
+    width: 500px;
+  }
+}
+@media screen and (min-resolution: 1.5) {
+  .sidebar {
+    width: 500px;
+  }
+}
+/*@extend*/
+.error, .seriousError {
+  border: 1px #f00;
+  background-color: #fdd;
+}
+
+.error.intrusion, .intrusion.seriousError {
+  background-image: url("/image/hacked.png");
+}
+
+.seriousError {
+  border-width: 3px;
+}
+
+.error, .seriousError, .seriousError {
+  border: 1px #f00;
+  background-color: #fdd;
+}
+
+.error.intrusion, .intrusion.seriousError, .seriousError.intrusion {
+  background-image: url("/image/hacked.png");
+}
+
+.seriousError {
+  border-width: 3px;
+}
+
+.comment a.user:hover, .comment .user.hoverlink {
+  font-weight: bold;
+}
+
+.comment a.user:hover, .comment .user.hoverlink, .comment .user.hoverlink {
+  font-weight: bold;
+}
+
+.error, .seriousError {
+  border: 1px #f00;
+  background-color: #fdd;
+}
+
+.attention, .seriousError {
+  font-size: 3em;
+  background-color: #ff0;
+}
+
+.seriousError {
+  border-width: 3px;
+}
+
+.error, .seriousError, .seriousError {
+  border: 1px #f00;
+  background-color: #fdd;
+}
+
+.attention, .seriousError, .seriousError {
+  font-size: 3em;
+  background-color: #ff0;
+}
+
+.seriousError {
+  border-width: 3px;
+}
+
+#context a.notice {
+  color: blue;
+  font-weight: bold;
+  font-size: 2em;
+}
+
+#context a.notice {
+  color: blue;
+  font-weight: bold;
+  font-size: 2em;
+}
+
+/*@at-root*/
+.a {
+  color: red;
+}
+.a .b {
+  color: orange;
+}
+.a .b .c {
+  color: yellow;
+}
+.d {
+  color: green;
+}
+
+.a {
+  color: red;
+}
+
+.a .b {
+  color: orange;
+}
+
+.a .b .c {
+  color: yellow;
+}
+
+.d {
+  color: green;
+}
+
+.block {
+  color: red;
+}
+.block .block__element {
+  color: blue;
+}
+.block .block--modifier {
+  color: orange;
+}
+
+.block {
+  color: red;
+}
+
+.block .block__element {
+  color: blue;
+}
+
+.block .block--modifier {
+  color: orange;
+}
+
+.block {
+  color: red;
+}
+.block__element {
+  color: blue;
+}
+.block--modifier {
+  color: orange;
+}
+
+.block {
+  color: red;
+}
+
+.block__element {
+  color: blue;
+}
+
+.block--modifier {
+  color: orange;
+}
+
+.block {
+  color: red;
+}
+.block__element {
+  color: green;
+}
+.block--modifier {
+  color: blue;
+}
+
+.block {
+  color: red;
+}
+.block__element {
+  color: green;
+}
+
+.block--modifier {
+  color: blue;
+}
+
+.bar .foo .baz {
+  color: #gray;
+}
+.baz .bar .foo .bac {
+  color: green;
+}
+
+.baz .foo .bac {
+  color: red;
+}
+
+.bar .foo .baz {
+  color: gray;
+}
+
+.baz .bar .foo .bac {
+  color: green;
+}
+
+.baz .foo .bac {
+  color: red;
+}
+
+/*@at-root和with或without*/
+@media print {
+  .page {
+    width: 8in;
+  }
+}
+.page {
+  width: 960px;
+}
+
+@media print {
+  .page {
+    width: 8in;
+  }
+}
+.page {
+  width: 960px;
+}
+
+.speech-bubble {
+  color: purple;
+}
+.speech-bubble .speech-bubble_header {
+  color: orange;
+}
+.speech-bubble .speech-bubble_text {
+  color: black;
+}
+.speech-bubble .speech-bubble_text .speech-bubble .speech-bubble_text--link {
+  color: green;
+}
+
+.speech-bubble {
+  color: purple;
+}
+
+.speech-bubble .speech-bubble_header {
+  color: orange;
+}
+
+.speech-bubble .speech-bubble_text {
+  color: black;
+}
+
+.speech-bubble .speech-bubble_text .speech-bubble .speech-bubble_text--link {
+  color: green;
+}
+
+/*@debug*/
+/*@warn*/
+.botton {
+  position: relative;
+  left: 20px;
+  top: 30px;
+}
+
+/*@error*/
+
+/*# sourceMappingURL=jj-5.css.map */

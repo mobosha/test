@@ -24,8 +24,18 @@ if (x4) {
     f(x4); // 正确，这里的x类型是number
 }
 else {
-    f(x4); // 错误，这里的x类型是number？
+    //f(x4);  // 错误，这里的x类型是number？
 }
 var a = x4 != null ? f(x4) : ""; // a的类型是string
 var b = x4 && f(x4); // b的类型是 string | 0 | null | undefined
+console.log(null === undefined);
+function foo(options) {
+    if (options && options.location && options.location.x) {
+        var x_1 = options.location.x; // x的类型是number
+    }
+}
+// 表达式操作符
+function sum(a, b) {
+    return a + b; // 计算的结果值类型是number
+}
 //# sourceMappingURL=typescrit2.0.js.map

@@ -56,7 +56,38 @@ if (x4) {
     f(x4);  // 正确，这里的x类型是number
 }
 else {
-    f(x4);  // 错误，这里的x类型是number？
+    //f(x4);  // 错误，这里的x类型是number？
 }
 let a = x4 != null ? f(x4) : "";  // a的类型是string
 let b = x4 && f(x4);  // b的类型是 string | 0 | null | undefined
+
+console.log(null === undefined);
+
+
+
+
+
+//类型保护中的点名称
+// 类型保护以前仅仅支持对局部变量和参数的检查。现在类型保护支持检查由变量或参数名称后跟一个或多个访问属性组成的“点名称”。
+interface Options {
+    location?: {
+        x?: number;
+        y?: number;
+    };
+}
+
+function foo(options?: Options) {
+    if (options && options.location && options.location.x) {
+        const x = options.location.x;  // x的类型是number
+    }
+}
+
+
+
+// 表达式操作符
+function sum(a: number | null, b: number | null) {
+    return a + b;  // 计算的结果值类型是number
+}
+
+
+

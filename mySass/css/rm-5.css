@@ -1,0 +1,211 @@
+@charset "UTF-8";
+/*sass入门 第五章 运算*/
+/*sass运算 第五章
+ */
+/*[Sass运算]加法
+ * 序中的运算是常见的一件事情，但在 CSS 中能做运算的，到目前为止仅有 calc() 函数可行。但在 Sass 中，运算只是其基本特性之一。在 Sass 中可以做各种数学计算，在接下来的章节中，主要和大家一起探讨有关于 Sass 中的数学运算
+ */
+/*加法运算*/
+.box {
+  width: 788px;
+}
+
+.container {
+  width: 960px;
+  margin: 0 auto;
+}
+
+/*减法运算*/
+.content {
+  width: 760px;
+}
+
+/*乘法运算*/
+.box {
+  width: 20px;
+}
+
+.box {
+  width: 20px;
+}
+
+.icon-twitter {
+  background-postion: 0 -20;
+}
+
+.icon-facebook {
+  background-postion: 0 -40;
+}
+
+.icon-github {
+  background-postion: 0 -60;
+}
+
+.icon-weibo {
+  background-postion: 0 -80;
+}
+
+/*除法运算*/
+.box {
+  width: 100px / 2;
+}
+
+.box {
+  width: 100px / 2;
+}
+
+.box {
+  width: 50px;
+}
+
+.box {
+  width: 50px;
+}
+
+.box {
+  width: 242px;
+}
+
+.box {
+  width: 242px;
+}
+
+.item {
+  width: 100px;
+}
+
+.list {
+  width: 100px;
+}
+
+.item {
+  width: 100px;
+}
+
+.list {
+  width: 100px;
+}
+
+/*综合上述，”/  ”符号被当作除法运算符时有以下几种情况：
+•    如果数值或它的任意部分是存储在一个变量中或是函数的返回值。
+•    如果数值被圆括号包围。
+•    如果数值是另一个数学表达式的一部分。*/
+p {
+  font: 10px/8px;
+  width: 500px;
+  width: 1;
+  height: 250px;
+  margin-left: 9px;
+}
+
+p {
+  font: 10px/8px;
+  width: 500px;
+  height: 250px;
+  margin-left: 9px;
+}
+
+.box {
+  width: 10;
+}
+
+.box {
+  width: 10;
+}
+
+/*[Sass运算]变量计算*/
+.container {
+  width: 960px;
+  margin: 0 auto;
+}
+
+.col-1 {
+  width: 80px;
+}
+
+.col-2 {
+  width: 80px;
+}
+
+.col-3 {
+  width: 80px;
+}
+
+.col-4 {
+  width: 80px;
+}
+
+.col-5 {
+  width: 80px;
+}
+
+.col-6 {
+  width: 80px;
+}
+
+.col-7 {
+  width: 80px;
+}
+
+.col-8 {
+  width: 80px;
+}
+
+.col-9 {
+  width: 80px;
+}
+
+.col-10 {
+  width: 80px;
+}
+
+.col-11 {
+  width: 80px;
+}
+
+.col-12 {
+  width: 80px;
+}
+
+/*[Sass运算] 数学运算*/
+.box {
+  width: 60px;
+}
+
+/*[Sass运算] 颜色运算*/
+p {
+  color: #050709;
+}
+
+p {
+  color: #050709;
+}
+
+p {
+  color: #020406;
+}
+
+p {
+  color: #020406;
+}
+
+/*[Sass运算] 字符运算*/
+.box:before {
+  content: " HelloSass! ";
+}
+
+div {
+  cursor: e-resize;
+}
+
+p:before {
+  content: "Foo Bar";
+  font-family: sans-serif;
+}
+
+p:before {
+  content: "Foo Bar";
+  font-family: sans-serif;
+}
+
+/*# sourceMappingURL=rm-5.css.map */

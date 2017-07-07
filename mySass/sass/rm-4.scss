@@ -1,0 +1,474 @@
+@charset "utf-8";
+/*sass入门 第四章 声明变量*/
+$color: red;
+$side: left;
+$bg-color:blue;
+$w: 600px;
+$h: 300px;
+
+
+// 生成对应的 nav ul,nav li,nav a
+nav {
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  li { display: inline-block; }
+
+  a {
+    display: block;
+    padding: 6px 12px;
+    text-decoration: none;
+  }
+}
+
+body {
+    width: $w;
+    height: $h;
+    background-color: $bg-color;
+}
+
+//@ $ 区别
+//@w: 200px;
+//@h: 300px;
+//body {
+//  width: @w;
+//  height: @h;
+//}
+
+.test {
+    color: $color;
+}
+
+.rounded {
+    border-#{$side}-radius: 5px;
+}
+
+
+//变量声明
+$brand-primary : darken(#428bca, 6.5%) !default; // #337ab7
+$btn-primary-color : #fff !default;
+$btn-primary-bg : $brand-primary !default;
+$btn-primary-border : darken($btn-primary-bg, 100%) !default;
+//变量的调用
+.btn-primary {
+   background-color: $btn-primary-bg;
+   color: $btn-primary-color;
+   border: 1px solid $btn-primary-border;
+   width:$w;
+}
+
+
+//默认变量 !default  编译后的 line-height 为 2，而不是我们默认的 1.5。默认变量的价值在进行组件化开发的时候会非常有用。
+$baseLineHeight: 2;
+$baseLineHeight: 1.5 !default;  
+body{
+    line-height: $baseLineHeight; 
+}
+
+
+//局部变量和全局变量
+//当在局部范围（选择器内、函数内、混合宏内...）声明一个已经存在于全局范围内的变量时，局部变量就成为了全局变量的影子。基本上，局部变量只会在局部范围内覆盖全局变量。
+$col:orange !default; //定义全局变量
+.block {
+  color: $col; //调用全局变量
+}
+em {
+  $col: red; //定义局部变量，定义在元素内部的变量是一个局部变量 ,（全局变量 $col 的影子）
+  a {
+    color:$col ; //调用局部变量
+  }
+}
+
+
+
+
+//sass,选择器嵌套-编译出css看对应的css文件，  注意   & 符号，如果使用SASS选择器的嵌套特性，可以在父元素的大括号 {} 里写这些元素，同时可以使用& 来引用元素的父选择器
+nav {
+  a {
+    color: red;
+
+    header & {
+      color:green;
+    }
+  }  
+}
+
+@mixin border-radius($radius:3px){
+  -webkit-border-radius: $radius;
+  border-radius: $radius;
+}
+@mixin center(){
+  margin-top: 5px;  
+}
+button{
+    @include border-radius(50%);
+    &, > a{
+        @include center();
+    }
+}
+
+//生成对应的css
+button {
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+}
+button, button > a {
+  margin-top: 5px;
+}
+
+
+
+//sass属性嵌套,Sass 中还提供属性嵌套，CSS 有一些属性前缀相同，只是后缀不一样，比如：border-top/border-right，与这个类似的还有 margin、padding、font 等属性
+.box {
+  border: {
+   top: 1px solid red;
+   bottom: 1px solid green;
+  }
+  font: {
+   size: 12px;
+   weight: bold;
+  } 
+}
+
+
+//sass伪类嵌套,其实伪类嵌套和属性嵌套非常类似，只不过他需要借助`&`符号一起配合使用
+.clearfix{
+&:before,
+&:after {
+    content:"";
+    display: table;
+  }
+&:after {
+    clear:both;
+    overflow: hidden;
+  }
+}
+
+
+//混合宏-声明混合宏
+//如果你的整个网站中有几处小样式类似，比如颜色，字体等，在 Sass 可以使用变量来统一处理，那么这种选择还是不错的。但当你的样式变得越来越复杂，需要重复使用大段的样式时，使用变量就无法达到我们目了。这个时候 Sass 中的混合宏就会变得非常有意义。在这一节中，主要向大家介绍 Sass 的混合宏。
+//就是声明的混合宏是要重复调用的代码片段
+//其中 @mixin 是用来声明混合宏的关键词，有点类似 CSS 中的 @media、@font-face 一样。border-radius 是混合宏的名称。大括号里面是复用的样式代码
+//不带参数混合宏
+@mixin border-radius{
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+}
+//带参数混合宏
+@mixin border-radius-1($radius:5px){
+    -webkit-border-radius: $radius;
+    border-radius: $radius;
+}
+//复杂的混合宏
+//写上带有逻辑关系，帮助更好的做你想做的事情
+//简单的解释一下，当 $shadow 的参数数量值大于或等于“ 1 ”时，表示有多个阴影值，反之调用默认的参数值“ 0 0 4px rgba(0,0,0,.3) ”
+@mixin box-shadow($shadow...) {
+  @if length($shadow) >= 1 {
+    @include prefixer(box-shadow, $shadow);
+  } @else{
+    $shadow:0 0 4px rgba(0,0,0,.3);
+    @include prefixer(box-shadow, $shadow);
+  }
+}
+
+
+
+//混合宏-调用混合宏
+//那么在实际调用中，其匹配了一个关键词“@include”来调用声明好的混合宏
+button {
+    @include border-radius; //调用上边的不带参数混合宏
+}
+
+
+//混合宏的参数-传一个不带值的参数
+//传一个不带值的参数
+@mixin border-radius($radius){
+  -webkit-border-radius: $radius;
+  border-radius: $radius;
+}
+//调用border-radius混合宏传一个参数值
+.box {
+  @include border-radius(3px);
+}
+
+
+//混合宏的参数-传一个带值的参数
+//传一个带值的参数
+@mixin border-radius($radius:3px){
+  -webkit-border-radius: $radius;
+  border-radius: $radius;
+}
+//在调用类似这样的混合宏时，会多有一个机会，假设你的页面中的圆角很多地方都是“3px”的圆角，那么这个时候只需要调用默认的混合宏“border-radius”
+.box {
+  @include border-radius;
+}
+//但有的时候，页面中有些元素的圆角值不一样，那么可以随机给混合宏传值
+.box {
+  @include border-radius(50%);
+}
+
+
+//混合宏的参数-传多个参数
+//Sass 混合宏除了能传一个参数之外，还可以传多个参数
+@mixin center($width,$height){
+  width: $width;
+  height: $height;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -($height) / 2;
+  margin-left: -($width) / 2;
+}
+//在混合宏“center”就传了多个参数。在实际调用和其调用其他混合宏是一样的
+.box-center {
+  @include center(500px,300px);
+}
+// 有一个特别的参数“…”。当混合宏传的参数过多之时，可以使用参数来替代
+@mixin box-shadow($shadows...){
+  @if length($shadows) >= 1 {
+    -webkit-box-shadow: $shadows;
+    box-shadow: $shadows;
+  } @else {
+    $shadows: 0 0 2px rgba(#000,.25);
+    -webkit-box-shadow: $shadow;
+    box-shadow: $shadow;
+  }
+}
+//实际调用
+.box {
+  @include box-shadow(0 0 1px rgba(#000,.5),0 0 2px rgba(#000,.2));
+}
+
+
+//混合宏的参数--混合宏的不足 ,混合宏在实际编码中给我们带来很多方便之处，特别是对于复用重复代码块。但其最大的不足之处是会生成冗余的代码块
+
+
+//sass扩展和继承 @extend
+//在 Sass 中也具有继承一说，也是继承类中的样式代码块。在 Sass 中是通过关键词 “@extend”来继承已存在的类样式块，从而实现代码的继承
+//在 Sass 中的继承，可以继承类样式块中所有样式代码，而且编译出来的 CSS 会将选择器合并在一起，形成组合选择器，弥补了混合宏的不足，特别是对于复用重复代码块，会生成冗余的代码块 ；
+.btn {  //会生成在css编译后的文件内,一个基类
+  border: 1px solid #ccc;
+  padding: 6px 10px;
+  font-size: 14px;
+}
+
+.btn-primary {
+  background-color: #f36;
+  color: #fff;
+  @extend .btn;
+}
+
+.btn-second {
+  background-color: orange;
+  color: #fff;
+  @extend .btn;
+}
+
+
+
+//sass占位符 %placeholder
+//Sass 中的占位符 %placeholder 功能是一个很强大，很实用的一个功能，这也是我非常喜欢的功能。他可以取代以前 CSS 中的基类（.btn）造成的代码冗余的情形。因为 %placeholder 声明的代码，如果不被 @extend 调用的话，不会产生任何代码
+//跟上边定义 .btn{}样式相比  %btn 定义的样式，不会再生成的css中生成代码的冗余
+%btn {  //不会生成在css编译后的文件内
+  border: 1px solid #ccc;
+  padding: 6px 10px;
+  font-size: 14px;
+}
+.btn-primary {
+  background-color: #f36;
+  color: #fff;
+  @extend %btn;
+}
+
+
+
+
+//混合宏VS继承VS占位符
+//初学者都常常纠结于这个问题“什么时候用混合宏，什么时候用继承，什么时候使用占位符？”其实他们各有各的优点与缺点，先来看看他们使用效果
+//详细解释请看 慕课网 4-16节内容
+
+//SCSS中混合宏使用
+//总结：编译出来的 CSS 清晰告诉了大家，他不会自动合并相同的样式代码，如果在样式文件中调用同一个混合宏，会产生多个对应的样式代码，造成代码的冗余，这也是 CSSer 无法忍受的一件事情。不过他并不是一无事处，他可以传参数。
+//个人建议：如果你的代码块中涉及到变量，建议使用混合宏来创建相同的代码块。
+@mixin mt($var){
+  margin-top: $var;  
+}
+
+.block {
+  @include mt(5px);
+
+  span {
+    display:block;
+    @include mt(5px);
+  }
+}
+
+.header {
+  color: orange;
+  @include mt(5px);
+
+  span{
+    display:block;
+    @include mt(5px);
+  }
+}
+
+.block1,.block1 span,.header1,.header span{
+    @include mt(5px);
+}
+.block1 span, .header span{
+    display:block;
+}
+//SCSS 继承的运用
+//总结：使用继承后，编译出来的 CSS 会将使用继承的代码块合并到一起，通过组合选择器的方式向大家展现，比如 .mt, .block, .block span, .header, .header span。这样编译出来的代码相对于混合宏来说要干净的多，也是 CSSer 期望看到。但是他不能传变量参数。
+//个人建议：如果你的代码块不需要专任何变量参数，而且有一个基类已在文件中存在，那么建议使用 Sass 的继承。
+.mt{
+  margin-top: 5px;  
+}
+
+.block {
+  @extend .mt;
+
+  span {
+    display:block;
+    @extend .mt;
+  }
+}
+
+.header {
+  color: orange;
+  @extend .mt;
+
+  span{
+    display:block;
+    @extend .mt;
+  }
+}
+
+//SCSS中占位符的使用
+//总结：编译出来的 CSS 代码和使用继承基本上是相同，只是不会在代码中生成占位符 mt 的选择器。那么占位符和继承的主要区别的，“占位符是独立定义，不调用的时候是不会在 CSS 中产生任何代码；继承是首先有一个基类存在，不管调用与不调用，基类的样式都将会出现在编译出来的 CSS 代码中。”
+%mt{
+  margin-top: 5px;  
+}
+
+.block {
+  @extend %mt;
+
+  span {
+    display:block;
+    @extend %mt;
+  }
+}
+
+.header {
+  color: orange;
+  @extend %mt;
+
+  span{
+    display:block;
+    @extend %mt;
+  }
+}
+
+
+
+
+//插值 #{}
+//使用 CSS 预处理器语言的一个主要原因是想使用 Sass 获得一个更好的结构体系。比如说你想写更干净的、高效的和面向对象的 CSS。Sass 中的插值(Interpolation)就是重要的一部分。让我们看一下下面的例子：
+$properties: (margin, padding);
+@mixin set-value($side, $value) {
+    @each $prop in $properties {
+        #{$prop}-#{$side}: $value;
+    }
+}
+.login-box {
+    @include set-value(top, 14px);
+}
+//当你想设置属性值的时候你可以使用字符串插入进来。另一个有用的用法是构建一个选择器。可以这样使用：
+@mixin generate-sizes($class, $small, $medium, $big) {
+    .#{$class}-small { font-size: $small; }
+    .#{$class}-medium { font-size: $medium; }
+    .#{$class}-big { font-size: $big; }
+}
+@include generate-sizes("header-text", 12px, 20px, 40px);
+//不能在@mixin set-value 中设置 css样式的值为插值类型  例如属性名可以是插值类型 #{$prop}-#{$side}: $value（参考上一个css定义）;，但是属性值不能是插值类型margin-top: $margin-#{$size};所有下边这段代码会编译错误，先注释啦；
+$margin-big: 40px;
+$margin-medium: 20px;
+$margin-small: 12px;
+@mixin set-value($size) {
+//  margin-top: $margin-#{$size};报错片段
+}
+.login-box {
+    @include set-value(big);
+}
+//也不能在@include中调用插值类型的名称  @include updated-#{$flag}; ，但是可以在 @extend中调用插值类型@extend %updated-#{$flag}; @extend .selected-#{$flag};
+@mixin updated-status {
+    margin-top: 20px;
+    background: #F00;
+}
+$flag: "status";
+.navigation {
+//  @include updated-#{$flag}; 报错片段
+}
+
+
+
+//[Sass]注释  注释对于一名程序员来说，是极其重要，良好的注释能帮助自己或者别人阅读源码。在 Sass 中注释有两种方式，我暂且将其命名为： 1、类似 CSS 的注释方式，使用 ”/* ”开头，结属使用 ”*/ ”  2、类似 JavaScript 的注释方式，使用“//”
+//两者区别，前者会在编译出来的 CSS 显示，后者在编译出来的 CSS 中不会显示，来看一个示例：
+/*调用一个占位符*/
+.box {
+  margin-top: 20px;
+}
+//调用一个占位符
+.box {
+  margin-top: 20px;
+}
+
+
+
+//[Sass]数据类型
+/* Sass 和 JavaScript 语言类似，也具有自己的数据类型，在 Sass 中包含以下几种数据类型：
+ 数字: 如，1、 2、 13、 10px；
+ 字符串：有引号字符串或无引号字符串，如，"foo"、 'bar'、 baz；
+ 颜色：如，blue、 #04a3f9、 rgba(255,0,0,0.5)；
+ 布尔型：如，true、 false；
+ 空值：如，null；
+ 值列表：用空格或者逗号分开，如，1.5em 1em 0 2em 、 Helvetica, Arial, sans-serif。
+ SassScript 也支持其他 CSS 属性值（property value），比如 Unicode 范围，或 !important 声明。然而，Sass 不会特殊对待这些属性值，一律视为无引号字符串 (unquoted strings)。*/
+
+
+
+
+/*[Sass]字符串
+ * SassScript 支持 CSS 的两种字符串类型：
+有引号字符串 (quoted strings)，如 "Lucida Grande" 、'http://sass-lang.com'；
+无引号字符串 (unquoted strings)，如 sans-serifbold。
+ */
+@mixin firefox-message($selector) {
+  body.firefox #{$selector}:before {
+    content: "Hi, Firefox users!";
+  }
+}
+@include firefox-message(".header");  //.header 是个字符串
+
+
+
+
+
+/*[Sass]值列表
+     所谓值列表 (lists) 是指 Sass 如何处理 CSS 中： 
+    margin: 10px 15px 0 0
+    或者： 
+    font-face: Helvetica, Arial, sans-serif
+    像上面这样通过空格或者逗号分隔的一系列的值。
+    事实上，独立的值也被视为值列表——只包含一个值的值列表
+
+ Sass列表函数（Sass list functions）赋予了值列表更多功能（Sass进级会有讲解）：
+    nth函数（nth function） 可以直接访问值列表中的某一项；
+    join函数（join function） 可以将多个值列表连结在一起；
+    append函数（append function） 可以在值列表中添加值； 
+    @each规则（@each rule） 则能够给值列表中的每个项目添加样式。
+ * */

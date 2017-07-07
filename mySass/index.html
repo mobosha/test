@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>CSS 预处理器，sass或者scss</title>
+		<link rel="stylesheet" type="text/css" href="css/rm-all.css"/>
+		<link rel="stylesheet" type="text/css" href="css/jj-all.css"/>
+	</head>
+	<body>
+		<!--可以在 CSS 中使用变量、简单的逻辑程序、函数（如右侧代码编辑器中就使用了变量$color）等等在编程语言中的一些基本特性，可以让你的 CSS 更加简洁、适应性更强、可读性更佳，更易于代码的维护等诸多好处-->
+		<!--到目前为止，在众多优秀的 CSS 预处理器语言中就属 Sass、LESS 和 Stylus 最优秀，讨论的也多，对比的也多。本教程将着重向大家介绍 CSS 预处理器中的 Sass。相信前端开发工程师会喜欢的。-->
+		<!--到目前为止，将SASS转译成CSS并不是件困难的事情。可以通过命令行工具或者第三方插件来完成SASS向CSS的转译工作，并且转译出来的CSS代码，格式优美，且符合CSS的标准。著作权归作者所有。-->
+		<!--SASS也被称为缩进语法，主要依靠代码缩进来指定块，而不是使用括号和分号。如此一来，SASS也就是一种严格型语法，任何的缩进和字符错误都会造成样式的编译错误，因此使用SASS需要具备良好的编码习惯与风格。SASS文件扩展名为.sass-->
+		<!--SASS虽然有两种语法，但老语法同样还被继承下来，能正常使用。但在下更建议大家使用SASS时直接使用最新的语法SCSS。因为SCSS和CSS的编码风格和语法几乎可以说是一样，这样一来有助于大家更好的学习和使用SASS-->
+		<!--编译代码： sass --watch sass:css --style expanded -->
+		<div class="test">
+			color: $color;$color文字颜色红色
+		</div>
+		
+		
+		<p>变量声明：
+			下图非常清楚告诉了大家，Sass 的变量包括三个部分：
+			声明变量的符号“$”
+			变量名称
+			赋予变量的值
+			
+			$brand-primary : darken(#428bca, 6.5%) !default; // #337ab7
+			$btn-primary-color : #fff !default;
+			$btn-primary-bg : $brand-primary !default;
+			$btn-primary-border : darken($btn-primary-bg, 5%) !default;
+		</p>
+		<img src="images/1.jpg"/>
+		
+		<div class="btn-primary">
+			变量的调用
+		</div>
+		
+		
+		<p>
+			什么时候声明变量？
+			我的建议，创建变量只适用于感觉确有必要的情况下。不要为了某些骇客行为而声明新变量，这丝毫没有作用。只有满足所有下述标准时方可创建新变量：
+			该值至少重复出现了两次；
+			该值至少可能会被更新一次；
+			该值所有的表现都与变量有关（非巧合）。
+			基本上，没有理由声明一个永远不需要更新或者只在单一地方使用变量
+		</p>
+		
+		
+		
+		<p>	
+		嵌套
+		sass,选择器嵌套-编译出css看对应的css文件，  注意   & 符号，如果使用SASS选择器的嵌套特性，可以在父元素的大括号 {} 里写这些元素，同时可以使用& 来引用元素的父选择器；
+		& 选择符置前表示该元素为嵌套元素的子级，置后表示该元素为嵌套元素的父级；
+		& 是指当前选择器 ；
+		nav {
+		  a {
+		    color: red;
+		
+		    header & {
+		      color:green;
+		    }
+		  }  
+		}
+		</p>
+		
+		
+		<p>	
+		//sass属性嵌套,Sass 中还提供属性嵌套，CSS 有一些属性前缀相同，只是后缀不一样，比如：border-top/border-right，与这个类似的还有 margin、padding、font 等属性
+		.box {
+		  border: {
+		   top: 1px solid red;
+		   bottom: 1px solid green;
+		  }
+		  font: {
+		   size: 12px;
+		   weight: bold;
+		  } 
+		}
+		</p>
+		
+		
+		<p>	
+		//sass伪类嵌套,其实伪类嵌套和属性嵌套非常类似，只不过他需要借助`&`符号一起配合使用
+		.clearfix{
+		&:before,
+		&:after {
+		    content:"";
+		    display: table;
+		  }
+		&:after {
+		    clear:both;
+		    overflow: hidden;
+		  }
+		}
+		</p>
+		
+		<p>
+			<h3>对上边选择器嵌套总结：</h3>
+			避免选择器嵌套：
+			选择器嵌套最大的问题是将使最终的代码难以阅读。开发者需要花费巨大精力计算不同缩进级别下的选择器具体的表现效果。
+			选择器越具体则声明语句越冗长，而且对最近选择器的引用(&)也越频繁。在某些时候，出现混淆选择器路径和探索下一级选择器的错误率很高，这非常不值得。
+			为了防止此类情况，我们应该尽可能避免选择器嵌套。然而，显然只有少数情况适应这一措施。
+		</p>
+		
+		
+		<p>
+			//混合宏-声明混合宏
+			如果你的整个网站中有几处小样式类似，比如颜色，字体等，在 Sass 可以使用变量来统一处理，那么这种选择还是不错的。但当你的样式变得越来越复杂，需要重复使用大段的样式时，使用变量就无法达到我们目了。这个时候 Sass 中的混合宏就会变得非常有意义。在这一节中，主要向大家介绍 Sass 的混合宏。
+			//混合宏-调用混合宏
+			@mixin border-radius{
+			    -webkit-border-radius: 3px;
+			    border-radius: 3px;
+			}
+			button {
+			    @include border-radius;
+			}
+			这个时候编译出来的 CSS:
+			button {
+			  -webkit-border-radius: 3px;
+			  border-radius: 3px;
+			}
+		</p>
+		
+		
+		<p>
+			混合宏的参数--传一个带值的参数
+			@mixin border-radius($radius:3px){
+			  -webkit-border-radius: $radius;
+			  border-radius: $radius;
+			}
+			在混合宏“border-radius”传了一个参数“$radius”，而且给这个参数赋予了一个默认值“3px”。
+			在调用类似这样的混合宏时，会多有一个机会，假设你的页面中的圆角很多地方都是“3px”的圆角，那么这个时候只需要调用默认的混合宏“border-radius
+			.btn {
+			  @include border-radius;
+			}
+			编译出来的 CSS:
+			.btn {
+			  -webkit-border-radius: 3px;
+			  border-radius: 3px;
+			}
+			但有的时候，页面中有些元素的圆角值不一样，那么可以随机给混合宏传值，如：
+			.box {
+			  @include border-radius(50%);
+			}
+			编译出来的 CSS:
+			.box {
+			  -webkit-border-radius: 50%;
+			  border-radius: 50%;
+			}
+		</p>
+		
+		<div class="box">多参数传递</div>
+		
+		<p>
+			混合宏的参数--混合宏的不足
+			混合宏在实际编码中给我们带来很多方便之处，特别是对于复用重复代码块。但其最大的不足之处是会生成冗余的代码块。比如在不同的地方调用一个相同的混合宏时。如：
+			@mixin border-radius{
+			  -webkit-border-radius: 3px;
+			  border-radius: 3px;
+			}
+			
+			.box {
+			  @include border-radius;
+			  margin-bottom: 5px;
+			}
+			
+			.btn {
+			  @include border-radius;
+			}
+			示例在“.box”和“.btn”中都调用了定义好的“border-radius”混合宏。先来看编译出来的 CSS：
+			.box {
+			  -webkit-border-radius: 3px;
+			  border-radius: 3px;
+			  margin-bottom: 5px;
+			}
+			
+			.btn {
+			  -webkit-border-radius: 3px;
+			  border-radius: 3px;
+			}
+			上例明显可以看出，Sass 在调用相同的混合宏时，并不能智能的将相同的样式代码块合并在一起。这也是 Sass 的混合宏最不足之处。
+		</p>
+		
+		
+		
+		<p>
+			占位符%
+			%mt5 {
+
+			  margin-top: 5px;
+			
+			}
+			%pd5{
+			
+			    padding: 20px;
+			
+			}
+			.btn {
+			
+			  @extend %mt5;
+			
+			  @extend %pd5;
+			
+			}
+			
+			输出：
+			
+			.btn {
+			  margin-top: 5px; }
+			
+			.btn {
+			  padding: 20px; }
+			注意：没有合并成为 .btn{
+				margin-top: 5px;
+				padding: 20px;
+			}
+			得出结论：占位符 以属性分类
+		</p>
+		
+		
+		
+		<p>
+			混合宏VS继承VS占位符
+			初学者都常常纠结于这个问题“什么时候用混合宏，什么时候用继承，什么时候使用占位符？”其实他们各有各的优点与缺点，先来看看他们使用效果
+			对于占位符和继承的选择，取决于，基类是不是有用
+			个人看法，优先使用占位符，如果需要传参，则用宏，反正一个项目里肯定会需要混合用着三种方法，只是谁用的比例较多而已
+			<img src="images/2.jpg"/>
+		</p>
+		
+		
+		<p>
+			[Sass]插值#{}
+			使用 CSS 预处理器语言的一个主要原因是想使用 Sass 获得一个更好的结构体系。比如说你想写更干净的、高效的和面向对象的 CSS。Sass 中的插值(Interpolation)就是重要的一部分。让我们看一下下面的例子：
+		</p>
+		
+		
+		
+		<div class="mix">
+			mix 
+			<img src="images/3.jpg"/>
+			这就是 Mix 函数的工作原理，在函数中指定三个函数，前两个函数是你想混合的颜色（记住，你可以通过颜色变量、十六进制、RGBA、RGB、HSL 或者 HSLA 颜色值）。第三个参数是第一种颜色的比例值。
+		</div>
+		
+		
+		
+		<div class="">
+			lighten() 和 darken() 两个函数都是围绕颜色的亮度值做调整的，其中 lighten() 函数会让颜色变得更亮，与之相反的 darken() 函数会让颜色变得更暗。这个亮度值可以是 0~1 之间，不过常用的一般都在 3%~20% 之间。
+			<img src="images/4.jpg"/>
+		</div>
+		
+		
+		<div class="">
+			lighten() 和 darken() 两个函数都是围绕颜色的亮度值做调整的，其中 lighten() 函数会让颜色变得更亮，与之相反的 darken() 函数会让颜色变得更暗。这个亮度值可以是 0~1 之间，不过常用的一般都在 3%~20% 之间。
+			<img src="images/5.jpg"/>
+		</div>
+		
+		
+		<div class="grayscale">
+			这个函数会颜色的饱和度值直接调至 0%，所以此函数与 desaturate($color,100%) 所起的功能是一样的。一般这个函数能将彩色颜色转换成不同程度的灰色。
+			<img src="images/6.jpg"/>
+			
+		</div>
+		
+		<div class="desaturate">
+			这个函数会颜色的饱和度值直接调至 0%，所以此函数与 desaturate($color,100%) 所起的功能是一样的。一般这个函数能将彩色颜色转换成不同程度的灰色。
+			<img src="images/6.jpg"/>
+			
+		</div>
+		
+		
+		<div class="">
+			由于平台编辑器功能有限，下面这个实战项目需要小伙伴们，在自己配置好的 sass 环境的机子上自己操作。下面把项目的步骤教给大家：
+常见的颜色就是七彩色，红、橙、黄、蓝、绿、紫、黑。那么我们就使用 Sass 的颜色函数来制作一个这样的色卡。效果图如下：
+			<img src="images/7.jpg"/>
+			
+			<ul class="swatches red">
+			    <li></li>
+			    <li></li>
+			    <li></li>
+			    <li></li>
+			    <li></li>    
+			    <li></li>
+			    <li></li>
+			    <li></li>
+			    <li></li>
+			    <li></li>
+			    <li></li>    
+			    <li></li>
+			</ul>
+			<ul class="swatches orange">
+			    <li></li>
+			    <li></li>
+			    <li></li>
+			    <li></li>
+			    <li></li>
+			    <li></li>
+			    <li></li>
+			    <li></li>
+			    <li></li>
+			    <li></li>
+			    <li></li>
+			    <li></li>
+			</ul>
+			<ul class="swatches yellow">
+			    <li></li>
+			    <li></li>
+			    <li></li>
+			    <li></li>
+			    <li></li>
+			    <li></li>
+			    <li></li>
+			    <li></li>
+			    <li></li>
+			    <li></li>
+			    <li></li>
+			    <li></li>
+			</ul>
+			<ul class="swatches green">
+			    <li></li>
+			    <li></li>
+			    <li></li>
+			    <li></li>
+			    <li></li>
+			    <li></li>
+			    <li></li>
+			    <li></li>
+			    <li></li>
+			    <li></li>
+			    <li></li>
+			    <li></li>
+			</ul>
+			<ul class="swatches blue">
+			    <li></li>
+			    <li></li>
+			    <li></li>
+			    <li></li>
+			    <li></li>
+			    <li></li>
+			    <li></li>
+			    <li></li>
+			    <li></li>
+			    <li></li>
+			    <li></li>
+			    <li></li>
+			</ul>
+			<ul class="swatches purple">
+			    <li></li>
+			    <li></li>
+			    <li></li>
+			    <li></li>
+			    <li></li>
+			    <li></li>
+			    <li></li>
+			    <li></li>
+			    <li></li>
+			    <li></li>
+			    <li></li>
+			    <li></li>
+			</ul>
+			
+			
+这样就完成了色卡的制作。
+完整代码可见 http://sassmeister.com/gist/f055f8497c8c51067f1f。
+
+		</div>
+		
+		
+	</body>
+</html>
