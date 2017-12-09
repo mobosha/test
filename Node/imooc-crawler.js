@@ -1,8 +1,7 @@
-// var http = require('http'); 
 var http = require('http'); 
-var url = 'http://nodejs.cn/api/http.html#http_http_request_options_callback'
+var url = 'http://www.jianshu.com/p/dcb28b582318';
 
-http.request(url,function(res){
+http.get(url,function(res){
     var html = '';
     
     res.on('data', function(data){
@@ -19,6 +18,8 @@ http.request(url,function(res){
     console.log(res)
 }).on('error', function(){
     console.log("获取课程数据错误!")
+
 })
 
+console.log(http)
 console.log(http)

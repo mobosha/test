@@ -62,7 +62,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "afd8da3c071ed99a4f08"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "17e88db5fa9ec8e0bcd2"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -717,7 +717,7 @@
 /******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
 /******/
 /******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "/";
+/******/ 	__webpack_require__.p = "http://localhost:8099/";
 /******/
 /******/ 	// __webpack_hash__
 /******/ 	__webpack_require__.h = function() { return hotCurrentHash; };
@@ -5821,7 +5821,7 @@ module.exports = __webpack_require__(19);
 
 // var http = require('http'); 
 var http = __webpack_require__(20); 
-var url = 'http://nodejs.cn/api/http.html#http_http_request_options_callback'
+var url = 'http://www.jianshu.com/p/dcb28b582318'
 
 http.get(url,function(res){
     var html = '';
@@ -5837,9 +5837,10 @@ http.get(url,function(res){
         mid.innerHTML = html;
         // alert(mid)
     })
-     
+    console.log(res)
 }).on('error', function(){
     console.log("获取课程数据错误!")
+    
 })
 
 console.log(http)
