@@ -5,11 +5,79 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>promise animation</title>
+    <style>
+    	.ball{
+    		width: 40px;
+    		height: 40px;
+    		border-radius: 20px;
+    	}
+    	.ball1{
+    		background-color: red;
+    	}
+    	.ball2{
+    		background-color: yellow;
+    	}
+    	.ball3{
+    		background-color: green;
+    	}
+    </style>
+    <script>
+    	
+    	window.onload = function(){
+
+	    	var ball1 = document.querySelector('.ball1');
+	    	var ball2 = document.querySelector('.ball2');
+	    	var ball3 = document.querySelector('.ball3');
+
+
+	    	function promiseAnimate(ball, distance){
+	    		return new Promise(function(resolve, reject){
+
+	    			function _animate(ball, distance){
+	    				setTimeout(function(){
+	    					// console.log(ball)
+	    					var marginLeft = parseInt(ball.style.marginLeft, 10)
+
+	    					if(marginLeft === distance){
+	    						resolve()
+	    					}else{
+	    						if(marginLeft < distance){
+	    							marginLeft++;
+	    						}else{
+	    							marginLeft--;
+	    						}
+	    						ball.style.marginLeft = marginLeft + 'px';
+	    						_animate(ball, distance)
+	    					}
+	    				}, 5)
+	    			}
+	    			_animate(ball, distance)
+	    		})
+	    	}
+
+	    	promiseAnimate(ball1, 100)
+	    	.then(function(){
+	    		return promiseAnimate(ball2, 200)
+	    	})
+	    	.then(function(){
+	    		return promiseAnimate(ball3, 300)
+	    	})
+	    	.then(function(){
+	    		return promiseAnimate(ball3, 150)
+	    	})
+	    	.then(function(){
+	    		return promiseAnimate(ball2, 150)
+	    	})
+	    	.then(function(){
+	    		return promiseAnimate(ball1, 150)
+	    	})
+    	}
+    </script>
 </head>
 <body>
     <!--div.ball.ball1*3-->
-    <div class="ball ball1"></div>
-    <div class="ball ball2"></div>
-    <div class="ball ball3"></div>
+    <div class="ball ball1" style="margin-left: 0"></div>
+    <div class="ball ball2" style="margin-left: 0"></div>
+    <div class="ball ball3" style="margin-left: 0"></div>
 </body>
 </html>

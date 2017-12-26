@@ -72,6 +72,8 @@ console.log(hasConfortListener)
 console.log(hasLovedListener)
 console.log(hasPlayedListener)
 
+// 作用相同
 console.log(life.listeners('求安慰').length)
 console.log(EventEmitter.listenerCount(life, '求安慰'))
+ 
 console.log(life.listeners('求溺爱').length)

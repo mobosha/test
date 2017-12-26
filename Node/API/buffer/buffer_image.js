@@ -13,7 +13,7 @@ fs.readFile('logo.png', function (err, origin_buffer) {
 
 	var decodeImage = new Buffer(base64Image, 'base64');
 
-	console.log(Buffer.compare(decodeImage, origin_buffer));
+	console.log(Buffer.compare(decodeImage, origin_buffer));  //结果0 代表 decodeImage, origin_buffer 一样
 
 	fs.writeFile('logo_decode.png', decodeImage, function (err) {
 		if (err) console.log(err);

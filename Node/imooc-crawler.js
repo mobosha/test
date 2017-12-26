@@ -1,4 +1,7 @@
 var http = require('http'); 
+// var express = require('express')
+// var app = express();
+// import http from 'http'
 var url = 'http://www.jianshu.com/p/dcb28b582318';
 
 http.get(url,function(res){
@@ -21,5 +24,4 @@ http.get(url,function(res){
 
 })
 
-console.log(http)
 console.log(http)
